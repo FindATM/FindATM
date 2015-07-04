@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08BA577C1B4759E600C8EC19 /* DataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA577B1B4759E600C8EC19 /* DataHandler.m */; };
+		08BA57801B475B3300C8EC19 /* Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA577F1B475B3300C8EC19 /* Bank.m */; };
+		08BA57821B475DB500C8EC19 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BA57811B475DB500C8EC19 /* UIKit.framework */; };
+		08BA57841B475DBB00C8EC19 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BA57831B475DBB00C8EC19 /* CoreFoundation.framework */; };
+		08BA57861B475DC100C8EC19 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BA57851B475DC100C8EC19 /* SystemConfiguration.framework */; };
+		08BA579B1B475E0900C8EC19 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA57891B475E0900C8EC19 /* AFHTTPRequestOperation.m */; };
+		08BA579C1B475E0900C8EC19 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA578B1B475E0900C8EC19 /* AFHTTPRequestOperationManager.m */; };
+		08BA579D1B475E0900C8EC19 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA578D1B475E0900C8EC19 /* AFHTTPSessionManager.m */; };
+		08BA579E1B475E0900C8EC19 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA57901B475E0900C8EC19 /* AFNetworkReachabilityManager.m */; };
+		08BA579F1B475E0900C8EC19 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA57921B475E0900C8EC19 /* AFSecurityPolicy.m */; };
+		08BA57A01B475E0900C8EC19 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA57941B475E0900C8EC19 /* AFURLConnectionOperation.m */; };
+		08BA57A11B475E0900C8EC19 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA57961B475E0900C8EC19 /* AFURLRequestSerialization.m */; };
+		08BA57A21B475E0900C8EC19 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA57981B475E0900C8EC19 /* AFURLResponseSerialization.m */; };
+		08BA57A31B475E0900C8EC19 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA579A1B475E0900C8EC19 /* AFURLSessionManager.m */; };
 		F69F6A5F1B4718A100FE29B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A5E1B4718A100FE29B9 /* main.m */; };
 		F69F6A621B4718A100FE29B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A611B4718A100FE29B9 /* AppDelegate.m */; };
 		F69F6A651B4718A100FE29B9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A641B4718A100FE29B9 /* ViewController.m */; };
@@ -27,6 +41,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08BA577A1B4759E600C8EC19 /* DataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHandler.h; sourceTree = "<group>"; };
+		08BA577B1B4759E600C8EC19 /* DataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHandler.m; sourceTree = "<group>"; };
+		08BA577E1B475B3300C8EC19 /* Bank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bank.h; sourceTree = "<group>"; };
+		08BA577F1B475B3300C8EC19 /* Bank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bank.m; sourceTree = "<group>"; };
+		08BA57811B475DB500C8EC19 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		08BA57831B475DBB00C8EC19 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		08BA57851B475DC100C8EC19 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		08BA57881B475E0900C8EC19 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		08BA57891B475E0900C8EC19 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		08BA578A1B475E0900C8EC19 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		08BA578B1B475E0900C8EC19 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		08BA578C1B475E0900C8EC19 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		08BA578D1B475E0900C8EC19 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		08BA578E1B475E0900C8EC19 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		08BA578F1B475E0900C8EC19 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		08BA57901B475E0900C8EC19 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		08BA57911B475E0900C8EC19 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		08BA57921B475E0900C8EC19 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		08BA57931B475E0900C8EC19 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		08BA57941B475E0900C8EC19 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		08BA57951B475E0900C8EC19 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		08BA57961B475E0900C8EC19 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		08BA57971B475E0900C8EC19 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		08BA57981B475E0900C8EC19 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		08BA57991B475E0900C8EC19 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		08BA579A1B475E0900C8EC19 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		F69F6A591B4718A100FE29B9 /* AtmMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtmMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69F6A5D1B4718A100FE29B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F69F6A5E1B4718A100FE29B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +87,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08BA57861B475DC100C8EC19 /* SystemConfiguration.framework in Frameworks */,
+				08BA57841B475DBB00C8EC19 /* CoreFoundation.framework in Frameworks */,
+				08BA57821B475DB500C8EC19 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,9 +103,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08BA577D1B475B2900C8EC19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				08BA577E1B475B3300C8EC19 /* Bank.h */,
+				08BA577F1B475B3300C8EC19 /* Bank.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		08BA57871B475E0900C8EC19 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				08BA57881B475E0900C8EC19 /* AFHTTPRequestOperation.h */,
+				08BA57891B475E0900C8EC19 /* AFHTTPRequestOperation.m */,
+				08BA578A1B475E0900C8EC19 /* AFHTTPRequestOperationManager.h */,
+				08BA578B1B475E0900C8EC19 /* AFHTTPRequestOperationManager.m */,
+				08BA578C1B475E0900C8EC19 /* AFHTTPSessionManager.h */,
+				08BA578D1B475E0900C8EC19 /* AFHTTPSessionManager.m */,
+				08BA578E1B475E0900C8EC19 /* AFNetworking.h */,
+				08BA578F1B475E0900C8EC19 /* AFNetworkReachabilityManager.h */,
+				08BA57901B475E0900C8EC19 /* AFNetworkReachabilityManager.m */,
+				08BA57911B475E0900C8EC19 /* AFSecurityPolicy.h */,
+				08BA57921B475E0900C8EC19 /* AFSecurityPolicy.m */,
+				08BA57931B475E0900C8EC19 /* AFURLConnectionOperation.h */,
+				08BA57941B475E0900C8EC19 /* AFURLConnectionOperation.m */,
+				08BA57951B475E0900C8EC19 /* AFURLRequestSerialization.h */,
+				08BA57961B475E0900C8EC19 /* AFURLRequestSerialization.m */,
+				08BA57971B475E0900C8EC19 /* AFURLResponseSerialization.h */,
+				08BA57981B475E0900C8EC19 /* AFURLResponseSerialization.m */,
+				08BA57991B475E0900C8EC19 /* AFURLSessionManager.h */,
+				08BA579A1B475E0900C8EC19 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
 		F69F6A501B4718A100FE29B9 = {
 			isa = PBXGroup;
 			children = (
+				08BA57851B475DC100C8EC19 /* SystemConfiguration.framework */,
+				08BA57831B475DBB00C8EC19 /* CoreFoundation.framework */,
+				08BA57811B475DB500C8EC19 /* UIKit.framework */,
 				F69F6A5B1B4718A100FE29B9 /* AtmMoney */,
 				F69F6A751B4718A100FE29B9 /* AtmMoneyTests */,
 				F69F6A5A1B4718A100FE29B9 /* Products */,
@@ -81,6 +162,10 @@
 		F69F6A5B1B4718A100FE29B9 /* AtmMoney */ = {
 			isa = PBXGroup;
 			children = (
+				08BA57871B475E0900C8EC19 /* AFNetworking */,
+				08BA577D1B475B2900C8EC19 /* Model */,
+				08BA577A1B4759E600C8EC19 /* DataHandler.h */,
+				08BA577B1B4759E600C8EC19 /* DataHandler.m */,
 				F69F6A601B4718A100FE29B9 /* AppDelegate.h */,
 				F69F6A611B4718A100FE29B9 /* AppDelegate.m */,
 				F69F6A631B4718A100FE29B9 /* ViewController.h */,
@@ -219,9 +304,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08BA57A01B475E0900C8EC19 /* AFURLConnectionOperation.m in Sources */,
+				08BA579B1B475E0900C8EC19 /* AFHTTPRequestOperation.m in Sources */,
+				08BA579E1B475E0900C8EC19 /* AFNetworkReachabilityManager.m in Sources */,
+				08BA57A31B475E0900C8EC19 /* AFURLSessionManager.m in Sources */,
+				08BA57A11B475E0900C8EC19 /* AFURLRequestSerialization.m in Sources */,
+				08BA57801B475B3300C8EC19 /* Bank.m in Sources */,
+				08BA57A21B475E0900C8EC19 /* AFURLResponseSerialization.m in Sources */,
+				08BA577C1B4759E600C8EC19 /* DataHandler.m in Sources */,
 				F69F6A651B4718A100FE29B9 /* ViewController.m in Sources */,
+				08BA579C1B475E0900C8EC19 /* AFHTTPRequestOperationManager.m in Sources */,
+				08BA579F1B475E0900C8EC19 /* AFSecurityPolicy.m in Sources */,
 				F69F6A621B4718A100FE29B9 /* AppDelegate.m in Sources */,
 				F69F6A5F1B4718A100FE29B9 /* main.m in Sources */,
+				08BA579D1B475E0900C8EC19 /* AFHTTPSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AtmMoney/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -360,6 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AtmMoney/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -418,6 +516,7 @@
 				F69F6A7E1B4718A100FE29B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F69F6A7F1B4718A100FE29B9 /* Build configuration list for PBXNativeTarget "AtmMoneyTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +525,7 @@
 				F69F6A811B4718A100FE29B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
