@@ -32,7 +32,8 @@
 		6F2258A11B48580100D1E3F1 /* visitors-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258991B48580100D1E3F1 /* visitors-icon@2x.png */; };
 		6F2258A21B48580100D1E3F1 /* visitors-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F22589A1B48580100D1E3F1 /* visitors-icon@3x.png */; };
 		6F2258A61B48813C00D1E3F1 /* SubmitBank.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2258A51B48813C00D1E3F1 /* SubmitBank.m */; };
-		6F2258A81B4884F900D1E3F1 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258A71B4884F900D1E3F1 /* Localization.strings */; };
+		6F2258B51B4885EB00D1E3F1 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258B21B4885EB00D1E3F1 /* Localization.strings */; };
+		6F2258B81B4888B100D1E3F1 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258B61B4888B100D1E3F1 /* Localization.strings */; };
 		6F4730E51B47CE1100E99508 /* Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730E41B47CE1100E99508 /* Engine.m */; };
 		6F4730E81B47D02A00E99508 /* GetNearestBanks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730E71B47D02A00E99508 /* GetNearestBanks.m */; };
 		6F4730EB1B47D25B00E99508 /* DimitrisLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6F4730EA1B47D25B00E99508 /* DimitrisLocation.gpx */; };
@@ -89,7 +90,8 @@
 		6F22589A1B48580100D1E3F1 /* visitors-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visitors-icon@3x.png"; sourceTree = "<group>"; };
 		6F2258A41B48813C00D1E3F1 /* SubmitBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitBank.h; sourceTree = "<group>"; };
 		6F2258A51B48813C00D1E3F1 /* SubmitBank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitBank.m; sourceTree = "<group>"; };
-		6F2258A71B4884F900D1E3F1 /* Localization.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localization.strings; path = AtmMoney/Localization.strings; sourceTree = "<group>"; };
+		6F2258B31B4885EB00D1E3F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localization.strings; sourceTree = "<group>"; };
+		6F2258B71B4888B100D1E3F1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = Localization.strings; sourceTree = "<group>"; };
 		6F4730E31B47CE1100E99508 /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
 		6F4730E41B47CE1100E99508 /* Engine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Engine.m; sourceTree = "<group>"; };
 		6F4730E61B47D02A00E99508 /* GetNearestBanks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetNearestBanks.h; sourceTree = "<group>"; };
@@ -175,6 +177,24 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		6F2258AE1B4885EA00D1E3F1 /* el.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				6F2258B61B4888B100D1E3F1 /* Localization.strings */,
+			);
+			name = el.lproj;
+			path = AtmMoney/el.lproj;
+			sourceTree = "<group>";
+		};
+		6F2258B11B4885EA00D1E3F1 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				6F2258B21B4885EB00D1E3F1 /* Localization.strings */,
+			);
+			name = en.lproj;
+			path = AtmMoney/en.lproj;
+			sourceTree = "<group>";
+		};
 		6F4730E21B47CD9E00E99508 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +228,8 @@
 		F69F6A501B4718A100FE29B9 = {
 			isa = PBXGroup;
 			children = (
-				6F2258A71B4884F900D1E3F1 /* Localization.strings */,
+				6F2258AE1B4885EA00D1E3F1 /* el.lproj */,
+				6F2258B11B4885EA00D1E3F1 /* en.lproj */,
 				6F4730F71B48464C00E99508 /* PrefixHeader.pch */,
 				6F2258A31B48717D00D1E3F1 /* Frameworks */,
 				F69F6A5B1B4718A100FE29B9 /* AtmMoney */,
@@ -289,7 +310,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
-				ORGANIZATIONNAME = "Harris Spentzas";
+				ORGANIZATIONNAME = Funkytaps;
 				TargetAttributes = {
 					F69F6A581B4718A100FE29B9 = {
 						CreatedOnToolsVersion = 6.4;
@@ -311,6 +332,7 @@
 			knownRegions = (
 				en,
 				Base,
+				el,
 			);
 			mainGroup = F69F6A501B4718A100FE29B9;
 			productRefGroup = F69F6A5A1B4718A100FE29B9 /* Products */;
@@ -332,9 +354,10 @@
 				6F22589D1B48580100D1E3F1 /* money-icon-empty@2x.png in Resources */,
 				6F22589C1B48580100D1E3F1 /* cell-disclosure-icon@3x.png in Resources */,
 				F69F6A6D1B4718A100FE29B9 /* LaunchScreen.xib in Resources */,
+				6F2258B81B4888B100D1E3F1 /* Localization.strings in Resources */,
+				6F2258B51B4885EB00D1E3F1 /* Localization.strings in Resources */,
 				6F2258A11B48580100D1E3F1 /* visitors-icon@2x.png in Resources */,
 				6F22589B1B48580100D1E3F1 /* cell-disclosure-icon@2x.png in Resources */,
-				6F2258A81B4884F900D1E3F1 /* Localization.strings in Resources */,
 				6F2258A21B48580100D1E3F1 /* visitors-icon@3x.png in Resources */,
 				6F22589F1B48580100D1E3F1 /* money-icon-full@2x.png in Resources */,
 				F69F6A6A1B4718A100FE29B9 /* Images.xcassets in Resources */,
@@ -378,6 +401,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		6F2258B21B4885EB00D1E3F1 /* Localization.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F2258B31B4885EB00D1E3F1 /* en */,
+			);
+			name = Localization.strings;
+			sourceTree = "<group>";
+		};
+		6F2258B61B4888B100D1E3F1 /* Localization.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F2258B71B4888B100D1E3F1 /* el */,
+			);
+			name = Localization.strings;
+			sourceTree = "<group>";
+		};
 		F69F6A661B4718A100FE29B9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -433,7 +472,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -471,7 +510,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

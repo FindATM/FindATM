@@ -23,7 +23,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Nearest ATMs";
+    self.navigationItem.title = NSLocalizedStringFromTable(@"mainviewcontroller.title", @"Localization", nil);
     // Do any additional setup after loading the view, typically from a nib.
     
     //adding observer to being notify when location property is changed

@@ -49,26 +49,26 @@
     switch (bankType) {
         case EBankTypeAlpha:
         case EBankTypeCitybank:
-            return @"Alpha Bank";
+            return NSLocalizedStringFromTable(@"bank.alphabank", @"Localization", nil);
             break;
         case EBankTypeAttica:
-            return @"Attica Bank";
+            return NSLocalizedStringFromTable(@"bank.atticabank", @"Localization", nil);
             break;
         case EBankTypeEurobank:
-            return @"Eurobank";
+            return NSLocalizedStringFromTable(@"bank.eurobank", @"Localization", nil);
             break;
         case EBankTypeHsbc:
-            return @"HSBC";
+            return NSLocalizedStringFromTable(@"bank.hsbc", @"Localization", nil);
             break;
         case EBankTypeNationalBank:
-            return @"National Bank";
+            return NSLocalizedStringFromTable(@"bank.nationalbank", @"Localization", nil);
             break;
 
         case EBankTypePiraeusBank:
-            return @"Piraeus Bank";
+            return NSLocalizedStringFromTable(@"bank.piraeusbank", @"Localization", nil);
             break;
         case EBankTypePostbank:
-            return @"Post Bank";
+            return NSLocalizedStringFromTable(@"bank.postbank", @"Localization", nil);
             break;
             
         default:
@@ -80,19 +80,19 @@
 - (NSString *)getStateNameFromState:(EBankState)bankState {
     switch (bankState) {
         case EbankStateUknown:
-            return @"Money";
+            return NSLocalizedStringFromTable(@"bankstate.money", @"Localization", nil);
             break;
             
         case EbankStateMoneyAndTwenties:
-            return @"Money, gives twenties too";
+            return NSLocalizedStringFromTable(@"bankstate.moneytwenties", @"Localization", nil);
             break;
 
         case EBankStateNoMoney:
-            return @"Empty";
+            return NSLocalizedStringFromTable(@"bankstate.nomoney", @"Localization", nil);
             break;
 
         default:
-            return @"Money, gives twenties too";
+            return NSLocalizedStringFromTable(@"bankstate.money", @"Localization", nil);
             break;
     }
     return @"";

@@ -167,7 +167,8 @@
         self.addressLabel.text = message;
     }];
     
-    self.visitorsLabel.text = [NSString stringWithFormat:@"%ld visitors",(long)bank.visitors];
+   
+    self.visitorsLabel.text = [NSString stringWithFormat:NSLocalizedStringFromTable(@"%ld visitors.count", @"Localization", @""), (long)bank.visitors];
     
     [self layoutIfNeeded];
     

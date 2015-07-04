@@ -1,0 +1,23 @@
+/* 
+  Localization.strings
+  AtmMoney
+
+  Created by Dimitris C. on 7/5/15.
+  Copyright (c) 2015 Funkytaps. All rights reserved.
+*/
+
+"mainviewcontroller.title" = "Nearest ATMs";
+
+"bank.alphabank"        = "Alpha Bank";
+"bank.piraeusbank"      = "Piraeus Bank";
+"bank.eurobank"         = "Eurobank";
+"bank.atticabank"       = "Attica Bank";
+"bank.hsbc"             = "HSBC";
+"bank.nationalbank"     = "National Bank";
+"bank.postbank"         = "ΤΤ Eurobank";
+
+"%ld visitors.count"    = "%1$ld visitors";
+
+"bankstate.money"           = "Money";
+"bankstate.moneytwenties"   = "Money, gives 20€";
+"bankstate.nomoney"         = "Empty";
