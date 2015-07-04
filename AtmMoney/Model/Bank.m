@@ -17,6 +17,8 @@
 @property(nonatomic,strong,readwrite)NSString *phone;
 @property(nonatomic,assign,readwrite)EBankType bankType;
 @property(nonatomic,assign,readwrite)EBankState bankState;
+@property(nonatomic,assign,readwrite)NSInteger visitors;
+@property(nonatomic,assign,readwrite)CLLocationCoordinate2D location;
 
 @end
 
@@ -34,6 +36,8 @@
         self.phone = [dict objectForKey:@"phone"];
         self.bankType = [[dict objectForKey:@"bankType"] integerValue];
         self.bankState = [[dict objectForKey:@"bankState"] integerValue];
+        self.visitors = [[dict objectForKey:@"visitors"] integerValue];
+        self.location = CLLocationCoordinate2DMake(self.latitude, self.longtitude);
     }
     return self;
 }

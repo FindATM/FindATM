@@ -21,6 +21,8 @@
 		08BA57A11B475E0900C8EC19 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA57961B475E0900C8EC19 /* AFURLRequestSerialization.m */; };
 		08BA57A21B475E0900C8EC19 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA57981B475E0900C8EC19 /* AFURLResponseSerialization.m */; };
 		08BA57A31B475E0900C8EC19 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA579A1B475E0900C8EC19 /* AFURLSessionManager.m */; };
+		08D2CDF61B47E7BF00E2A2E3 /* BankView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2CDF51B47E7BF00E2A2E3 /* BankView.m */; };
+		08D2CDF91B47E9B400E2A2E3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */; };
 		6F4730E51B47CE1100E99508 /* Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730E41B47CE1100E99508 /* Engine.m */; };
 		6F4730E81B47D02A00E99508 /* GetNearestBanks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730E71B47D02A00E99508 /* GetNearestBanks.m */; };
 		6F4730EB1B47D25B00E99508 /* DimitrisLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6F4730EA1B47D25B00E99508 /* DimitrisLocation.gpx */; };
@@ -74,6 +76,10 @@
 		08BA57981B475E0900C8EC19 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		08BA57991B475E0900C8EC19 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		08BA579A1B475E0900C8EC19 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		08D2CDF41B47E7BF00E2A2E3 /* BankView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankView.h; sourceTree = "<group>"; };
+		08D2CDF51B47E7BF00E2A2E3 /* BankView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankView.m; sourceTree = "<group>"; };
+		08D2CDF71B47E9B400E2A2E3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		6F4730E31B47CE1100E99508 /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
 		6F4730E41B47CE1100E99508 /* Engine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Engine.m; sourceTree = "<group>"; };
 		6F4730E61B47D02A00E99508 /* GetNearestBanks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetNearestBanks.h; sourceTree = "<group>"; };
@@ -220,6 +226,10 @@
 				F69F6A6B1B4718A100FE29B9 /* LaunchScreen.xib */,
 				F69F6A5C1B4718A100FE29B9 /* Supporting Files */,
 				6F4730EA1B47D25B00E99508 /* DimitrisLocation.gpx */,
+				08D2CDF41B47E7BF00E2A2E3 /* BankView.h */,
+				08D2CDF51B47E7BF00E2A2E3 /* BankView.m */,
+				08D2CDF71B47E9B400E2A2E3 /* MapViewController.h */,
+				08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */,
 			);
 			path = AtmMoney;
 			sourceTree = "<group>";
@@ -363,6 +373,7 @@
 			files = (
 				08BA57A01B475E0900C8EC19 /* AFURLConnectionOperation.m in Sources */,
 				08BA579B1B475E0900C8EC19 /* AFHTTPRequestOperation.m in Sources */,
+				08D2CDF61B47E7BF00E2A2E3 /* BankView.m in Sources */,
 				08BA579E1B475E0900C8EC19 /* AFNetworkReachabilityManager.m in Sources */,
 				6F4730F01B47DBA200E99508 /* ATMBankTableViewCell.m in Sources */,
 				08BA57A31B475E0900C8EC19 /* AFURLSessionManager.m in Sources */,
@@ -376,6 +387,7 @@
 				F69F6A621B4718A100FE29B9 /* AppDelegate.m in Sources */,
 				F69F6A5F1B4718A100FE29B9 /* main.m in Sources */,
 				6F4730E81B47D02A00E99508 /* GetNearestBanks.m in Sources */,
+				08D2CDF91B47E9B400E2A2E3 /* MapViewController.m in Sources */,
 				08BA579D1B475E0900C8EC19 /* AFHTTPSessionManager.m in Sources */,
 				6F4730E51B47CE1100E99508 /* Engine.m in Sources */,
 			);

@@ -11,9 +11,11 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "Bank.h"
 #import "ATMBankTableViewCell.h"
+#import "MapViewController.h"
 
 @interface ATMMainViewController   ()
 @property (nonatomic, strong) NSMutableArray *banksData;
+@property (nonatomic, strong) UIButton *mapButton;
 @end
 
 @implementation ATMMainViewController
@@ -31,12 +33,27 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     self.tableView.separatorInset = UIEdgeInsetsZero;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
+    self.mapButton = [[UIButton alloc]init];
+    [self.mapButton setTitle:@"Map" forState:UIControlStateNormal];
+    [self.mapButton sizeToFit];
+    [self.mapButton addTarget:self action:@selector(openMap) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.mapButton];
+    
+}
+
+- (void)openMap {
+    if([self.banksData count] ==0)return;
+    
+    MapViewController *map = [[MapViewController alloc]init];
+    [self.navigationController pushViewController:map animated:YES];
+    [map showAnnotations];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
     [Data addObserver:self forKeyPath:CURRENT_LOCATION_KEY options:NSKeyValueObservingOptionNew context:nil];
+    self.mapButton.frame = CGRectMake(0, 0, CGRectGetWidth(self.mapButton.frame), CGRectGetHeight(self.mapButton.frame));
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -95,9 +112,6 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
 
 - (void)getBanks {
-
-//http://dimmdesign.com/clients/atmmoney/api/submitBank?buid=16&state=2
-//http://dimmdesign.com/clients/atmmoney/api/getNearestBanks?lat=21.4&lng=38.6
     
     self.banksData = [[NSMutableArray alloc]init];
     

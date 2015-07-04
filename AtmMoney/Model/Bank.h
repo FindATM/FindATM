@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 
 typedef enum : NSUInteger {
@@ -36,6 +37,9 @@ typedef enum : NSUInteger {
 @property(nonatomic,strong,readonly)NSString *phone;
 @property(nonatomic,assign,readonly)EBankType bankType;
 @property(nonatomic,assign,readonly)EBankState bankState;
+@property(nonatomic,assign,readonly)NSInteger visitors;
+@property(nonatomic,assign,readonly)CLLocationCoordinate2D location;
+
 
 - (instancetype)initWithDict:(NSDictionary *)dict;
 
