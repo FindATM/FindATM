@@ -31,6 +31,8 @@
 		6F2258A01B48580100D1E3F1 /* money-icon-full@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258981B48580100D1E3F1 /* money-icon-full@3x.png */; };
 		6F2258A11B48580100D1E3F1 /* visitors-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258991B48580100D1E3F1 /* visitors-icon@2x.png */; };
 		6F2258A21B48580100D1E3F1 /* visitors-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F22589A1B48580100D1E3F1 /* visitors-icon@3x.png */; };
+		6F2258A61B48813C00D1E3F1 /* SubmitBank.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2258A51B48813C00D1E3F1 /* SubmitBank.m */; };
+		6F2258A81B4884F900D1E3F1 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258A71B4884F900D1E3F1 /* Localization.strings */; };
 		6F4730E51B47CE1100E99508 /* Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730E41B47CE1100E99508 /* Engine.m */; };
 		6F4730E81B47D02A00E99508 /* GetNearestBanks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730E71B47D02A00E99508 /* GetNearestBanks.m */; };
 		6F4730EB1B47D25B00E99508 /* DimitrisLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6F4730EA1B47D25B00E99508 /* DimitrisLocation.gpx */; };
@@ -44,18 +46,7 @@
 		F69F6A681B4718A100FE29B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F69F6A661B4718A100FE29B9 /* Main.storyboard */; };
 		F69F6A6A1B4718A100FE29B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F69F6A691B4718A100FE29B9 /* Images.xcassets */; };
 		F69F6A6D1B4718A100FE29B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F69F6A6B1B4718A100FE29B9 /* LaunchScreen.xib */; };
-		F69F6A791B4718A100FE29B9 /* AtmMoneyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A781B4718A100FE29B9 /* AtmMoneyTests.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		F69F6A731B4718A100FE29B9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F69F6A511B4718A100FE29B9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F69F6A581B4718A100FE29B9;
-			remoteInfo = AtmMoney;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		08BA577A1B4759E600C8EC19 /* DataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHandler.h; sourceTree = "<group>"; };
@@ -96,6 +87,9 @@
 		6F2258981B48580100D1E3F1 /* money-icon-full@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-icon-full@3x.png"; sourceTree = "<group>"; };
 		6F2258991B48580100D1E3F1 /* visitors-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visitors-icon@2x.png"; sourceTree = "<group>"; };
 		6F22589A1B48580100D1E3F1 /* visitors-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visitors-icon@3x.png"; sourceTree = "<group>"; };
+		6F2258A41B48813C00D1E3F1 /* SubmitBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitBank.h; sourceTree = "<group>"; };
+		6F2258A51B48813C00D1E3F1 /* SubmitBank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitBank.m; sourceTree = "<group>"; };
+		6F2258A71B4884F900D1E3F1 /* Localization.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localization.strings; path = AtmMoney/Localization.strings; sourceTree = "<group>"; };
 		6F4730E31B47CE1100E99508 /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
 		6F4730E41B47CE1100E99508 /* Engine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Engine.m; sourceTree = "<group>"; };
 		6F4730E61B47D02A00E99508 /* GetNearestBanks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetNearestBanks.h; sourceTree = "<group>"; };
@@ -118,9 +112,6 @@
 		F69F6A671B4718A100FE29B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F69F6A691B4718A100FE29B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F69F6A6C1B4718A100FE29B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		F69F6A721B4718A100FE29B9 /* AtmMoneyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtmMoneyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F69F6A771B4718A100FE29B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F69F6A781B4718A100FE29B9 /* AtmMoneyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AtmMoneyTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,13 +123,6 @@
 				08BA57841B475DBB00C8EC19 /* CoreFoundation.framework in Frameworks */,
 				6F4730ED1B47D85C00E99508 /* MapKit.framework in Frameworks */,
 				08BA57821B475DB500C8EC19 /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F69F6A6F1B4718A100FE29B9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +164,17 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		6F2258A31B48717D00D1E3F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F4730EC1B47D85C00E99508 /* MapKit.framework */,
+				08BA57851B475DC100C8EC19 /* SystemConfiguration.framework */,
+				08BA57831B475DBB00C8EC19 /* CoreFoundation.framework */,
+				08BA57811B475DB500C8EC19 /* UIKit.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		6F4730E21B47CD9E00E99508 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +182,8 @@
 				6F4730E41B47CE1100E99508 /* Engine.m */,
 				6F4730E61B47D02A00E99508 /* GetNearestBanks.h */,
 				6F4730E71B47D02A00E99508 /* GetNearestBanks.m */,
+				6F2258A41B48813C00D1E3F1 /* SubmitBank.h */,
+				6F2258A51B48813C00D1E3F1 /* SubmitBank.m */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -211,13 +208,10 @@
 		F69F6A501B4718A100FE29B9 = {
 			isa = PBXGroup;
 			children = (
+				6F2258A71B4884F900D1E3F1 /* Localization.strings */,
 				6F4730F71B48464C00E99508 /* PrefixHeader.pch */,
-				6F4730EC1B47D85C00E99508 /* MapKit.framework */,
-				08BA57851B475DC100C8EC19 /* SystemConfiguration.framework */,
-				08BA57831B475DBB00C8EC19 /* CoreFoundation.framework */,
-				08BA57811B475DB500C8EC19 /* UIKit.framework */,
+				6F2258A31B48717D00D1E3F1 /* Frameworks */,
 				F69F6A5B1B4718A100FE29B9 /* AtmMoney */,
-				F69F6A751B4718A100FE29B9 /* AtmMoneyTests */,
 				F69F6A5A1B4718A100FE29B9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -226,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				F69F6A591B4718A100FE29B9 /* AtmMoney.app */,
-				F69F6A721B4718A100FE29B9 /* AtmMoneyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -269,23 +262,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F69F6A751B4718A100FE29B9 /* AtmMoneyTests */ = {
-			isa = PBXGroup;
-			children = (
-				F69F6A781B4718A100FE29B9 /* AtmMoneyTests.m */,
-				F69F6A761B4718A100FE29B9 /* Supporting Files */,
-			);
-			path = AtmMoneyTests;
-			sourceTree = "<group>";
-		};
-		F69F6A761B4718A100FE29B9 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				F69F6A771B4718A100FE29B9 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -305,24 +281,6 @@
 			productName = AtmMoney;
 			productReference = F69F6A591B4718A100FE29B9 /* AtmMoney.app */;
 			productType = "com.apple.product-type.application";
-		};
-		F69F6A711B4718A100FE29B9 /* AtmMoneyTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F69F6A7F1B4718A100FE29B9 /* Build configuration list for PBXNativeTarget "AtmMoneyTests" */;
-			buildPhases = (
-				F69F6A6E1B4718A100FE29B9 /* Sources */,
-				F69F6A6F1B4718A100FE29B9 /* Frameworks */,
-				F69F6A701B4718A100FE29B9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F69F6A741B4718A100FE29B9 /* PBXTargetDependency */,
-			);
-			name = AtmMoneyTests;
-			productName = AtmMoneyTests;
-			productReference = F69F6A721B4718A100FE29B9 /* AtmMoneyTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -344,10 +302,6 @@
 							};
 						};
 					};
-					F69F6A711B4718A100FE29B9 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = F69F6A581B4718A100FE29B9;
-					};
 				};
 			};
 			buildConfigurationList = F69F6A541B4718A100FE29B9 /* Build configuration list for PBXProject "AtmMoney" */;
@@ -364,7 +318,6 @@
 			projectRoot = "";
 			targets = (
 				F69F6A581B4718A100FE29B9 /* AtmMoney */,
-				F69F6A711B4718A100FE29B9 /* AtmMoneyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -381,6 +334,7 @@
 				F69F6A6D1B4718A100FE29B9 /* LaunchScreen.xib in Resources */,
 				6F2258A11B48580100D1E3F1 /* visitors-icon@2x.png in Resources */,
 				6F22589B1B48580100D1E3F1 /* cell-disclosure-icon@2x.png in Resources */,
+				6F2258A81B4884F900D1E3F1 /* Localization.strings in Resources */,
 				6F2258A21B48580100D1E3F1 /* visitors-icon@3x.png in Resources */,
 				6F22589F1B48580100D1E3F1 /* money-icon-full@2x.png in Resources */,
 				F69F6A6A1B4718A100FE29B9 /* Images.xcassets in Resources */,
@@ -388,13 +342,6 @@
 				6F4730F61B47DEB900E99508 /* atm-placeholder@3x.png in Resources */,
 				6F2258A01B48580100D1E3F1 /* money-icon-full@3x.png in Resources */,
 				6F4730F51B47DEB900E99508 /* atm-placeholder@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F69F6A701B4718A100FE29B9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +363,7 @@
 				08BA57A21B475E0900C8EC19 /* AFURLResponseSerialization.m in Sources */,
 				08BA577C1B4759E600C8EC19 /* DataHandler.m in Sources */,
 				F69F6A651B4718A100FE29B9 /* ATMMainViewController.m in Sources */,
+				6F2258A61B48813C00D1E3F1 /* SubmitBank.m in Sources */,
 				08BA579C1B475E0900C8EC19 /* AFHTTPRequestOperationManager.m in Sources */,
 				08BA579F1B475E0900C8EC19 /* AFSecurityPolicy.m in Sources */,
 				F69F6A621B4718A100FE29B9 /* AppDelegate.m in Sources */,
@@ -427,23 +375,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F69F6A6E1B4718A100FE29B9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F69F6A791B4718A100FE29B9 /* AtmMoneyTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F69F6A741B4718A100FE29B9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F69F6A581B4718A100FE29B9 /* AtmMoney */;
-			targetProxy = F69F6A731B4718A100FE29B9 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F69F6A661B4718A100FE29B9 /* Main.storyboard */ = {
@@ -551,12 +483,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AtmMoney/PrefixHeader.pch";
 				INFOPLIST_FILE = AtmMoney/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -564,46 +498,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AtmMoney/PrefixHeader.pch";
 				INFOPLIST_FILE = AtmMoney/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		F69F6A801B4718A100FE29B9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = AtmMoneyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AtmMoney.app/AtmMoney";
-			};
-			name = Debug;
-		};
-		F69F6A811B4718A100FE29B9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = AtmMoneyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AtmMoney.app/AtmMoney";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -624,15 +526,6 @@
 			buildConfigurations = (
 				F69F6A7D1B4718A100FE29B9 /* Debug */,
 				F69F6A7E1B4718A100FE29B9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F69F6A7F1B4718A100FE29B9 /* Build configuration list for PBXNativeTarget "AtmMoneyTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F69F6A801B4718A100FE29B9 /* Debug */,
-				F69F6A811B4718A100FE29B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -3,7 +3,7 @@
 //  AtmMoney
 //
 //  Created by squeezah on 7/4/15.
-//  Copyright (c) 2015 Harris Spentzas. All rights reserved.
+//  Copyright (c) 2015 Funkytaps. All rights reserved.
 //
 
 #import "Bank.h"
@@ -36,8 +36,8 @@
         self.latitude = [[dict objectForKey:@"latitude"] floatValue];
         self.name = [dict objectForKey:@"name"];
         self.phone = [dict objectForKey:@"phone"];
-        self.bankType = [[dict objectForKey:@"bankType"] integerValue];
-        self.bankState = [[dict objectForKey:@"bankState"] integerValue];
+        self.bankType = [[dict objectForKey:@"banktype"] integerValue];
+        self.bankState = [[dict objectForKey:@"state"] integerValue];
         self.visitors = [[dict objectForKey:@"visitors"] integerValue];
         self.location = CLLocationCoordinate2DMake(self.latitude, self.longtitude);
 
@@ -48,13 +48,11 @@
 - (NSString *)getBankNameFromType:(EBankType)bankType {
     switch (bankType) {
         case EBankTypeAlpha:
+        case EBankTypeCitybank:
             return @"Alpha Bank";
             break;
         case EBankTypeAttica:
             return @"Attica Bank";
-            break;
-        case EBankTypeCitybank:
-            return @"Citybank";
             break;
         case EBankTypeEurobank:
             return @"Eurobank";
@@ -82,11 +80,11 @@
 - (NSString *)getStateNameFromState:(EBankState)bankState {
     switch (bankState) {
         case EbankStateUknown:
-            return @"";
+            return @"Money";
             break;
             
         case EbankStateMoneyAndTwenties:
-            return @"Has Money, twenties too";
+            return @"Money, gives twenties too";
             break;
 
         case EBankStateNoMoney:
@@ -94,6 +92,7 @@
             break;
 
         default:
+            return @"Money, gives twenties too";
             break;
     }
     return @"";

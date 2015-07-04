@@ -3,51 +3,73 @@
 //  AtmMoney
 //
 //  Created by Dimitris C. on 7/4/15.
-//  Copyright (c) 2015 Harris Spentzas. All rights reserved.
+//  Copyright (c) 2015 Funkytaps. All rights reserved.
 //
 
 #import "ATMBankTableViewCell.h"
 #import "DataHandler.h"
 
 @interface ATMBankTableViewCell ()
-@property (nonatomic,strong) UIImageView *bankLogoImageView;
-@property (nonatomic,strong) UILabel *titleLabel;
-@property (nonatomic,strong) UILabel *addressLabel;
-@property (nonatomic,strong) UILabel *visitorsLabel;
-@property (nonatomic,strong) UIImageView *disclosureImageView;
+@property (nonatomic,strong) UIImageView    *bankLogoImageView;
+@property (nonatomic,strong) UILabel        *titleLabel;
+@property (nonatomic,strong) UILabel        *addressLabel;
+
+@property (nonatomic,strong) UIImageView    *visitorsIcon;
+@property (nonatomic,strong) UILabel        *visitorsLabel;
+
+@property (nonatomic,strong) UIImageView    *moneyIcon;
+@property (nonatomic,strong) UILabel        *moneyLabel;
+
+@property (nonatomic,strong) UIImageView    *disclosureImageView;
 @end
 
 @implementation ATMBankTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.contentView.frame];
+        self.selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.91 green:0.96 blue:0.98 alpha:1.0];
+        
         self.bankLogoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"atm-placeholder"]];
         [self.contentView addSubview:self.bankLogoImageView];
         
         self.titleLabel = [[UILabel alloc] init];
-        self.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+        self.titleLabel.font = [UIFont boldSystemFontOfSize:15];
         self.titleLabel.textColor = [UIColor blackColor];
         self.titleLabel.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:self.titleLabel];
 
         
         self.addressLabel = [[UILabel alloc] init];
-        self.addressLabel.font = [UIFont systemFontOfSize:14];
+        self.addressLabel.font = [UIFont systemFontOfSize:12];
         self.addressLabel.textColor = [UIColor blackColor];
         self.addressLabel.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:self.addressLabel];
         
+        self.visitorsIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"visitors-icon"]];
+        [self.visitorsIcon sizeToFit];
+        [self.contentView addSubview:self.visitorsIcon];
+        
         self.visitorsLabel = [[UILabel alloc] init];
-        self.visitorsLabel.font = [UIFont systemFontOfSize:14];
-        self.visitorsLabel.textColor = [UIColor blackColor];
+        self.visitorsLabel.font = [UIFont systemFontOfSize:11];
+        self.visitorsLabel.textColor = [UIColor colorWithRed:0 green:0.52 blue:0.75 alpha:1.0];
         self.visitorsLabel.backgroundColor = [UIColor clearColor];
+        self.visitorsLabel.text = @"10000 visitors";
         [self.contentView addSubview:self.visitorsLabel];
+        
+        self.moneyIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"money-icon-full"]];
+        [self.moneyIcon sizeToFit];
+        [self.contentView addSubview:self.moneyIcon];
 
+        self.moneyLabel = [[UILabel alloc] init];
+        self.moneyLabel.font = [UIFont systemFontOfSize:11];
+        self.moneyLabel.textColor = [UIColor blackColor];
+        self.moneyLabel.backgroundColor = [UIColor clearColor];
+        self.moneyLabel.text = @"";
+        [self.contentView addSubview:self.moneyLabel];
+
+        
         self.disclosureImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell-disclosure-icon"]];
         [self.disclosureImageView sizeToFit];
         [self.contentView addSubview:self.disclosureImageView];
@@ -60,8 +82,9 @@
     [super layoutSubviews];
     
     CGFloat padding = 5;
+    CGFloat disclosurePadding = 12;
     
-    self.disclosureImageView.frame = CGRectMake(CGRectGetWidth(self.contentView.frame) - CGRectGetWidth(self.disclosureImageView.frame) - padding * 2,
+    self.disclosureImageView.frame = CGRectMake(CGRectGetWidth(self.contentView.frame) - CGRectGetWidth(self.disclosureImageView.frame) - disclosurePadding,
                                                 floorf((CGRectGetHeight(self.contentView.frame) - CGRectGetHeight(self.disclosureImageView.frame)) * 0.5),
                                                 CGRectGetWidth(self.disclosureImageView.frame),
                                                 CGRectGetHeight(self.disclosureImageView.frame));
@@ -82,13 +105,39 @@
                                          CGRectGetMaxY(self.titleLabel.frame),
                                          CGRectGetMinX(self.disclosureImageView.frame) - padding,
                                          CGRectGetHeight(self.addressLabel.frame));
+    
+    // the icon on the far right...
+    CGFloat maxWidthForIcons = CGRectGetMinX(self.disclosureImageView.frame) - CGRectGetMinX(self.titleLabel.frame);
+    CGFloat widthShrinkOffset = 20;
+    // the width for each of the bottom icon and label...
+    CGFloat widthForEachIcon = floorf(maxWidthForIcons * 0.5) - widthShrinkOffset;
+    
+    [self.visitorsIcon sizeToFit];
+    self.visitorsIcon.frame = CGRectMake(CGRectGetMinX(self.titleLabel.frame),
+                                         floorf(CGRectGetHeight(self.contentView.frame) - CGRectGetHeight(self.visitorsIcon.frame) - padding),
+                                         CGRectGetWidth(self.visitorsIcon.frame),
+                                         CGRectGetHeight(self.visitorsIcon.frame));
 
     
     [self.visitorsLabel sizeToFit];
-    self.visitorsLabel.frame = CGRectMake(CGRectGetMaxX(self.titleLabel.frame) + padding,
-                                          CGRectGetMinY(self.bankLogoImageView.frame),
-                                          CGRectGetWidth(self.visitorsLabel.frame),
+    self.visitorsLabel.frame = CGRectMake(CGRectGetMaxX(self.visitorsIcon.frame) + padding,
+                                          CGRectGetMinY(self.visitorsIcon.frame),
+                                          floorf(widthForEachIcon - CGRectGetWidth(self.visitorsIcon.frame) - padding),
                                           CGRectGetHeight(self.visitorsLabel.frame));
+    
+    
+    [self.moneyIcon sizeToFit];
+    self.moneyIcon.frame = CGRectMake(CGRectGetMaxX(self.visitorsLabel.frame),
+                                      floorf(CGRectGetHeight(self.contentView.frame) - CGRectGetHeight(self.moneyIcon.frame) - padding),
+                                      CGRectGetWidth(self.moneyIcon.frame),
+                                      CGRectGetHeight(self.moneyIcon.frame));
+    
+    
+    [self.moneyLabel sizeToFit];
+    self.moneyLabel.frame = CGRectMake(CGRectGetMaxX(self.moneyIcon.frame) + padding,
+                                       CGRectGetMinY(self.moneyIcon.frame),
+                                       floorf(widthForEachIcon - CGRectGetWidth(self.moneyIcon.frame) - padding),
+                                       CGRectGetHeight(self.moneyLabel.frame));
     
 }
 
@@ -108,33 +157,65 @@
 - (void)updateWithBank:(Bank *)bank {
     self.titleLabel.text = [bank getBankNameFromType:bank.bankType];
     self.addressLabel.text = bank.name;
+    
+    self.moneyLabel.text = [bank getStateNameFromState:bank.bankState];
+    self.moneyLabel.textColor = [self getTextColorFromBankState:bank.bankState];
+    self.moneyIcon.image = [UIImage imageNamed:[self getImageNameFromBankState:bank.bankState]];
+    
     CLLocation *location = [[CLLocation alloc] initWithLatitude:bank.latitude longitude:bank.longtitude];
     [Data getAddressFromLocation:location WithCompletion:^(NSString *message) {
         self.addressLabel.text = message;
     }];
     
-    self.visitorsLabel.text = [NSString stringWithFormat:@"Visitors: %ld",(long)bank.visitors];
-    switch (bank.bankState) {
-        case EbankStateMoneyAndTwenties:
-//            self.backgroundColor = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:0.8];
-            break;
-        case EbankStateMoneyNoTwenties:
-//            self.backgroundColor = [UIColor colorWithRed:0.0 green:0.8 blue:0.0 alpha:0.8];
-            break;
-        case EBankStateNoMoney:
-//            self.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.8];
-            break;
-        case EbankStateUknown:
-//            self.backgroundColor = [UIColor grayColor];
-            break;
-            
-        default:
-//            self.backgroundColor = [UIColor clearColor];
-            break;
-    }
+    self.visitorsLabel.text = [NSString stringWithFormat:@"%ld visitors",(long)bank.visitors];
     
     [self layoutIfNeeded];
     
 }
+
+- (NSString *)getImageNameFromBankState:(EBankState)bankState
+{
+    switch (bankState) {
+        case EbankStateUknown:
+            return @"money-icon-full";
+            break;
+            
+        case EbankStateMoneyAndTwenties:
+            return @"money-icon-full";
+            break;
+            
+        case EBankStateNoMoney:
+            return @"money-icon-empty";
+            break;
+
+
+        default:
+            break;
+    }
+    return @"money-icon-full";
+}
+
+- (UIColor *)getTextColorFromBankState:(EBankState)bankState
+{
+    switch (bankState) {
+        case EbankStateUknown:
+            return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
+            break;
+            
+        case EbankStateMoneyAndTwenties:
+            return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
+            break;
+            
+        case EBankStateNoMoney:
+            return [UIColor colorWithRed:0.89 green:0.13 blue:0.07 alpha:1.0];
+            break;
+            
+            
+        default:
+            break;
+    }
+    return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
+}
+
 
 @end

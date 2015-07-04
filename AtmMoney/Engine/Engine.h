@@ -3,15 +3,22 @@
 //  AtmMoney
 //
 //  Created by Dimitris C. on 7/4/15.
-//  Copyright (c) 2015 Harris Spentzas. All rights reserved.
+//  Copyright (c) 2015 Funkytaps. All rights reserved.
 //
 
 #import "AFHTTPRequestOperationManager.h"
 
-#define BASE_URL            @"http://www.dimmdesign.com/clients/atmmoney"
+#import "GetNearestBanks.h"
+#import "SubmitBank.h"
+
+#define BASE_URL            @"https://www.dimmdesign.com/clients/atmmoney/api"
+
+#define Eng [Engine sharedInstance]
 
 @interface Engine : AFHTTPRequestOperationManager
 
+@property (nonatomic, strong, readonly) GetNearestBanks *getNearestBanks;
+@property (nonatomic, strong, readonly) SubmitBank *submitBank;
 
 + (Engine *)sharedInstance;
 

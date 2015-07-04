@@ -3,14 +3,20 @@
 //  AtmMoney
 //
 //  Created by Dimitris C. on 7/4/15.
-//  Copyright (c) 2015 Harris Spentzas. All rights reserved.
+//  Copyright (c) 2015 Funkytaps. All rights reserved.
 //
 
 #import "Engine.h"
 
-
+@interface Engine ()
+@property (nonatomic, strong, readwrite) GetNearestBanks *getNearestBanks;
+@property (nonatomic, strong, readwrite) SubmitBank *submitBank;
+@end
 
 @implementation Engine
+
+@synthesize getNearestBanks = _getNearestBanks;
+@synthesize submitBank      = _submitBank;
 
 + (Engine *)sharedInstance {
     static Engine *_sharedClient = nil;
@@ -27,7 +33,7 @@
 - (instancetype)init {
     self = [super initWithBaseURL:[NSURL URLWithString:BASE_URL]];
     if (self) {
-        AFHTTPResponseSerializer *dataSerializer = [AFHTTPResponseSerializer serializer];
+        AFJSONResponseSerializer *dataSerializer = [AFJSONResponseSerializer serializer];
     
         self.responseSerializer = dataSerializer;
         self.requestSerializer.timeoutInterval = 20;
@@ -41,6 +47,22 @@
     }
     return self;
 }
+
+#pragma mark - Requests - 
+- (GetNearestBanks *)getNearestBanks {
+    if (!_getNearestBanks) {
+        _getNearestBanks = [[GetNearestBanks alloc] init];
+    }
+    return _getNearestBanks;
+}
+
+-(SubmitBank *)submitBank {
+    if (!_submitBank) {
+        _submitBank = [[SubmitBank alloc] init];
+    }
+    return _submitBank;
+}
+
 
 #pragma mark - Networking helper methods
 

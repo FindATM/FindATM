@@ -3,7 +3,7 @@
 //  AtmMoney
 //
 //  Created by Harris Spentzas on 7/3/15.
-//  Copyright (c) 2015 Harris Spentzas. All rights reserved.
+//  Copyright (c) 2015 Funkytaps. All rights reserved.
 //
 
 #import "ATMMainViewController.h"
@@ -14,7 +14,6 @@
 #import "MapViewController.h"
 
 @interface ATMMainViewController   ()
-@property (nonatomic, strong) NSMutableArray *banksData;
 @property (nonatomic, strong) UIButton *mapButton;
 @end
 
@@ -51,7 +50,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 }
 
 - (void)openMap {
-    if([self.banksData count] == 0) return;
+    if([Eng.getNearestBanks.banksData count] == 0) return;
     
     MapViewController *map = [[MapViewController alloc]init];
     [self.navigationController pushViewController:map animated:YES];
@@ -78,33 +77,57 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [self.banksData count];
+    return [Eng.getNearestBanks.banksData count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     ATMBankTableViewCell *cell = (ATMBankTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
     
-    Bank *bank = [self.banksData objectAtIndex:indexPath.row];
+    Bank *bank = [Eng.getNearestBanks.banksData objectAtIndex:indexPath.row];
     [cell updateWithBank:bank];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    Bank *bank = [self.banksData objectAtIndex:indexPath.row];
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"buid": @(bank.buid),@"state":@(bank.bankState)};
-    [manager POST:@"http://dimmdesign.com/clients/atmmoney/api/submitBank" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        NSLog(@"Submit ok!");
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+//    ATMBankTableViewCell *cell = (ATMBankTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+//    cell.selected = NO;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    Bank *bank = [Eng.getNearestBanks.banksData objectAtIndex:indexPath.row];
+
+    // TODO: Display view controller
+    
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    NSDictionary *parameters = @{@"buid": @(bank.buid),@"state":@(bank.bankState)};
+//    [manager POST:@"http://dimmdesign.com/clients/atmmoney/api/submitBank" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"JSON: %@", responseObject);
+//        NSLog(@"Submit ok!");
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"Error: %@", error);
+//    }];
 
 }
 
+// from: http://stackoverflow.com/questions/25770119/ios-8-uitableview-separator-inset-0-not-working
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Remove seperator inset
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    // Prevent the cell from inheriting the Table View's margin settings
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
+    
+    // Explictly set your cell's layout margins
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -121,24 +144,15 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
 }
 
-
 - (void)getBanks {
     
-    self.banksData = [[NSMutableArray alloc]init];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"lng": @([Data getLongitude]),@"lat":@([Data getLatitude])};
-    [manager POST:@"http://dimmdesign.com/clients/atmmoney/api/getNearestBanks" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        [[responseObject objectForKey:@"banks"] enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
-            Bank *bank = [[Bank alloc] initWithDict:dict];
-            [self.banksData addObject:bank];
-            [self.refreshControl endRefreshing];
-        }];
+    CLLocation *location = Data.currentLocation;
+    [[Engine sharedInstance].getNearestBanks getNearestBanksWithLocation:location withCompletion:^{
         [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+        [self.refreshControl endRefreshing];
+    } andFailure:^{
+        [self.refreshControl endRefreshing];
     }];
+    
 }
-
 @end

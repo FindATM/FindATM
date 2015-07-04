@@ -18,7 +18,7 @@
 
 + (DataHandler *)sharedInstance;
 
-@property (strong, nonatomic) CLLocation *currentLocation;
+@property (nonatomic, strong, readonly) CLLocation *currentLocation;
 
 - (void)getAddressFromLocation:(CLLocation *)location WithCompletion:(MessageResponse)completion;
 

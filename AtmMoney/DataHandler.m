@@ -11,10 +11,12 @@
 
 static DataHandler *_sharedInstance = nil;
 
-@implementation DataHandler {
-    CLLocationManager * iLocationManager;
-    NSDictionary *iWifiInfoDict;
-}
+@interface DataHandler ()
+@property (nonatomic, strong, readwrite) CLLocation *currentLocation;
+@property (nonatomic, strong, readwrite) CLLocationManager *locationManager;
+@end
+
+@implementation DataHandler
 
 + (DataHandler *)sharedInstance {
     static dispatch_once_t onceToken;
@@ -40,19 +42,19 @@ static DataHandler *_sharedInstance = nil;
 
 - (void)setupLocationManager {
     
-    iLocationManager = [[CLLocationManager alloc] init];
-    iLocationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
-    iLocationManager.delegate = self;
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+    self.locationManager.delegate = self;
 }
 
 - (void)startUpdatingLocation {
 
-    if([iLocationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [iLocationManager requestWhenInUseAuthorization];
-
-        NSLog(@"Starting location updates");
-        [iLocationManager startUpdatingLocation];
+    if([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
     }
+    
+    NSLog(@"Starting location updates");
+    [self.locationManager startUpdatingLocation];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -69,7 +71,7 @@ static DataHandler *_sharedInstance = nil;
 }
 
 - (void)stopUpdatingLocation {
-    [iLocationManager stopUpdatingLocation];
+    [self.locationManager stopUpdatingLocation];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray*)locations {
@@ -83,12 +85,14 @@ static DataHandler *_sharedInstance = nil;
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         CLPlacemark *placemark = [placemarks objectAtIndex:0];
-        //String to hold address
-        NSString *locatedAt = [NSString stringWithFormat:@"%@ %@", placemark.subThoroughfare, placemark.thoroughfare];
-        
-        if (completion != nil) {
-            completion(locatedAt);
+        if (!error) {
+            NSString *locatedAt = [NSString stringWithFormat:@"%@ %@", placemark.subThoroughfare, placemark.thoroughfare];
+
+            if (completion != nil) {
+                completion(locatedAt);
+            }
         }
+        
     }];
     
 }
