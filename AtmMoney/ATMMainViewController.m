@@ -24,25 +24,34 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"ATMs";
+    self.navigationItem.title = @"Nearest ATMs";
     // Do any additional setup after loading the view, typically from a nib.
     
     //adding observer to being notify when location property is changed
-    self.tableView.rowHeight = 70;
+    self.tableView.rowHeight = 80;
     [self.tableView registerClass:[ATMBankTableViewCell class] forCellReuseIdentifier:simpleTableIdentifier];
     self.tableView.separatorInset = UIEdgeInsetsZero;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
-    self.mapButton = [[UIButton alloc]init];
-    [self.mapButton setTitle:@"Map" forState:UIControlStateNormal];
-    [self.mapButton sizeToFit];
-    [self.mapButton addTarget:self action:@selector(openMap) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.mapButton];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
+    
+//    self.mapButton = [[UIButton alloc]init];
+//    [self.mapButton setTitle:@"Map" forState:UIControlStateNormal];
+//    [self.mapButton sizeToFit];
+//    [self.mapButton addTarget:self action:@selector(openMap) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:self.mapButton];
+    
+}
+
+- (void)refreshTableView {
+    
+    [Data startUpdatingLocation];
     
 }
 
 - (void)openMap {
-    if([self.banksData count] ==0)return;
+    if([self.banksData count] == 0) return;
     
     MapViewController *map = [[MapViewController alloc]init];
     [self.navigationController pushViewController:map animated:YES];
@@ -52,7 +61,9 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
+    
     [Data addObserver:self forKeyPath:CURRENT_LOCATION_KEY options:NSKeyValueObservingOptionNew context:nil];
+    
     self.mapButton.frame = CGRectMake(0, 0, CGRectGetWidth(self.mapButton.frame), CGRectGetHeight(self.mapButton.frame));
 }
 
@@ -73,7 +84,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     ATMBankTableViewCell *cell = (ATMBankTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
-
+    
     Bank *bank = [self.banksData objectAtIndex:indexPath.row];
     [cell updateWithBank:bank];
     return cell;
@@ -120,8 +131,9 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     [manager POST:@"http://dimmdesign.com/clients/atmmoney/api/getNearestBanks" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         [[responseObject objectForKey:@"banks"] enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
-            Bank *bank = [[Bank alloc]initWithDict:dict];
+            Bank *bank = [[Bank alloc] initWithDict:dict];
             [self.banksData addObject:bank];
+            [self.refreshControl endRefreshing];
         }];
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

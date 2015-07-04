@@ -78,6 +78,21 @@ static DataHandler *_sharedInstance = nil;
     self.currentLocation = location;
 }
 
+- (void)getAddressFromLocation:(CLLocation *)location WithCompletion:(MessageResponse)completion {
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        CLPlacemark *placemark = [placemarks objectAtIndex:0];
+        //String to hold address
+        NSString *locatedAt = [NSString stringWithFormat:@"%@ %@", placemark.subThoroughfare, placemark.thoroughfare];
+        
+        if (completion != nil) {
+            completion(locatedAt);
+        }
+    }];
+    
+}
+
 - (double)getLatitude {
     return self.currentLocation.coordinate.latitude;
 }

@@ -20,6 +20,8 @@
 
 @property (strong, nonatomic) CLLocation *currentLocation;
 
+- (void)getAddressFromLocation:(CLLocation *)location WithCompletion:(MessageResponse)completion;
+
 -(double)getLatitude;
 -(double)getLongitude;
 -(double)getAccuracy;
