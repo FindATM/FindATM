@@ -26,5 +26,6 @@
 
 - (void)setupLocationManager;
 - (void)startUpdatingLocation;
+- (void)stopUpdatingLocation;
 
 @end

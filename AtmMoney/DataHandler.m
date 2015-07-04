@@ -50,8 +50,8 @@ static DataHandler *_sharedInstance = nil;
     if([iLocationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [iLocationManager requestWhenInUseAuthorization];
 
-    NSLog(@"Starting location updates");
-    [iLocationManager startUpdatingLocation];
+        NSLog(@"Starting location updates");
+        [iLocationManager startUpdatingLocation];
     }
 }
 
@@ -67,6 +67,11 @@ static DataHandler *_sharedInstance = nil;
         [self showMessage];
     }
 }
+
+- (void)stopUpdatingLocation {
+    [iLocationManager stopUpdatingLocation];
+}
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray*)locations {
     //new location arrived
     CLLocation *location = [locations lastObject];

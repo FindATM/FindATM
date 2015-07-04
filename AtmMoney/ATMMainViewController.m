@@ -6,12 +6,16 @@
 //  Copyright (c) 2015 Harris Spentzas. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ATMMainViewController.h"
 #import "DataHandler.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "Bank.h"
 
-@interface ViewController () {
+@interface ATMMainViewController   ()
+
+@end
+
+@interface ATMMainViewController () {
 
     UITableView *_tableView;
     NSMutableArray *banksData;
@@ -19,15 +23,11 @@
 
 @end
 
-@implementation ViewController
+@implementation ATMMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _tableView = [[UITableView alloc]init];
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-    [self.view addSubview:_tableView];
     // Do any additional setup after loading the view, typically from a nib.
     
     //adding observer to being notify when location property is changed
@@ -38,7 +38,7 @@
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
-    _tableView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -49,7 +49,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return  [banksData count];
+    return [banksData count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -93,6 +93,7 @@
     if([keyPath isEqualToString:CURRENT_LOCATION_KEY]) {
         // do some stuff
         [self getBanks];
+        [Data stopUpdatingLocation];
     }
 
 }
@@ -102,7 +103,6 @@
 
 //http://dimmdesign.com/clients/atmmoney/api/submitBank?buid=16&state=2
 //http://dimmdesign.com/clients/atmmoney/api/getNearestBanks?lat=21.4&lng=38.6
-    
     
     banksData = [[NSMutableArray alloc]init];
     
@@ -114,7 +114,7 @@
             Bank *bank = [[Bank alloc]initWithDict:dict];
             [banksData addObject:bank];
         }];
-        [_tableView reloadData];
+        [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
