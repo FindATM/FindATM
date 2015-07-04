@@ -8,6 +8,8 @@
 
 "mainviewcontroller.title" = "Κοντινότερα ATMs";
 
+"atmdetailviewcontroller.title"     = "Στοιχεία ATM";
+
 
 "bank.alphabank"        = "Alpha Bank";
 "bank.piraeusbank"      = "Τράπεζα Πειραιώς";
@@ -22,3 +24,7 @@
 "bankstate.money"           = "Χρήματα";
 "bankstate.moneytwenties"   = "Χρήματα, δίνει 20€";
 "bankstate.nomoney"         = "Άδειο";
+
+
+"detail.view.hasmoney"      = "Έχει χρήματα αυτό το ATM?";
+"detail.view.hastwenties"   = "Έχει 20€?";

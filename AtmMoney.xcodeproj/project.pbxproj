@@ -21,7 +21,6 @@
 		08BA57A11B475E0900C8EC19 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA57961B475E0900C8EC19 /* AFURLRequestSerialization.m */; };
 		08BA57A21B475E0900C8EC19 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA57981B475E0900C8EC19 /* AFURLResponseSerialization.m */; };
 		08BA57A31B475E0900C8EC19 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA579A1B475E0900C8EC19 /* AFURLSessionManager.m */; };
-		08D2CDF61B47E7BF00E2A2E3 /* BankView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2CDF51B47E7BF00E2A2E3 /* BankView.m */; };
 		08D2CDF91B47E9B400E2A2E3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */; };
 		6F22589B1B48580100D1E3F1 /* cell-disclosure-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258931B48580100D1E3F1 /* cell-disclosure-icon@2x.png */; };
 		6F22589C1B48580100D1E3F1 /* cell-disclosure-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258941B48580100D1E3F1 /* cell-disclosure-icon@3x.png */; };
@@ -34,6 +33,8 @@
 		6F2258A61B48813C00D1E3F1 /* SubmitBank.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2258A51B48813C00D1E3F1 /* SubmitBank.m */; };
 		6F2258B51B4885EB00D1E3F1 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258B21B4885EB00D1E3F1 /* Localization.strings */; };
 		6F2258B81B4888B100D1E3F1 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258B61B4888B100D1E3F1 /* Localization.strings */; };
+		6F2258BF1B4891FF00D1E3F1 /* ATMDetailBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2258BD1B4891FF00D1E3F1 /* ATMDetailBankViewController.m */; };
+		6F2258C01B4891FF00D1E3F1 /* ATMDetailBankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258BE1B4891FF00D1E3F1 /* ATMDetailBankViewController.xib */; };
 		6F4730E51B47CE1100E99508 /* Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730E41B47CE1100E99508 /* Engine.m */; };
 		6F4730E81B47D02A00E99508 /* GetNearestBanks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730E71B47D02A00E99508 /* GetNearestBanks.m */; };
 		6F4730EB1B47D25B00E99508 /* DimitrisLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6F4730EA1B47D25B00E99508 /* DimitrisLocation.gpx */; };
@@ -76,8 +77,6 @@
 		08BA57981B475E0900C8EC19 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		08BA57991B475E0900C8EC19 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		08BA579A1B475E0900C8EC19 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		08D2CDF41B47E7BF00E2A2E3 /* BankView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankView.h; sourceTree = "<group>"; };
-		08D2CDF51B47E7BF00E2A2E3 /* BankView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankView.m; sourceTree = "<group>"; };
 		08D2CDF71B47E9B400E2A2E3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		6F2258931B48580100D1E3F1 /* cell-disclosure-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-disclosure-icon@2x.png"; sourceTree = "<group>"; };
@@ -92,6 +91,9 @@
 		6F2258A51B48813C00D1E3F1 /* SubmitBank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitBank.m; sourceTree = "<group>"; };
 		6F2258B31B4885EB00D1E3F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localization.strings; sourceTree = "<group>"; };
 		6F2258B71B4888B100D1E3F1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = Localization.strings; sourceTree = "<group>"; };
+		6F2258BC1B4891FF00D1E3F1 /* ATMDetailBankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMDetailBankViewController.h; sourceTree = "<group>"; };
+		6F2258BD1B4891FF00D1E3F1 /* ATMDetailBankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMDetailBankViewController.m; sourceTree = "<group>"; };
+		6F2258BE1B4891FF00D1E3F1 /* ATMDetailBankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATMDetailBankViewController.xib; sourceTree = "<group>"; };
 		6F4730E31B47CE1100E99508 /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
 		6F4730E41B47CE1100E99508 /* Engine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Engine.m; sourceTree = "<group>"; };
 		6F4730E61B47D02A00E99508 /* GetNearestBanks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetNearestBanks.h; sourceTree = "<group>"; };
@@ -182,8 +184,7 @@
 			children = (
 				6F2258B61B4888B100D1E3F1 /* Localization.strings */,
 			);
-			name = el.lproj;
-			path = AtmMoney/el.lproj;
+			path = el.lproj;
 			sourceTree = "<group>";
 		};
 		6F2258B11B4885EA00D1E3F1 /* en.lproj */ = {
@@ -191,8 +192,7 @@
 			children = (
 				6F2258B21B4885EB00D1E3F1 /* Localization.strings */,
 			);
-			name = en.lproj;
-			path = AtmMoney/en.lproj;
+			path = en.lproj;
 			sourceTree = "<group>";
 		};
 		6F4730E21B47CD9E00E99508 /* Engine */ = {
@@ -228,8 +228,6 @@
 		F69F6A501B4718A100FE29B9 = {
 			isa = PBXGroup;
 			children = (
-				6F2258AE1B4885EA00D1E3F1 /* el.lproj */,
-				6F2258B11B4885EA00D1E3F1 /* en.lproj */,
 				6F4730F71B48464C00E99508 /* PrefixHeader.pch */,
 				6F2258A31B48717D00D1E3F1 /* Frameworks */,
 				F69F6A5B1B4718A100FE29B9 /* AtmMoney */,
@@ -248,7 +246,6 @@
 		F69F6A5B1B4718A100FE29B9 /* AtmMoney */ = {
 			isa = PBXGroup;
 			children = (
-				6F4730F21B47DEB900E99508 /* Images */,
 				6F4730E91B47D0FA00E99508 /* Common-Prefix.h */,
 				08BA57871B475E0900C8EC19 /* AFNetworking */,
 				08BA577D1B475B2900C8EC19 /* Model */,
@@ -261,15 +258,19 @@
 				F69F6A641B4718A100FE29B9 /* ATMMainViewController.m */,
 				6F4730EE1B47DBA200E99508 /* ATMBankTableViewCell.h */,
 				6F4730EF1B47DBA200E99508 /* ATMBankTableViewCell.m */,
+				6F2258BC1B4891FF00D1E3F1 /* ATMDetailBankViewController.h */,
+				6F2258BD1B4891FF00D1E3F1 /* ATMDetailBankViewController.m */,
+				6F2258BE1B4891FF00D1E3F1 /* ATMDetailBankViewController.xib */,
+				08D2CDF71B47E9B400E2A2E3 /* MapViewController.h */,
+				08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */,
 				F69F6A661B4718A100FE29B9 /* Main.storyboard */,
 				F69F6A691B4718A100FE29B9 /* Images.xcassets */,
 				F69F6A6B1B4718A100FE29B9 /* LaunchScreen.xib */,
 				F69F6A5C1B4718A100FE29B9 /* Supporting Files */,
 				6F4730EA1B47D25B00E99508 /* DimitrisLocation.gpx */,
-				08D2CDF41B47E7BF00E2A2E3 /* BankView.h */,
-				08D2CDF51B47E7BF00E2A2E3 /* BankView.m */,
-				08D2CDF71B47E9B400E2A2E3 /* MapViewController.h */,
-				08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */,
+				6F2258AE1B4885EA00D1E3F1 /* el.lproj */,
+				6F2258B11B4885EA00D1E3F1 /* en.lproj */,
+				6F4730F21B47DEB900E99508 /* Images */,
 			);
 			path = AtmMoney;
 			sourceTree = "<group>";
@@ -359,6 +360,7 @@
 				6F2258A11B48580100D1E3F1 /* visitors-icon@2x.png in Resources */,
 				6F22589B1B48580100D1E3F1 /* cell-disclosure-icon@2x.png in Resources */,
 				6F2258A21B48580100D1E3F1 /* visitors-icon@3x.png in Resources */,
+				6F2258C01B4891FF00D1E3F1 /* ATMDetailBankViewController.xib in Resources */,
 				6F22589F1B48580100D1E3F1 /* money-icon-full@2x.png in Resources */,
 				F69F6A6A1B4718A100FE29B9 /* Images.xcassets in Resources */,
 				6F4730EB1B47D25B00E99508 /* DimitrisLocation.gpx in Resources */,
@@ -375,9 +377,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F2258BF1B4891FF00D1E3F1 /* ATMDetailBankViewController.m in Sources */,
 				08BA57A01B475E0900C8EC19 /* AFURLConnectionOperation.m in Sources */,
 				08BA579B1B475E0900C8EC19 /* AFHTTPRequestOperation.m in Sources */,
-				08D2CDF61B47E7BF00E2A2E3 /* BankView.m in Sources */,
 				08BA579E1B475E0900C8EC19 /* AFNetworkReachabilityManager.m in Sources */,
 				6F4730F01B47DBA200E99508 /* ATMBankTableViewCell.m in Sources */,
 				08BA57A31B475E0900C8EC19 /* AFURLSessionManager.m in Sources */,

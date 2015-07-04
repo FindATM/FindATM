@@ -11,6 +11,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "Bank.h"
 #import "ATMBankTableViewCell.h"
+#import "ATMDetailBankViewController.h"
 #import "MapViewController.h"
 
 @interface ATMMainViewController   ()
@@ -24,7 +25,6 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = NSLocalizedStringFromTable(@"mainviewcontroller.title", @"Localization", nil);
-    // Do any additional setup after loading the view, typically from a nib.
     
     //adding observer to being notify when location property is changed
     self.tableView.rowHeight = 80;
@@ -97,7 +97,15 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     
     Bank *bank = [Eng.getNearestBanks.banksData objectAtIndex:indexPath.row];
 
-    // TODO: Display view controller
+    // Hides the
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backButtonItem];
+    
+    ATMDetailBankViewController  *map = [[ATMDetailBankViewController alloc] init];
+    [self.navigationController pushViewController:map animated:YES];
+
+
+    
     
 //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 //    NSDictionary *parameters = @{@"buid": @(bank.buid),@"state":@(bank.bankState)};
