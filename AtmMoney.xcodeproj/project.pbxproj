@@ -25,6 +25,9 @@
 		6F4730E81B47D02A00E99508 /* GetNearestBanks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730E71B47D02A00E99508 /* GetNearestBanks.m */; };
 		6F4730EB1B47D25B00E99508 /* DimitrisLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6F4730EA1B47D25B00E99508 /* DimitrisLocation.gpx */; };
 		6F4730ED1B47D85C00E99508 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4730EC1B47D85C00E99508 /* MapKit.framework */; };
+		6F4730F01B47DBA200E99508 /* ATMBankTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730EF1B47DBA200E99508 /* ATMBankTableViewCell.m */; };
+		6F4730F51B47DEB900E99508 /* atm-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4730F31B47DEB900E99508 /* atm-placeholder@2x.png */; };
+		6F4730F61B47DEB900E99508 /* atm-placeholder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4730F41B47DEB900E99508 /* atm-placeholder@3x.png */; };
 		F69F6A5F1B4718A100FE29B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A5E1B4718A100FE29B9 /* main.m */; };
 		F69F6A621B4718A100FE29B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A611B4718A100FE29B9 /* AppDelegate.m */; };
 		F69F6A651B4718A100FE29B9 /* ATMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A641B4718A100FE29B9 /* ATMMainViewController.m */; };
@@ -78,6 +81,10 @@
 		6F4730E91B47D0FA00E99508 /* Common-Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Common-Prefix.h"; sourceTree = "<group>"; };
 		6F4730EA1B47D25B00E99508 /* DimitrisLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DimitrisLocation.gpx; sourceTree = "<group>"; };
 		6F4730EC1B47D85C00E99508 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6F4730EE1B47DBA200E99508 /* ATMBankTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMBankTableViewCell.h; sourceTree = "<group>"; };
+		6F4730EF1B47DBA200E99508 /* ATMBankTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMBankTableViewCell.m; sourceTree = "<group>"; };
+		6F4730F31B47DEB900E99508 /* atm-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atm-placeholder@2x.png"; sourceTree = "<group>"; };
+		6F4730F41B47DEB900E99508 /* atm-placeholder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atm-placeholder@3x.png"; sourceTree = "<group>"; };
 		F69F6A591B4718A100FE29B9 /* AtmMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtmMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69F6A5D1B4718A100FE29B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F69F6A5E1B4718A100FE29B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -161,6 +168,15 @@
 			path = Engine;
 			sourceTree = "<group>";
 		};
+		6F4730F21B47DEB900E99508 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6F4730F31B47DEB900E99508 /* atm-placeholder@2x.png */,
+				6F4730F41B47DEB900E99508 /* atm-placeholder@3x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		F69F6A501B4718A100FE29B9 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +202,7 @@
 		F69F6A5B1B4718A100FE29B9 /* AtmMoney */ = {
 			isa = PBXGroup;
 			children = (
+				6F4730F21B47DEB900E99508 /* Images */,
 				6F4730E91B47D0FA00E99508 /* Common-Prefix.h */,
 				08BA57871B475E0900C8EC19 /* AFNetworking */,
 				08BA577D1B475B2900C8EC19 /* Model */,
@@ -196,6 +213,8 @@
 				F69F6A611B4718A100FE29B9 /* AppDelegate.m */,
 				F69F6A631B4718A100FE29B9 /* ATMMainViewController.h */,
 				F69F6A641B4718A100FE29B9 /* ATMMainViewController.m */,
+				6F4730EE1B47DBA200E99508 /* ATMBankTableViewCell.h */,
+				6F4730EF1B47DBA200E99508 /* ATMBankTableViewCell.m */,
 				F69F6A661B4718A100FE29B9 /* Main.storyboard */,
 				F69F6A691B4718A100FE29B9 /* Images.xcassets */,
 				F69F6A6B1B4718A100FE29B9 /* LaunchScreen.xib */,
@@ -323,6 +342,8 @@
 				F69F6A6D1B4718A100FE29B9 /* LaunchScreen.xib in Resources */,
 				F69F6A6A1B4718A100FE29B9 /* Images.xcassets in Resources */,
 				6F4730EB1B47D25B00E99508 /* DimitrisLocation.gpx in Resources */,
+				6F4730F61B47DEB900E99508 /* atm-placeholder@3x.png in Resources */,
+				6F4730F51B47DEB900E99508 /* atm-placeholder@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +364,7 @@
 				08BA57A01B475E0900C8EC19 /* AFURLConnectionOperation.m in Sources */,
 				08BA579B1B475E0900C8EC19 /* AFHTTPRequestOperation.m in Sources */,
 				08BA579E1B475E0900C8EC19 /* AFNetworkReachabilityManager.m in Sources */,
+				6F4730F01B47DBA200E99508 /* ATMBankTableViewCell.m in Sources */,
 				08BA57A31B475E0900C8EC19 /* AFURLSessionManager.m in Sources */,
 				08BA57A11B475E0900C8EC19 /* AFURLRequestSerialization.m in Sources */,
 				08BA57801B475B3300C8EC19 /* Bank.m in Sources */,

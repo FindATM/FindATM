@@ -10,66 +10,61 @@
 #import "DataHandler.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "Bank.h"
+#import "ATMBankTableViewCell.h"
 
 @interface ATMMainViewController   ()
-
-@end
-
-@interface ATMMainViewController () {
-
-    UITableView *_tableView;
-    NSMutableArray *banksData;
-}
-
+@property (nonatomic, strong) NSMutableArray *banksData;
 @end
 
 @implementation ATMMainViewController
 
+static NSString *simpleTableIdentifier = @"bankItemIdentifier";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationItem.title = @"ATMs";
     // Do any additional setup after loading the view, typically from a nib.
     
     //adding observer to being notify when location property is changed
-    [Data addObserver:self forKeyPath:CURRENT_LOCATION_KEY options:NSKeyValueObservingOptionNew context:nil];
+    self.tableView.rowHeight = 70;
+    [self.tableView registerClass:[ATMBankTableViewCell class] forCellReuseIdentifier:simpleTableIdentifier];
+    self.tableView.separatorInset = UIEdgeInsetsZero;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
-    
+    [Data addObserver:self forKeyPath:CURRENT_LOCATION_KEY options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
 
     [super viewDidDisappear:animated];
-   [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [Data removeObserver:self forKeyPath:CURRENT_LOCATION_KEY];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [banksData count];
+    return [self.banksData count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    static NSString *simpleTableIdentifier = @"BankItem";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
-    
-    Bank *bank = [banksData objectAtIndex:indexPath.row];
-    cell.textLabel.text = bank.name;
+    ATMBankTableViewCell *cell = (ATMBankTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
+
+    Bank *bank = [self.banksData objectAtIndex:indexPath.row];
+    [cell updateWithBank:bank];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    Bank *bank = [banksData objectAtIndex:indexPath.row];
+    Bank *bank = [self.banksData objectAtIndex:indexPath.row];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"buid": @(bank.buid),@"state":@(bank.bankState)};
@@ -104,7 +99,7 @@
 //http://dimmdesign.com/clients/atmmoney/api/submitBank?buid=16&state=2
 //http://dimmdesign.com/clients/atmmoney/api/getNearestBanks?lat=21.4&lng=38.6
     
-    banksData = [[NSMutableArray alloc]init];
+    self.banksData = [[NSMutableArray alloc]init];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"lng": @([Data getLongitude]),@"lat":@([Data getLatitude])};
@@ -112,7 +107,7 @@
         NSLog(@"JSON: %@", responseObject);
         [[responseObject objectForKey:@"banks"] enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
             Bank *bank = [[Bank alloc]initWithDict:dict];
-            [banksData addObject:bank];
+            [self.banksData addObject:bank];
         }];
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
