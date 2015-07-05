@@ -17,11 +17,11 @@
 @implementation MapViewController {
 
     MKMapView *_mapView;
-    UIToolbar *toolBar;
 
     CLLocationCoordinate2D location;
 //    MKPointAnnotation *newAnnotation;
     NSMutableArray *newAnnotations;
+    UIBarButtonItem *directionButton;
 
 }
 
@@ -34,46 +34,40 @@
         [newAnnotations addObject:newAnnotation];
     }];
     [_mapView addAnnotations:newAnnotations];
+    _mapView.region = MKCoordinateRegionMakeWithDistance(_mapView.userLocation.coordinate, 150, 150);
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,40, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-40)];
+    _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-40)];
     
     _mapView.delegate = self;
     
+
+    
     [self.view addSubview:_mapView];
     
-    toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.view.frame)-40, CGRectGetWidth(self.view.frame), 40)];
-    [self.view addSubview:toolBar];
     
-    UIBarButtonItem *zoomButton =
-    [[UIBarButtonItem alloc]
-     initWithTitle: @"Zoom"
-     style:UIBarButtonItemStylePlain
-     target: self
-     action:@selector(zoomIn:)];
-    
-    NSArray *buttons = [[NSArray alloc]
-                        initWithObjects:zoomButton, nil];
-    
-    toolBar.items = buttons;
+    directionButton = [[UIBarButtonItem alloc]
+              initWithTitle:@"Directions"
+              style:UIBarButtonItemStyleBordered
+              target:self
+              action:@selector(directionsPressed)];
+    self.navigationItem.rightBarButtonItem = directionButton;
+
     [self showAnnotations];
     // Do any additional setup after loading the view.
+}
+
+- (void)directionsPressed {
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (void)zoomIn: (id)sender
-{
-
-    MKUserLocation *userLocation = _mapView.userLocation;
-    MKCoordinateRegion region =
-    MKCoordinateRegionMakeWithDistance (
-                                        userLocation.location.coordinate, 50, 50);
-    [_mapView setRegion:region animated:NO];
 }
 
 
