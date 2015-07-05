@@ -35,11 +35,11 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
     
-//    self.mapButton = [[UIButton alloc]init];
-//    [self.mapButton setTitle:@"Map" forState:UIControlStateNormal];
-//    [self.mapButton sizeToFit];
-//    [self.mapButton addTarget:self action:@selector(openMap) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:self.mapButton];
+    self.mapButton = [[UIButton alloc]init];
+    [self.mapButton setTitle:@"Map" forState:UIControlStateNormal];
+    [self.mapButton sizeToFit];
+    [self.mapButton addTarget:self action:@selector(openMap) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.mapButton];
     
 }
 
@@ -54,6 +54,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     
     MapViewController *map = [[MapViewController alloc]init];
     [self.navigationController pushViewController:map animated:YES];
+    map.coords = Eng.getNearestBanks.banksData;
     [map showAnnotations];
 }
 
@@ -109,9 +110,6 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
         
     }];
 
-
-    
-    
 //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 //    NSDictionary *parameters = @{@"buid": @(bank.buid),@"state":@(bank.bankState)};
 //    [manager POST:@"http://dimmdesign.com/clients/atmmoney/api/submitBank" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {

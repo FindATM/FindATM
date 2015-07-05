@@ -19,20 +19,21 @@
     UIToolbar *toolBar;
 
     CLLocationCoordinate2D location;
-    MKPointAnnotation *newAnnotation;
+//    MKPointAnnotation *newAnnotation;
     NSMutableArray *newAnnotations;
 
 }
 
 - (void)showAnnotations {
     newAnnotations = [[NSMutableArray alloc]init];
-    
+    mapView = [[MKMapView alloc]init];
     [self.coords enumerateObjectsUsingBlock:^(Bank *obj, NSUInteger idx, BOOL *stop) {
-        newAnnotation = [[MKPointAnnotation alloc] init];
+        MKPointAnnotation * newAnnotation = [[MKPointAnnotation alloc] init];
         newAnnotation.title = obj.name;
         newAnnotation.coordinate = obj.location;
         [newAnnotations addObject:newAnnotation];
     }];
+    [mapView addAnnotations:newAnnotations];
 }
 
 - (void)viewDidLoad {
@@ -40,7 +41,6 @@
     mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,40, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-40)];
     
     mapView.delegate = self;
-
     
     [self.view addSubview:mapView];
     

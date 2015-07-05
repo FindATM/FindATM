@@ -53,8 +53,6 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     self.hasTwentiesLabel.text = NSLocalizedStringFromTable(@"detail.view.hastwenties", @"Localization", @"");
     
     [self.hasMoneySwitch addTarget:self action:@selector(hasMoneySwitchValueChanged) forControlEvents:UIControlEventValueChanged];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -122,7 +120,6 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 #pragma mark - Table View Methods -
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning to be changed to show the latest activity.
     return Eng.getNearestBanks.bankHistoryData.count;
 }
 
@@ -174,8 +171,6 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
         case EBankStateNoMoney:
             return @"money-icon-empty";
             break;
-            
-            
         default:
             break;
     }
