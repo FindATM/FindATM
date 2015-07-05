@@ -55,7 +55,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 - (void)openMap {
     if([Eng.getNearestBanks.banksData count] == 0) return;
     
-    MapViewController *map = [[MapViewController alloc]init];
+    MapViewController *map = [[MapViewController alloc] init];
     [self.navigationController pushViewController:map animated:YES];
     map.coords = Eng.getNearestBanks.banksData;
 }
@@ -64,9 +64,16 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
     [super viewWillAppear:animated];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
     [self.refreshControl beginRefreshing];
-    [self refreshTableView];
-     
+    
+    [Data startUpdatingLocation];
+    
     [Data addObserver:self forKeyPath:CURRENT_LOCATION_KEY options:NSKeyValueObservingOptionNew context:nil];
     
 }
@@ -89,16 +96,17 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
     ATMBankTableViewCell *cell = (ATMBankTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
     
-    Bank *bank = [Eng.getNearestBanks.banksData objectAtIndex:indexPath.row];
-    [cell updateWithBank:bank];
+    if (Eng.getNearestBanks.banksData.count) {
+        Bank *bank = [Eng.getNearestBanks.banksData objectAtIndex:indexPath.row];
+        [cell updateWithBank:bank];
+    }
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    ATMBankTableViewCell *cell = (ATMBankTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-//    cell.selected = NO;
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+   [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     Bank *bank = [Eng.getNearestBanks.banksData objectAtIndex:indexPath.row];
 
@@ -106,23 +114,20 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButtonItem];
     
-    ATMDetailBankViewController  *map = [[ATMDetailBankViewController alloc] init];
-    map.currentBank = bank;
-    [Eng.getNearestBanks getBankHistoryWithId:bank.buid withCompletion:^{
-        [self.navigationController pushViewController:map animated:YES];
-        [map updateViewWithState:map.currentBank.bankType];
-    } andFailure:^{
-        
-    }];
+    ATMDetailBankViewController  *atmDetailViewController = [[ATMDetailBankViewController alloc] initWithBank:bank];
+    
+    [SVProgressHUD show];
+    [Eng.getNearestBanks getBankHistoryWithId:bank.buid
+                               withCompletion:^{
+                                   [SVProgressHUD dismiss];
+                                   [self.navigationController pushViewController:atmDetailViewController animated:YES];
+                                   
+                               }
+                                   andFailure:^{
+                                       [SVProgressHUD showErrorWithStatus:@"Network Failure"];
+                                   
+                                   }];
 
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    NSDictionary *parameters = @{@"buid": @(bank.buid),@"state":@(bank.bankState)};
-//    [manager POST:@"http://dimmdesign.com/clients/atmmoney/api/submitBank" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"JSON: %@", responseObject);
-//        NSLog(@"Submit ok!");
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Error: %@", error);
-//    }];
 
 }
 

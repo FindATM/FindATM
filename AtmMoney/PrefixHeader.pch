@@ -17,6 +17,8 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <QuartzCore/QuartzCore.h>
 #import "Engine.h"
+#import "SVProgressHUD.h"
+#import "Toolkit.h"
 
 typedef void (^JSONResponseBlock)(NSDictionary* json);
 typedef void (^MutableArrayResponseBlock) (NSMutableArray *mutableArray);

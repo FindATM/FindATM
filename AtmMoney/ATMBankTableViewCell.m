@@ -155,68 +155,23 @@
 }
 
 - (void)updateWithBank:(Bank *)bank {
-    self.titleLabel.text = [bank getBankNameFromType:bank.bankType];
+    self.titleLabel.text = [Bank getBankNameFromType:bank.bankType];
     self.addressLabel.text = bank.name;
     
-    self.moneyLabel.text = [bank getStateNameFromState:bank.bankState];
-    self.moneyLabel.textColor = [self getTextColorFromBankState:bank.bankState];
-    self.moneyIcon.image = [UIImage imageNamed:[self getImageNameFromBankState:bank.bankState]];
+    self.moneyLabel.text = [Bank getStateNameFromState:bank.bankState];
+    self.moneyLabel.textColor = [Bank getTextColorFromBankState:bank.bankState];
+    self.moneyIcon.image = [UIImage imageNamed:[Bank getImageNameFromBankState:bank.bankState]];
     
     CLLocation *location = [[CLLocation alloc] initWithLatitude:bank.latitude longitude:bank.longtitude];
     [Data getAddressFromLocation:location WithCompletion:^(NSString *message) {
         self.addressLabel.text = message;
+        [bank updateAddress:message];
     }];
-    
    
     self.visitorsLabel.text = [NSString stringWithFormat:NSLocalizedStringFromTable(@"%ld visitors.count", @"Localization", @""), (long)bank.visitors];
     
     [self layoutIfNeeded];
     
 }
-
-- (NSString *)getImageNameFromBankState:(EBankState)bankState
-{
-    switch (bankState) {
-        case EbankStateUknown:
-            return @"money-icon-full";
-            break;
-            
-        case EbankStateMoneyAndTwenties:
-            return @"money-icon-full";
-            break;
-            
-        case EBankStateNoMoney:
-            return @"money-icon-empty";
-            break;
-
-
-        default:
-            break;
-    }
-    return @"money-icon-full";
-}
-
-- (UIColor *)getTextColorFromBankState:(EBankState)bankState
-{
-    switch (bankState) {
-        case EbankStateUknown:
-            return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
-            break;
-            
-        case EbankStateMoneyAndTwenties:
-            return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
-            break;
-            
-        case EBankStateNoMoney:
-            return [UIColor colorWithRed:0.89 green:0.13 blue:0.07 alpha:1.0];
-            break;
-            
-            
-        default:
-            break;
-    }
-    return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
-}
-
 
 @end

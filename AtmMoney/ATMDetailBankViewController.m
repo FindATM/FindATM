@@ -11,14 +11,9 @@
 #import "DataHandler.h"
 
 
-@interface HistoryCell : UITableViewCell
-
-- (void)updateWithHistory:(BankHistory *)history;
-
-@end
-
-
 @interface ATMDetailBankViewController ()
+
+@property (nonatomic, weak) Bank *bankData;
 
 @property (weak, nonatomic) IBOutlet UIImageView *bankLogoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *bankNameLabel;
@@ -42,6 +37,14 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 
 @implementation ATMDetailBankViewController
 
+- (instancetype)initWithBank:(Bank *)bank {
+    self = [super init];
+    if (self) {
+        self.bankData = bank;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -55,15 +58,17 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     self.latestActivityTableView.delegate = self;
     self.latestActivityTableView.dataSource = self;
 
-    [self.latestActivityTableView registerClass:[HistoryCell class] forCellReuseIdentifier:activityCellItemIdentifier];
-    
+    [self.latestActivityTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:activityCellItemIdentifier];
+
     //
     self.hasMoneyLabel.text = NSLocalizedStringFromTable(@"detail.view.hasmoney", @"Localization", @"");
     self.hasTwentiesLabel.text = NSLocalizedStringFromTable(@"detail.view.hastwenties", @"Localization", @"");
     
+    self.bankNameLabel.text = [Bank getBankNameFromType:self.bankData.bankType];
+    
     [self.hasMoneySwitch addTarget:self action:@selector(hasMoneySwitchValueChanged) forControlEvents:UIControlEventValueChanged];
     
-    [self updateViewWithState:self.currentBank.bankType];
+    [self updateViewWithState:self.bankData.bankType];
     
 }
 
@@ -82,7 +87,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     else
         state = EbankStateMoneyNoTwenties;
     
-    [Eng.submitBank submitBankWithBankID:self.currentBank.buid andBankState:state withCompletion:^{
+    [Eng.submitBank submitBankWithBankID:self.bankData.buid andBankState:state withCompletion:^{
         [self.navigationController popViewControllerAnimated:YES];
     } andFailure:^{
         
@@ -91,9 +96,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 
 - (void)updateViewWithState:(EBankType)state {
 
-    Bank *bank = [[Bank alloc]init];
-
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:self.currentBank.latitude longitude:self.currentBank.longtitude];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:self.bankData.latitude longitude:self.bankData.longtitude];
 
     [Data getAddressFromLocation:location WithCompletion:^(NSString *message) {
         self.bankAddressLabel.text = message;
@@ -148,13 +151,15 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    HistoryCell *cell =  (HistoryCell *)[tableView dequeueReusableCellWithIdentifier:activityCellItemIdentifier forIndexPath:indexPath];
-    
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:activityCellItemIdentifier forIndexPath:indexPath];
     cell.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.0] : [UIColor whiteColor];
     BankHistory *history = [Eng.getNearestBanks.bankHistoryData objectAtIndex:indexPath.row];
-
-    [cell updateWithHistory:history];
+    
+    NSString *dateString        = [Tk.dateFormatter stringFromDate:history.time];
+    NSString *bankStateString   = [Bank getReadableStateFromBankState:history.bankState];
+    cell.textLabel.font = [UIFont systemFontOfSize:13];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@\t%@", dateString, bankStateString];
     
     return cell;
 }
@@ -162,7 +167,6 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
 
 // from: http://stackoverflow.com/questions/25770119/ios-8-uitableview-separator-inset-0-not-working
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -181,70 +185,6 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
-}
-
-
-- (NSString *)getImageNameFromBankState:(EBankState)bankState
-{
-    switch (bankState) {
-        case EbankStateUknown:
-            return @"money-icon-full";
-            break;
-            
-        case EbankStateMoneyAndTwenties:
-            return @"money-icon-full";
-            break;
-            
-        case EBankStateNoMoney:
-            return @"money-icon-empty";
-            break;
-        default:
-            break;
-    }
-    return @"money-icon-full";
-}
-
-
-
-@end
-
-
-@implementation HistoryCell {
-
-    UILabel *moneyLabel;
-}
-
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        
-        moneyLabel = [[UILabel alloc]init];
-        [self addSubview:moneyLabel];
-        
-        moneyLabel.font = [UIFont systemFontOfSize:11];
-        [moneyLabel sizeToFit];
-
-
-        
-    }
-    return self;
-}
-- (void)updateWithHistory:(BankHistory *)history{
-    Bank *bank = [[Bank alloc]init];
-    NSString *dateString = [NSDateFormatter localizedStringFromDate:history.time
-                                                          dateStyle:NSDateFormatterShortStyle
-                                                          timeStyle:NSDateFormatterShortStyle];
-
-    self.textLabel.text = dateString;
-    moneyLabel.text = [bank getStateNameFromState:history.bankState];
-
-}
-
-- (void)layoutSubviews {
-
-    [super layoutSubviews];
-    [moneyLabel sizeToFit];
-    moneyLabel.frame = CGRectMake(CGRectGetWidth(self.frame)-CGRectGetWidth(moneyLabel.frame) - 20 , floorf((CGRectGetHeight(self.frame)-CGRectGetHeight(moneyLabel.frame))*0.5), CGRectGetWidth(moneyLabel.frame), CGRectGetHeight(moneyLabel.frame));
 }
 
 @end

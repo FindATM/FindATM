@@ -20,6 +20,9 @@
     
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.0 green:0.52 blue:0.75 alpha:1.0]];
     
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    
+    
     return YES;
 }
 

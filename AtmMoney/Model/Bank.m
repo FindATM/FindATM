@@ -44,7 +44,11 @@
     return self;
 }
 
-- (NSString *)getBankNameFromType:(EBankType)bankType {
+- (void)updateAddress:(NSString *)address {
+    self.address = address;
+}
+
++ (NSString *)getBankNameFromType:(EBankType)bankType {
     switch (bankType) {
         case EBankTypeAlpha:
         case EBankTypeCitybank:
@@ -76,7 +80,7 @@
     return @"";
 }
 
-- (NSString *)getStateNameFromState:(EBankState)bankState {
++ (NSString *)getStateNameFromState:(EBankState)bankState {
     switch (bankState) {
         case EbankStateMoneyNoTwenties:
             return NSLocalizedStringFromTable(@"bankstate.money", @"Localization", nil);
@@ -91,10 +95,77 @@
             return NSLocalizedStringFromTable(@"No information", @"Localization", nil);
             break;
         default:
-            return NSLocalizedStringFromTable(@"skata", @"Localization", nil);
+            return NSLocalizedStringFromTable(@"", @"Localization", nil);
             break;
     }
     return @"";
 }
+
+
++ (UIColor *)getTextColorFromBankState:(EBankState)bankState {
+    switch (bankState) {
+        case EbankStateUknown:
+            return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
+            break;
+            
+        case EbankStateMoneyAndTwenties:
+            return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
+            break;
+            
+        case EBankStateNoMoney:
+            return [UIColor colorWithRed:0.89 green:0.13 blue:0.07 alpha:1.0];
+            break;
+            
+            
+        default:
+            break;
+    }
+    return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
+}
+
++ (NSString *)getImageNameFromBankState:(EBankState)bankState {
+    switch (bankState) {
+        case EbankStateUknown:
+            return @"money-icon-full";
+            break;
+            
+        case EbankStateMoneyAndTwenties:
+            return @"money-icon-full";
+            break;
+            
+        case EBankStateNoMoney:
+            return @"money-icon-empty";
+            break;
+            
+            
+        default:
+            break;
+    }
+    return @"money-icon-full";
+}
+
++ (NSString *)getReadableStateFromBankState:(EBankState)bankState
+{
+    switch (bankState) {
+        case EbankStateMoneyNoTwenties:
+            return NSLocalizedStringFromTable(@"bankstate.money.readable", @"Localization", nil);
+            break;
+        case EbankStateMoneyAndTwenties:
+            return NSLocalizedStringFromTable(@"bankstate.moneytwenties.readable", @"Localization", nil);
+            break;
+        case EBankStateNoMoney:
+            return NSLocalizedStringFromTable(@"bankstate.nomoney.readable", @"Localization", nil);
+            break;
+        case EbankStateUknown:
+            return NSLocalizedStringFromTable(@"No information", @"Localization", nil);
+            break;
+        default:
+            return NSLocalizedStringFromTable(@"", @"Localization", nil);
+            break;
+    }
+    return @"";
+
+}
+
 
 @end

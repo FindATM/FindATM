@@ -28,6 +28,7 @@
     if(self) {
         self.bankState = [[dict objectForKey:@"state"] integerValue];
         formatter = [[NSDateFormatter alloc] init];
+        formatter.timeZone = [NSTimeZone timeZoneWithName:@"Europe/Athens"];
         [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         self.time = [formatter dateFromString:[dict objectForKey:@"time"]];
 

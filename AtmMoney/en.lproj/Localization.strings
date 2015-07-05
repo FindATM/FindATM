@@ -26,6 +26,10 @@
 "bankstate.moneytwenties"   = "Money, gives 20€";
 "bankstate.nomoney"         = "Empty";
 
+"bankstate.money.readable"           = "Has money";
+"bankstate.moneytwenties.readable"   = "Has money, gives 20€";
+"bankstate.nomoney.readable"         = "Empty";
+
 
 "detail.view.hasmoney"      = "Does this ATM gives money?";
 "detail.view.hastwenties"   = "Does it also gives twenties?";
