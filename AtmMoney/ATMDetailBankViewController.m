@@ -11,6 +11,13 @@
 #import "DataHandler.h"
 
 
+@interface HistoryCell : UITableViewCell
+
+- (void)updateWithHistory:(BankHistory *)history;
+
+@end
+
+
 @interface ATMDetailBankViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *bankLogoImageView;
@@ -48,7 +55,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     self.latestActivityTableView.delegate = self;
     self.latestActivityTableView.dataSource = self;
 
-    [self.latestActivityTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:activityCellItemIdentifier];
+    [self.latestActivityTableView registerClass:[HistoryCell class] forCellReuseIdentifier:activityCellItemIdentifier];
     
     //
     self.hasMoneyLabel.text = NSLocalizedStringFromTable(@"detail.view.hasmoney", @"Localization", @"");
@@ -141,23 +148,13 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:activityCellItemIdentifier forIndexPath:indexPath];
+    HistoryCell *cell =  (HistoryCell *)[tableView dequeueReusableCellWithIdentifier:activityCellItemIdentifier forIndexPath:indexPath];
+    
+    
     cell.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.0] : [UIColor whiteColor];
     BankHistory *history = [Eng.getNearestBanks.bankHistoryData objectAtIndex:indexPath.row];
-    NSString *dateString = [NSDateFormatter localizedStringFromDate:history.time
-                                                          dateStyle:NSDateFormatterShortStyle
-                                                          timeStyle:NSDateFormatterShortStyle];
-    cell.textLabel.text = dateString;
-    
-    Bank *bank = [[Bank alloc]init];
-    
-    UILabel *lbl = [[UILabel alloc]init];
-    lbl.text = [bank getStateNameFromState:history.bankState];
-    NSLog(@"%@",lbl.text);
-    lbl.font = [UIFont systemFontOfSize:11];
-    [lbl sizeToFit];
-    lbl.frame = CGRectMake(CGRectGetWidth(cell.frame)-CGRectGetWidth(lbl.frame) , floorf((CGRectGetHeight(cell.frame)-CGRectGetHeight(lbl.frame))*0.5), CGRectGetWidth(lbl.frame), CGRectGetHeight(lbl.frame));
-    [cell addSubview:lbl];
+
+    [cell updateWithHistory:history];
     
     return cell;
 }
@@ -165,6 +162,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
 
 // from: http://stackoverflow.com/questions/25770119/ios-8-uitableview-separator-inset-0-not-working
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -204,6 +202,49 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
             break;
     }
     return @"money-icon-full";
+}
+
+
+
+@end
+
+
+@implementation HistoryCell {
+
+    UILabel *moneyLabel;
+}
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        
+        moneyLabel = [[UILabel alloc]init];
+        [self addSubview:moneyLabel];
+        
+        moneyLabel.font = [UIFont systemFontOfSize:11];
+        [moneyLabel sizeToFit];
+
+
+        
+    }
+    return self;
+}
+- (void)updateWithHistory:(BankHistory *)history{
+    Bank *bank = [[Bank alloc]init];
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:history.time
+                                                          dateStyle:NSDateFormatterShortStyle
+                                                          timeStyle:NSDateFormatterShortStyle];
+
+    self.textLabel.text = dateString;
+    moneyLabel.text = [bank getStateNameFromState:history.bankState];
+
+}
+
+- (void)layoutSubviews {
+
+    [super layoutSubviews];
+    [moneyLabel sizeToFit];
+    moneyLabel.frame = CGRectMake(CGRectGetWidth(self.frame)-CGRectGetWidth(moneyLabel.frame) - 20 , floorf((CGRectGetHeight(self.frame)-CGRectGetHeight(moneyLabel.frame))*0.5), CGRectGetWidth(moneyLabel.frame), CGRectGetHeight(moneyLabel.frame));
 }
 
 @end

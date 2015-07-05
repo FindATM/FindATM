@@ -15,10 +15,12 @@
 #import "MapViewController.h"
 
 @interface ATMMainViewController   ()
-@property (nonatomic, strong) UIButton *mapButton;
 @end
 
-@implementation ATMMainViewController
+@implementation ATMMainViewController {
+
+    UIBarButtonItem *btnMap;
+}
 
 static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
@@ -35,12 +37,13 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
     
-    self.mapButton = [[UIButton alloc]init];
-    [self.mapButton setTitle:@"Map" forState:UIControlStateNormal];
-    [self.mapButton sizeToFit];
-    [self.mapButton addTarget:self action:@selector(openMap) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.mapButton];
-    
+    btnMap = [[UIBarButtonItem alloc]
+                                initWithTitle:@"Map"
+                                style:UIBarButtonItemStyleBordered
+                                target:self
+                                action:@selector(openMap)];
+    self.navigationItem.rightBarButtonItem = btnMap;
+
 }
 
 - (void)refreshTableView {
@@ -66,7 +69,6 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
      
     [Data addObserver:self forKeyPath:CURRENT_LOCATION_KEY options:NSKeyValueObservingOptionNew context:nil];
     
-    self.mapButton.frame = CGRectMake(0, 0, CGRectGetWidth(self.mapButton.frame), CGRectGetHeight(self.mapButton.frame));
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -108,6 +110,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     map.currentBank = bank;
     [Eng.getNearestBanks getBankHistoryWithId:bank.buid withCompletion:^{
         [self.navigationController pushViewController:map animated:YES];
+        [map updateViewWithState:map.currentBank.bankType];
     } andFailure:^{
         
     }];
