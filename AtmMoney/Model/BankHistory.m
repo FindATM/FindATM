@@ -26,7 +26,7 @@
     
     self = [super init];
     if(self) {
-        self.bankState = 3;//[[dict objectForKey:@"state"] integerValue];
+        self.bankState = [[dict objectForKey:@"state"] integerValue];
         formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         self.time = [formatter dateFromString:[dict objectForKey:@"time"]];

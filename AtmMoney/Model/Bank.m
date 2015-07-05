@@ -27,7 +27,6 @@
 @implementation Bank
 
 - (instancetype)initWithDict:(NSDictionary *)dict {
-
     
     self = [super init];
     if(self) {
@@ -83,20 +82,20 @@
 
 - (NSString *)getStateNameFromState:(EBankState)bankState {
     switch (bankState) {
-        case EbankStateUknown:
+        case EbankStateMoneyNoTwenties:
             return NSLocalizedStringFromTable(@"bankstate.money", @"Localization", nil);
             break;
-            
         case EbankStateMoneyAndTwenties:
             return NSLocalizedStringFromTable(@"bankstate.moneytwenties", @"Localization", nil);
             break;
-
         case EBankStateNoMoney:
             return NSLocalizedStringFromTable(@"bankstate.nomoney", @"Localization", nil);
             break;
-
+        case EbankStateUknown:
+            return NSLocalizedStringFromTable(@"No information", @"Localization", nil);
+            break;
         default:
-            return NSLocalizedStringFromTable(@"bankstate.money", @"Localization", nil);
+            return NSLocalizedStringFromTable(@"skata", @"Localization", nil);
             break;
     }
     return @"";
