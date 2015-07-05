@@ -21,7 +21,9 @@
 		08BA57A11B475E0900C8EC19 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA57961B475E0900C8EC19 /* AFURLRequestSerialization.m */; };
 		08BA57A21B475E0900C8EC19 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA57981B475E0900C8EC19 /* AFURLResponseSerialization.m */; };
 		08BA57A31B475E0900C8EC19 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA579A1B475E0900C8EC19 /* AFURLSessionManager.m */; };
+		08C5ABED1B4985F10078106D /* MoneyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C5ABEC1B4985F10078106D /* MoneyView.m */; };
 		08D2CDF91B47E9B400E2A2E3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */; };
+		08D2CDFC1B49475900E2A2E3 /* BankHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2CDFB1B49475900E2A2E3 /* BankHistory.m */; };
 		6F22589B1B48580100D1E3F1 /* cell-disclosure-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258931B48580100D1E3F1 /* cell-disclosure-icon@2x.png */; };
 		6F22589C1B48580100D1E3F1 /* cell-disclosure-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258941B48580100D1E3F1 /* cell-disclosure-icon@3x.png */; };
 		6F22589D1B48580100D1E3F1 /* money-icon-empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258951B48580100D1E3F1 /* money-icon-empty@2x.png */; };
@@ -77,8 +79,12 @@
 		08BA57981B475E0900C8EC19 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		08BA57991B475E0900C8EC19 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		08BA579A1B475E0900C8EC19 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		08C5ABEB1B4985F10078106D /* MoneyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyView.h; sourceTree = "<group>"; };
+		08C5ABEC1B4985F10078106D /* MoneyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyView.m; sourceTree = "<group>"; };
 		08D2CDF71B47E9B400E2A2E3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		08D2CDFA1B49475900E2A2E3 /* BankHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankHistory.h; sourceTree = "<group>"; };
+		08D2CDFB1B49475900E2A2E3 /* BankHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankHistory.m; sourceTree = "<group>"; };
 		6F2258931B48580100D1E3F1 /* cell-disclosure-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-disclosure-icon@2x.png"; sourceTree = "<group>"; };
 		6F2258941B48580100D1E3F1 /* cell-disclosure-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-disclosure-icon@3x.png"; sourceTree = "<group>"; };
 		6F2258951B48580100D1E3F1 /* money-icon-empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-icon-empty@2x.png"; sourceTree = "<group>"; };
@@ -136,6 +142,8 @@
 		08BA577D1B475B2900C8EC19 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				08D2CDFA1B49475900E2A2E3 /* BankHistory.h */,
+				08D2CDFB1B49475900E2A2E3 /* BankHistory.m */,
 				08BA577E1B475B3300C8EC19 /* Bank.h */,
 				08BA577F1B475B3300C8EC19 /* Bank.m */,
 			);
@@ -271,6 +279,8 @@
 				6F2258AE1B4885EA00D1E3F1 /* el.lproj */,
 				6F2258B11B4885EA00D1E3F1 /* en.lproj */,
 				6F4730F21B47DEB900E99508 /* Images */,
+				08C5ABEB1B4985F10078106D /* MoneyView.h */,
+				08C5ABEC1B4985F10078106D /* MoneyView.m */,
 			);
 			path = AtmMoney;
 			sourceTree = "<group>";
@@ -377,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08D2CDFC1B49475900E2A2E3 /* BankHistory.m in Sources */,
 				6F2258BF1B4891FF00D1E3F1 /* ATMDetailBankViewController.m in Sources */,
 				08BA57A01B475E0900C8EC19 /* AFURLConnectionOperation.m in Sources */,
 				08BA579B1B475E0900C8EC19 /* AFHTTPRequestOperation.m in Sources */,
@@ -395,6 +406,7 @@
 				F69F6A5F1B4718A100FE29B9 /* main.m in Sources */,
 				6F4730E81B47D02A00E99508 /* GetNearestBanks.m in Sources */,
 				08D2CDF91B47E9B400E2A2E3 /* MapViewController.m in Sources */,
+				08C5ABED1B4985F10078106D /* MoneyView.m in Sources */,
 				08BA579D1B475E0900C8EC19 /* AFHTTPSessionManager.m in Sources */,
 				6F4730E51B47CE1100E99508 /* Engine.m in Sources */,
 			);

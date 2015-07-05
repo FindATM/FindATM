@@ -7,6 +7,7 @@
 //
 
 #import "ATMDetailBankViewController.h"
+#import "BankHistory.h"
 
 @interface ATMDetailBankViewController ()
 
@@ -53,6 +54,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     
     [self.hasMoneySwitch addTarget:self action:@selector(hasMoneySwitchValueChanged) forControlEvents:UIControlEventValueChanged];
     
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,7 +64,19 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 
 #pragma mark - Submit Button -
 - (void)submitButtonPressed {
+    EBankState state;
+    if(self.hasMoneySwitch.on == NO)
+        state = EBankStateNoMoney;
+    if (self.hasTwentiesSwitch.on == YES)
+        state = EbankStateMoneyAndTwenties;
+    else
+        state = EbankStateMoneyNoTwenties;
     
+    [Eng.submitBank submitBankWithBankID:self.currentBank.buid andBankState:state withCompletion:^{
+        [self.navigationController popViewControllerAnimated:YES];
+    } andFailure:^{
+        
+    }];
 }
 
 #pragma mark - Has Money & Has Twenties methods -
@@ -109,7 +123,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning to be changed to show the latest activity.
-    return Eng.getNearestBanks.banksData.count;
+    return Eng.getNearestBanks.bankHistoryData.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -117,7 +131,12 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:activityCellItemIdentifier forIndexPath:indexPath];
     cell.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.0] : [UIColor whiteColor];
     cell.selectedBackgroundView = [[UIView alloc] init];
-
+    BankHistory *history = [Eng.getNearestBanks.bankHistoryData objectAtIndex:indexPath.row];
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:history.time
+                                                          dateStyle:NSDateFormatterShortStyle
+                                                          timeStyle:NSDateFormatterShortStyle];
+    cell.textLabel.text = dateString;
+    
     return cell;
 }
 
@@ -140,5 +159,27 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     }
 }
 
+
+- (NSString *)getImageNameFromBankState:(EBankState)bankState
+{
+    switch (bankState) {
+        case EbankStateUknown:
+            return @"money-icon-full";
+            break;
+            
+        case EbankStateMoneyAndTwenties:
+            return @"money-icon-full";
+            break;
+            
+        case EBankStateNoMoney:
+            return @"money-icon-empty";
+            break;
+            
+            
+        default:
+            break;
+    }
+    return @"money-icon-full";
+}
 
 @end

@@ -102,7 +102,12 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     [self.navigationItem setBackBarButtonItem:backButtonItem];
     
     ATMDetailBankViewController  *map = [[ATMDetailBankViewController alloc] init];
-    [self.navigationController pushViewController:map animated:YES];
+    map.currentBank = bank;
+    [Eng.getNearestBanks getBankHistoryWithId:bank.buid withCompletion:^{
+        [self.navigationController pushViewController:map animated:YES];
+    } andFailure:^{
+        
+    }];
 
 
     
