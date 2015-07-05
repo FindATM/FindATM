@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AtmMoney/ATMDetailBankViewController.m"
-            timestampString = "457810999.091395"
+            timestampString = "457828947.88284"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "-submitButtonPressed"
             landmarkType = "5">
             <Locations>
@@ -58,11 +58,11 @@
                   moduleName = "AtmMoney"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/squeezah/AtmMoney/AtmMoney/ATMDetailBankViewController.m"
-                  timestampString = "457821326.830831"
+                  timestampString = "457829492.842805"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
                   offsetFromSymbolStart = "232">
                </Location>
                <Location
@@ -73,46 +73,14 @@
                   moduleName = "AtmMoney"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/squeezah/AtmMoney/AtmMoney/ATMDetailBankViewController.m"
-                  timestampString = "457821326.831098"
+                  timestampString = "457829492.843077"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
                   offsetFromSymbolStart = "12">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AtmMoney/Engine/GetNearestBanks.m"
-            timestampString = "457820547.532283"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-getBankHistoryWithId:withCompletion:andFailure:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AtmMoney/Model/Bank.m"
-            timestampString = "457821326.766518"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "-getStateNameFromState:"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
