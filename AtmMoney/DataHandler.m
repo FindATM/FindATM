@@ -45,6 +45,7 @@ static DataHandler *_sharedInstance = nil;
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     self.locationManager.delegate = self;
+
 }
 
 - (void)startUpdatingLocation {
@@ -60,7 +61,7 @@ static DataHandler *_sharedInstance = nil;
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     
     if(status == kCLAuthorizationStatusNotDetermined || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
-        [self startUpdatingLocation];
+//        [self startUpdatingLocation];
     }
     else if(status == kCLAuthorizationStatusRestricted) {
         [self showMessage];

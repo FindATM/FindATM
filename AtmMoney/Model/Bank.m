@@ -45,6 +45,10 @@
     return self;
 }
 
+- (void)updateAddress:(NSString *)address {
+    self.address = address;
+}
+
 - (NSString *)getBankNameFromType:(EBankType)bankType {
     switch (bankType) {
         case EBankTypeAlpha:
@@ -97,5 +101,49 @@
     }
     return @"";
 }
+
+
+- (UIColor *)getTextColorFromBankState:(EBankState)bankState {
+    switch (bankState) {
+        case EbankStateUknown:
+            return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
+            break;
+            
+        case EbankStateMoneyAndTwenties:
+            return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
+            break;
+            
+        case EBankStateNoMoney:
+            return [UIColor colorWithRed:0.89 green:0.13 blue:0.07 alpha:1.0];
+            break;
+            
+            
+        default:
+            break;
+    }
+    return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
+}
+
+- (NSString *)getImageNameFromBankState:(EBankState)bankState {
+    switch (bankState) {
+        case EbankStateUknown:
+            return @"money-icon-full";
+            break;
+            
+        case EbankStateMoneyAndTwenties:
+            return @"money-icon-full";
+            break;
+            
+        case EBankStateNoMoney:
+            return @"money-icon-empty";
+            break;
+            
+            
+        default:
+            break;
+    }
+    return @"money-icon-full";
+}
+
 
 @end

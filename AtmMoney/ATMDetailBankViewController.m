@@ -13,6 +13,8 @@
 
 @interface ATMDetailBankViewController ()
 
+@property (nonatomic, weak) Bank *bankData;
+
 @property (weak, nonatomic) IBOutlet UIImageView *bankLogoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *bankNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bankAddressLabel;
@@ -35,6 +37,14 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 
 @implementation ATMDetailBankViewController
 
+- (instancetype)initWithBank:(Bank *)bank {
+    self = [super init];
+    if (self) {
+        self.bankData = bank;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -54,9 +64,11 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     self.hasMoneyLabel.text = NSLocalizedStringFromTable(@"detail.view.hasmoney", @"Localization", @"");
     self.hasTwentiesLabel.text = NSLocalizedStringFromTable(@"detail.view.hastwenties", @"Localization", @"");
     
+    self.bankNameLabel.text = [self.bankData getBankNameFromType:self.bankData.bankType];
+    
     [self.hasMoneySwitch addTarget:self action:@selector(hasMoneySwitchValueChanged) forControlEvents:UIControlEventValueChanged];
     
-    [self updateViewWithState:self.currentBank.bankType];
+    [self updateViewWithState:self.bankData.bankType];
     
 }
 
@@ -75,7 +87,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     else
         state = EbankStateMoneyNoTwenties;
     
-    [Eng.submitBank submitBankWithBankID:self.currentBank.buid andBankState:state withCompletion:^{
+    [Eng.submitBank submitBankWithBankID:self.bankData.buid andBankState:state withCompletion:^{
         [self.navigationController popViewControllerAnimated:YES];
     } andFailure:^{
         
@@ -84,9 +96,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 
 - (void)updateViewWithState:(EBankType)state {
 
-    Bank *bank = [[Bank alloc]init];
-
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:self.currentBank.latitude longitude:self.currentBank.longtitude];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:self.bankData.latitude longitude:self.bankData.longtitude];
 
     [Data getAddressFromLocation:location WithCompletion:^(NSString *message) {
         self.bankAddressLabel.text = message;
@@ -144,6 +154,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:activityCellItemIdentifier forIndexPath:indexPath];
     cell.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.0] : [UIColor whiteColor];
     BankHistory *history = [Eng.getNearestBanks.bankHistoryData objectAtIndex:indexPath.row];
+    
     NSString *dateString = [NSDateFormatter localizedStringFromDate:history.time
                                                           dateStyle:NSDateFormatterShortStyle
                                                           timeStyle:NSDateFormatterShortStyle];
