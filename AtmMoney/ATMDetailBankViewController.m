@@ -127,7 +127,6 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:activityCellItemIdentifier forIndexPath:indexPath];
     cell.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.0] : [UIColor whiteColor];
-    cell.selectedBackgroundView = [[UIView alloc] init];
     BankHistory *history = [Eng.getNearestBanks.bankHistoryData objectAtIndex:indexPath.row];
     NSString *dateString = [NSDateFormatter localizedStringFromDate:history.time
                                                           dateStyle:NSDateFormatterShortStyle
@@ -135,6 +134,10 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     cell.textLabel.text = dateString;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 // from: http://stackoverflow.com/questions/25770119/ios-8-uitableview-separator-inset-0-not-working

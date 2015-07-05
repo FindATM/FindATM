@@ -62,6 +62,9 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
     [super viewWillAppear:animated];
     
+    [self.refreshControl beginRefreshing];
+    [self refreshTableView];
+     
     [Data addObserver:self forKeyPath:CURRENT_LOCATION_KEY options:NSKeyValueObservingOptionNew context:nil];
     
     self.mapButton.frame = CGRectMake(0, 0, CGRectGetWidth(self.mapButton.frame), CGRectGetHeight(self.mapButton.frame));
