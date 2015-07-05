@@ -34,7 +34,7 @@
         self.dateFormatter.timeStyle = NSDateFormatterShortStyle;
         self.dateFormatter.dateStyle = NSDateFormatterShortStyle;
         
-        [self.dateFormatter setDateFormat:@"dd/mm/yyyy HH:mm"];
+        [self.dateFormatter setDateFormat:@"dd/MM/yyyy HH:mm"];
 
         self.numberFormatter = [[NSNumberFormatter alloc] init];
     }

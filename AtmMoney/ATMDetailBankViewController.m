@@ -159,7 +159,13 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     NSString *bankStateString   = [Bank getReadableStateFromBankState:history.bankState];
     cell.textLabel.font = [UIFont systemFontOfSize:13];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@\t%@", dateString, bankStateString];
+    NSMutableAttributedString *dateAttString = [[NSMutableAttributedString alloc] initWithString:dateString
+                                                                        attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13]}];
+    NSAttributedString *bankStateAttString = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\t%@",bankStateString]
+                                                                             attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:13]}];
+    [dateAttString appendAttributedString:bankStateAttString];
+    
+    cell.textLabel.attributedText = dateAttString;
     
     return cell;
 }
