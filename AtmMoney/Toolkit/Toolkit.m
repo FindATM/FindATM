@@ -31,6 +31,11 @@
     self = [super init];
     if (self) {
         self.dateFormatter = [[NSDateFormatter alloc] init];
+        self.dateFormatter.timeStyle = NSDateFormatterShortStyle;
+        self.dateFormatter.dateStyle = NSDateFormatterShortStyle;
+        
+        [self.dateFormatter setDateFormat:@"dd/mm/yyyy HH:mm"];
+
         self.numberFormatter = [[NSNumberFormatter alloc] init];
     }
     return self;

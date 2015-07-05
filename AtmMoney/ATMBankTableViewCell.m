@@ -155,12 +155,12 @@
 }
 
 - (void)updateWithBank:(Bank *)bank {
-    self.titleLabel.text = [bank getBankNameFromType:bank.bankType];
+    self.titleLabel.text = [Bank getBankNameFromType:bank.bankType];
     self.addressLabel.text = bank.name;
     
-    self.moneyLabel.text = [bank getStateNameFromState:bank.bankState];
-    self.moneyLabel.textColor = [bank getTextColorFromBankState:bank.bankState];
-    self.moneyIcon.image = [UIImage imageNamed:[bank getImageNameFromBankState:bank.bankState]];
+    self.moneyLabel.text = [Bank getStateNameFromState:bank.bankState];
+    self.moneyLabel.textColor = [Bank getTextColorFromBankState:bank.bankState];
+    self.moneyIcon.image = [UIImage imageNamed:[Bank getImageNameFromBankState:bank.bankState]];
     
     CLLocation *location = [[CLLocation alloc] initWithLatitude:bank.latitude longitude:bank.longtitude];
     [Data getAddressFromLocation:location WithCompletion:^(NSString *message) {

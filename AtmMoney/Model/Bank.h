@@ -46,12 +46,14 @@ typedef enum : NSUInteger {
 
 - (void)updateAddress:(NSString *)address;
 
-- (NSString *)getBankNameFromType:(EBankType)bankType;
++ (NSString *)getBankNameFromType:(EBankType)bankType;
 
-- (NSString *)getStateNameFromState:(EBankState)bankState;
++ (NSString *)getStateNameFromState:(EBankState)bankState;
 
-- (UIColor *)getTextColorFromBankState:(EBankState)bankState;
++ (UIColor *)getTextColorFromBankState:(EBankState)bankState;
 
-- (NSString *)getImageNameFromBankState:(EBankState)bankState;
++ (NSString *)getImageNameFromBankState:(EBankState)bankState;
+
++ (NSString *)getReadableStateFromBankState:(EBankState)bankState;
 
 @end

@@ -59,12 +59,12 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     self.latestActivityTableView.dataSource = self;
 
     [self.latestActivityTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:activityCellItemIdentifier];
-    
+
     //
     self.hasMoneyLabel.text = NSLocalizedStringFromTable(@"detail.view.hasmoney", @"Localization", @"");
     self.hasTwentiesLabel.text = NSLocalizedStringFromTable(@"detail.view.hastwenties", @"Localization", @"");
     
-    self.bankNameLabel.text = [self.bankData getBankNameFromType:self.bankData.bankType];
+    self.bankNameLabel.text = [Bank getBankNameFromType:self.bankData.bankType];
     
     [self.hasMoneySwitch addTarget:self action:@selector(hasMoneySwitchValueChanged) forControlEvents:UIControlEventValueChanged];
     
@@ -155,20 +155,11 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     cell.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.0] : [UIColor whiteColor];
     BankHistory *history = [Eng.getNearestBanks.bankHistoryData objectAtIndex:indexPath.row];
     
-    NSString *dateString = [NSDateFormatter localizedStringFromDate:history.time
-                                                          dateStyle:NSDateFormatterShortStyle
-                                                          timeStyle:NSDateFormatterShortStyle];
-    cell.textLabel.text = dateString;
+    NSString *dateString        = [Tk.dateFormatter stringFromDate:history.time];
+    NSString *bankStateString   = [Bank getReadableStateFromBankState:history.bankState];
+    cell.textLabel.font = [UIFont systemFontOfSize:13];
     
-    Bank *bank = [[Bank alloc]init];
-    
-    UILabel *lbl = [[UILabel alloc]init];
-    lbl.text = [bank getStateNameFromState:history.bankState];
-    NSLog(@"%@",lbl.text);
-    lbl.font = [UIFont systemFontOfSize:11];
-    [lbl sizeToFit];
-    lbl.frame = CGRectMake(CGRectGetWidth(cell.frame)-CGRectGetWidth(lbl.frame) , floorf((CGRectGetHeight(cell.frame)-CGRectGetHeight(lbl.frame))*0.5), CGRectGetWidth(lbl.frame), CGRectGetHeight(lbl.frame));
-    [cell addSubview:lbl];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@\t%@", dateString, bankStateString];
     
     return cell;
 }
@@ -194,27 +185,6 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
-}
-
-
-- (NSString *)getImageNameFromBankState:(EBankState)bankState
-{
-    switch (bankState) {
-        case EbankStateUknown:
-            return @"money-icon-full";
-            break;
-            
-        case EbankStateMoneyAndTwenties:
-            return @"money-icon-full";
-            break;
-            
-        case EBankStateNoMoney:
-            return @"money-icon-empty";
-            break;
-        default:
-            break;
-    }
-    return @"money-icon-full";
 }
 
 @end
