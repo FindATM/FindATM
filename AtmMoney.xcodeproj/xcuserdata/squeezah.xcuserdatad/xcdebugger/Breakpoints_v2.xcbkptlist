@@ -58,7 +58,7 @@
                   moduleName = "AtmMoney"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/squeezah/AtmMoney/AtmMoney/ATMDetailBankViewController.m"
-                  timestampString = "457829492.842805"
+                  timestampString = "457829807.341292"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
@@ -73,7 +73,7 @@
                   moduleName = "AtmMoney"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/squeezah/AtmMoney/AtmMoney/ATMDetailBankViewController.m"
-                  timestampString = "457829492.843077"
+                  timestampString = "457829807.341608"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
@@ -81,6 +81,22 @@
                   offsetFromSymbolStart = "12">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AtmMoney/MapViewController.m"
+            timestampString = "457829814.11836"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-showAnnotations"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -34,6 +34,8 @@
         [newAnnotations addObject:newAnnotation];
     }];
     [_mapView addAnnotations:newAnnotations];
+    _mapView.region = MKCoordinateRegionMakeWithDistance(_mapView.userLocation.coordinate, 150, 150);
+
 }
 
 - (void)viewDidLoad {
@@ -41,6 +43,8 @@
     _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-40)];
     
     _mapView.delegate = self;
+    
+
     
     [self.view addSubview:_mapView];
     
