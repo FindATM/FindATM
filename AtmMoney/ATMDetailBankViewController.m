@@ -153,9 +153,10 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     
     UILabel *lbl = [[UILabel alloc]init];
     lbl.text = [bank getStateNameFromState:history.bankState];
+    NSLog(@"%@",lbl.text);
     lbl.font = [UIFont systemFontOfSize:11];
     [lbl sizeToFit];
-    lbl.frame = CGRectMake(CGRectGetWidth(cell.frame)-CGRectGetWidth(lbl.frame) - 50, floorf((CGRectGetHeight(cell.frame)-CGRectGetHeight(lbl.frame))*0.5), CGRectGetWidth(lbl.frame), CGRectGetHeight(lbl.frame));
+    lbl.frame = CGRectMake(CGRectGetWidth(cell.frame)-CGRectGetWidth(lbl.frame) , floorf((CGRectGetHeight(cell.frame)-CGRectGetHeight(lbl.frame))*0.5), CGRectGetWidth(lbl.frame), CGRectGetHeight(lbl.frame));
     [cell addSubview:lbl];
     
     return cell;
