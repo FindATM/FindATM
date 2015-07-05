@@ -11,7 +11,7 @@
 
 
 typedef enum : NSUInteger {
-    EbankStateUknown,
+    EbankStateUknown = 0,
     EbankStateMoneyAndTwenties,
     EbankStateMoneyNoTwenties,
     EBankStateNoMoney

@@ -58,7 +58,7 @@
                   moduleName = "AtmMoney"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/squeezah/AtmMoney/AtmMoney/ATMDetailBankViewController.m"
-                  timestampString = "457811071.25227"
+                  timestampString = "457814001.435133"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "78"
@@ -73,7 +73,7 @@
                   moduleName = "AtmMoney"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/squeezah/AtmMoney/AtmMoney/ATMDetailBankViewController.m"
-                  timestampString = "457811071.252429"
+                  timestampString = "457814001.436921"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "78"
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AtmMoney/ATMDetailBankViewController.m"
-            timestampString = "457810999.091395"
+            timestampString = "457811071.222263"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "-updateViewWithState:"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,12 +106,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AtmMoney/ATMDetailBankViewController.m"
-            timestampString = "457811071.222263"
+            timestampString = "457813849.096391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "-updateViewWithState:"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AtmMoney/Engine/GetNearestBanks.m"
+            timestampString = "457813966.395404"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "-getBankHistoryWithId:withCompletion:andFailure:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AtmMoney/Engine/GetNearestBanks.m"
+            timestampString = "457813998.385832"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "-getBankHistoryWithId:withCompletion:andFailure:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -149,6 +149,15 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
                                                           timeStyle:NSDateFormatterShortStyle];
     cell.textLabel.text = dateString;
     
+    Bank *bank = [[Bank alloc]init];
+    
+    UILabel *lbl = [[UILabel alloc]init];
+    lbl.text = [bank getStateNameFromState:history.bankState];
+    lbl.font = [UIFont systemFontOfSize:11];
+    [lbl sizeToFit];
+    lbl.frame = CGRectMake(CGRectGetWidth(cell.frame)-CGRectGetWidth(lbl.frame) - 50, floorf((CGRectGetHeight(cell.frame)-CGRectGetHeight(lbl.frame))*0.5), CGRectGetWidth(lbl.frame), CGRectGetHeight(lbl.frame));
+    [cell addSubview:lbl];
+    
     return cell;
 }
 

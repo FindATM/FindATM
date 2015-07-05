@@ -16,7 +16,7 @@
 
 @implementation MapViewController {
 
-    MKMapView *mapView;
+    MKMapView *_mapView;
     UIToolbar *toolBar;
 
     CLLocationCoordinate2D location;
@@ -33,16 +33,16 @@
         newAnnotation.coordinate = obj.location;
         [newAnnotations addObject:newAnnotation];
     }];
-    [mapView addAnnotations:newAnnotations];
+    [_mapView addAnnotations:newAnnotations];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,40, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-40)];
+    _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,40, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-40)];
     
-    mapView.delegate = self;
+    _mapView.delegate = self;
     
-    [self.view addSubview:mapView];
+    [self.view addSubview:_mapView];
     
     toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.view.frame)-40, CGRectGetWidth(self.view.frame), 40)];
     [self.view addSubview:toolBar];
@@ -69,11 +69,11 @@
 - (void)zoomIn: (id)sender
 {
 
-    MKUserLocation *userLocation = mapView.userLocation;
+    MKUserLocation *userLocation = _mapView.userLocation;
     MKCoordinateRegion region =
     MKCoordinateRegionMakeWithDistance (
                                         userLocation.location.coordinate, 50, 50);
-    [mapView setRegion:region animated:NO];
+    [_mapView setRegion:region animated:NO];
 }
 
 

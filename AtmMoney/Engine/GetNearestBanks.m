@@ -76,6 +76,8 @@
                 
                 [history enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
                     BankHistory *bankHistory = [[BankHistory alloc] initWithDict:dict];
+                    if(bankHistory.bankState == EbankStateUknown)
+                        return ;
                     [self.bankHistoryData addObject:bankHistory];
                 }];
                 
