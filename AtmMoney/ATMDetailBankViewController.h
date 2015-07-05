@@ -12,5 +12,5 @@
 @interface ATMDetailBankViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic,strong)Bank *currentBank;
-
+- (void)updateViewWithState:(EBankType)state;
 @end

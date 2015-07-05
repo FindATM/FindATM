@@ -8,6 +8,8 @@
 
 #import "ATMDetailBankViewController.h"
 #import "BankHistory.h"
+#import "DataHandler.h"
+
 
 @interface ATMDetailBankViewController ()
 
@@ -53,6 +55,9 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     self.hasTwentiesLabel.text = NSLocalizedStringFromTable(@"detail.view.hastwenties", @"Localization", @"");
     
     [self.hasMoneySwitch addTarget:self action:@selector(hasMoneySwitchValueChanged) forControlEvents:UIControlEventValueChanged];
+    
+    [self updateViewWithState:self.currentBank.bankType];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,7 +70,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     EBankState state;
     if(self.hasMoneySwitch.on == NO)
         state = EBankStateNoMoney;
-    if (self.hasTwentiesSwitch.on == YES)
+    else if (self.hasTwentiesSwitch.on == YES)
         state = EbankStateMoneyAndTwenties;
     else
         state = EbankStateMoneyNoTwenties;
@@ -74,6 +79,17 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
         [self.navigationController popViewControllerAnimated:YES];
     } andFailure:^{
         
+    }];
+}
+
+- (void)updateViewWithState:(EBankType)state {
+
+    Bank *bank = [[Bank alloc]init];
+
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:self.currentBank.latitude longitude:self.currentBank.longtitude];
+
+    [Data getAddressFromLocation:location WithCompletion:^(NSString *message) {
+        self.bankAddressLabel.text = message;
     }];
 }
 

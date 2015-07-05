@@ -9,6 +9,7 @@
 #import "MapViewController.h"
 #import "Bank.h"
 
+
 @interface MapViewController ()
 
 @end
@@ -26,7 +27,6 @@
 
 - (void)showAnnotations {
     newAnnotations = [[NSMutableArray alloc]init];
-    mapView = [[MKMapView alloc]init];
     [self.coords enumerateObjectsUsingBlock:^(Bank *obj, NSUInteger idx, BOOL *stop) {
         MKPointAnnotation * newAnnotation = [[MKPointAnnotation alloc] init];
         newAnnotation.title = obj.name;
@@ -58,6 +58,7 @@
                         initWithObjects:zoomButton, nil];
     
     toolBar.items = buttons;
+    [self showAnnotations];
     // Do any additional setup after loading the view.
 }
 
@@ -67,6 +68,7 @@
 }
 - (void)zoomIn: (id)sender
 {
+
     MKUserLocation *userLocation = mapView.userLocation;
     MKCoordinateRegion region =
     MKCoordinateRegionMakeWithDistance (

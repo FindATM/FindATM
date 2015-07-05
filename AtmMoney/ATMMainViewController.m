@@ -55,7 +55,6 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     MapViewController *map = [[MapViewController alloc]init];
     [self.navigationController pushViewController:map animated:YES];
     map.coords = Eng.getNearestBanks.banksData;
-    [map showAnnotations];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
