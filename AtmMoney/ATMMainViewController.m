@@ -62,6 +62,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
+    [SVProgressHUD show];
     
 }
 
@@ -167,8 +168,10 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     [[Engine sharedInstance].getNearestBanks getNearestBanksWithLocation:location withCompletion:^{
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
+        [SVProgressHUD dismiss];
     } andFailure:^{
         [self.refreshControl endRefreshing];
+        [SVProgressHUD showErrorWithStatus:@"Network Failure"];
     }];
     
 }
