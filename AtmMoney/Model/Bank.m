@@ -105,7 +105,7 @@
 + (UIColor *)getTextColorFromBankState:(EBankState)bankState {
     switch (bankState) {
         case EbankStateUknown:
-            return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
+            return [UIColor colorWithRed:1.0 green:0.64 blue:0.0 alpha:1.0];
             break;
             
         case EbankStateMoneyAndTwenties:
@@ -120,7 +120,7 @@
         default:
             break;
     }
-    return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
+    return [UIColor colorWithRed:1.0 green:0.64 blue:0.0 alpha:1.0];
 }
 
 + (NSString *)getImageNameFromBankState:(EBankState)bankState {
