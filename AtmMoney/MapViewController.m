@@ -9,6 +9,7 @@
 #import "MapViewController.h"
 #import "Bank.h"
 #import "DataHandler.h"
+#import "ATMDetailBankViewController.h"
 
 @interface MkCustomPointAnnotation : MKPointAnnotation
 
@@ -76,7 +77,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-40)];
-    _mapView.showsUserLocation = YES;
+    _mapView.showsUserLocation = NO;
     
     _mapView.delegate = self;
     
@@ -109,7 +110,8 @@
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         annotationView.canShowCallout = YES;
         
-//        UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[Bank getImageNameFromBankState:annotation.currentBank.bankState]]];
+        UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[Bank getImageNameFromBankState:annotation.currentBank.bankState]]];
+        annotationView.leftCalloutAccessoryView = imgView;
 //        [imgView sizeToFit];
         
     }
@@ -129,8 +131,25 @@
 //    if(_delegate && [_delegate respondsToSelector:@selector(openBankDetailViewWithBank:)]) {
     
 //        [self.navigationController popViewControllerAnimated:NO];
-        [_delegate openBankDetailViewWithBank:annotation.currentBank];
+    
+//        [_delegate openBankDetailViewWithBank:annotation.currentBank];
 //    }
+    
+    [SVProgressHUD show];
+    [Eng.getNearestBanks getBankHistoryWithId:annotation.currentBank.buid
+                               withCompletion:^{
+                                   [SVProgressHUD dismiss];
+                                   ATMDetailBankViewController *atmDetailViewController = [[ATMDetailBankViewController alloc] initWithBank:annotation.currentBank];
+                                   [self.navigationController pushViewController:atmDetailViewController animated:YES];
+                                   
+                                }
+                                   andFailure:^{
+                                       [SVProgressHUD showErrorWithStatus:@"Network Failure"];
+                                       
+                                   }];
+    
+
+    
 }
 
 

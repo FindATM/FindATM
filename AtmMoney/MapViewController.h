@@ -11,6 +11,7 @@
 
 @protocol MapDelegate <NSObject>
 
+@optional
 - (void)openBankDetailViewWithBank:(Bank *)bank;
 
 @end

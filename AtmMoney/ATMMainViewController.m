@@ -33,6 +33,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     [self.tableView registerClass:[ATMBankTableViewCell class] forCellReuseIdentifier:simpleTableIdentifier];
     self.tableView.separatorInset = UIEdgeInsetsZero;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.tableView.tableFooterView = [[UIView alloc] init];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
@@ -177,23 +178,23 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 }
 
 
-#pragma mark mapdelegate method
-
-- (void)openBankDetailViewWithBank:(Bank *)bank {
-
-    ATMDetailBankViewController  *atmDetailViewController = [[ATMDetailBankViewController alloc] initWithBank:bank];
-    
-    [SVProgressHUD show];
-    [Eng.getNearestBanks getBankHistoryWithId:bank.buid
-                               withCompletion:^{
-                                   [SVProgressHUD dismiss];
-                                   [self.navigationController pushViewController:atmDetailViewController animated:YES];
-                                   
-                               }
-                                   andFailure:^{
-                                       [SVProgressHUD showErrorWithStatus:@"Network Failure"];
-                                       
-                                   }];
-
-}
+//#pragma mark mapdelegate method
+//
+//- (void)openBankDetailViewWithBank:(Bank *)bank {
+//
+//    ATMDetailBankViewController  *atmDetailViewController = [[ATMDetailBankViewController alloc] initWithBank:bank];
+//    
+//    [SVProgressHUD show];
+//    [Eng.getNearestBanks getBankHistoryWithId:bank.buid
+//                               withCompletion:^{
+//                                   [SVProgressHUD dismiss];
+//                                   [self.navigationController pushViewController:atmDetailViewController animated:YES];
+//                                   
+//                               }
+//                                   andFailure:^{
+//                                       [SVProgressHUD showErrorWithStatus:@"Network Failure"];
+//                                       
+//                                   }];
+//
+//}
 @end
