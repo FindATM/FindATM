@@ -23,12 +23,12 @@
     return self;
 }
 
-- (void)getNearestBanksWithLocation:(CLLocation *)location withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure {
+- (void)getNearestBanksWithLocation:(CLLocation *)location andDistance:(CGFloat)distance withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure {
    
     self.banksData = [[NSMutableArray alloc] init];
     
     [Eng postMethod:GET_NEAREST_BANKS_URL
-         parameters:@{@"lng": @(location.coordinate.longitude), @"lat":@(location.coordinate.latitude)}
+         parameters:@{@"lng": @(location.coordinate.longitude), @"lat":@(location.coordinate.latitude), @"distance":@(distance)}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                     NSLog(@"JSON: %@", responseObject);

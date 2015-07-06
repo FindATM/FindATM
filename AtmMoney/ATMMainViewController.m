@@ -165,7 +165,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 - (void)getBanks {
     
     CLLocation *location = Data.currentLocation;
-    [[Engine sharedInstance].getNearestBanks getNearestBanksWithLocation:location withCompletion:^{
+    [[Engine sharedInstance].getNearestBanks getNearestBanksWithLocation:location andDistance:0.5 withCompletion:^{
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
         [SVProgressHUD dismiss];
