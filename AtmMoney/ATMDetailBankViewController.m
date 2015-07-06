@@ -87,7 +87,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     else if (self.hasTwentiesSwitch.on == YES)
         state = EbankStateMoneyAndTwenties;
     else
-        state = EBankStateNoMoney;
+        state = EbankStateMoneyNoTwenties;
     
     [Eng.submitBank submitBankWithBankID:self.bankData.buid andBankState:state withCompletion:^{
         [self.navigationController popViewControllerAnimated:YES];
@@ -98,8 +98,39 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 
 - (void)updateViewWithState:(EBankType)state {
 
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:self.bankData.latitude longitude:self.bankData.longtitude];
+//    CLLocation *location = [[CLLocation alloc] initWithLatitude:self.bankData.latitude longitude:self.bankData.longtitude];
     self.bankAddressLabel.text = self.bankData.address;
+    switch (self.bankData.bankState) {
+        case EbankStateUknown:
+            [self.hasMoneySwitch setOn:YES animated:YES];
+            [self enableTwentiesView];
+            [self.hasTwentiesSwitch setOn:YES animated:YES];
+            break;
+            
+        case EbankStateMoneyAndTwenties:
+            [self.hasMoneySwitch setOn:YES animated:YES];
+            [self enableTwentiesView];
+            [self.hasTwentiesSwitch setOn:YES animated:YES];
+            break;
+
+        case EbankStateMoneyNoTwenties:
+            [self.hasMoneySwitch setOn:YES animated:YES];
+            [self enableTwentiesView];
+            [self.hasTwentiesSwitch setOn:NO animated:YES];
+            break;
+
+        case EBankStateNoMoney:
+            [self.hasMoneySwitch setOn:NO animated:YES];
+            [self disableTwentiesView];
+            [self.hasTwentiesSwitch setOn:NO animated:YES];
+            break;
+            
+        default:
+            [self.hasMoneySwitch setOn:YES animated:YES];
+            [self enableTwentiesView];
+            [self.hasTwentiesSwitch setOn:YES animated:YES];
+            break;
+    }
 }
 
 #pragma mark - Has Money & Has Twenties methods -
