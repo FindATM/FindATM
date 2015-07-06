@@ -148,6 +148,43 @@
     return @"money-icon-noinfo";
 }
 
++ (UIImage *)getBankLogoFromBankType:(EBankType)bankType {
+    switch (bankType) {
+        case EBankTypeAlpha:
+        case EBankTypeCitybank:
+            return [UIImage imageNamed:@"alphabank"];
+            break;
+            
+        case EBankTypeAttica:
+            return [UIImage imageNamed:@"atticabank"];
+            break;
+            
+        case EBankTypeEurobank:
+            return [UIImage imageNamed:@"eurobank"];
+            break;
+
+        case EBankTypeHsbc:
+            return [UIImage imageNamed:@"hsbc"];
+            break;
+
+        case EBankTypeNationalBank:
+            return [UIImage imageNamed:@"nationalbank"];
+            break;
+
+        case EBankTypePostbank:
+            return [UIImage imageNamed:@"tteurobank"];
+            break;
+        case EBankTypePiraeusBank:
+            return [UIImage imageNamed:@"piraeus"];
+            break;
+
+
+        default:
+            break;
+    }
+    return [UIImage imageNamed:@"atm-placeholder"];
+}
+
 + (NSString *)getReadableStateFromBankState:(EBankState)bankState
 {
     switch (bankState) {
