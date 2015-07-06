@@ -7,6 +7,7 @@
 */
 
 "mainviewcontroller.title" = "Κοντινότερα ATMs";
+"mapviewcontroller.title"           = "Κοντινότερα ATMs - Χάρτης";
 
 "atmdetailviewcontroller.title"     = "Στοιχεία ATM";
 

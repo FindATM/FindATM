@@ -54,7 +54,10 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
 - (void)openMap {
     if([Eng.getNearestBanks.banksData count] == 0) return;
-    
+    // Hides the back button name
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backButtonItem];
+
     MapViewController *map = [[MapViewController alloc] init];
     [self.navigationController pushViewController:map animated:YES];
     map.delegate = self;
@@ -64,19 +67,18 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
-    [SVProgressHUD show];
-    
-}
+   
+    [Data addObserver:self forKeyPath:CURRENT_LOCATION_KEY options:NSKeyValueObservingOptionNew context:nil];}
 
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
     
+    [SVProgressHUD show];
     [self.refreshControl beginRefreshing];
     
     [Data startUpdatingLocation];
     
-    [Data addObserver:self forKeyPath:CURRENT_LOCATION_KEY options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -84,7 +86,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     [super viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    [Data removeObserver:self forKeyPath:CURRENT_LOCATION_KEY];
+    [Data removeObserver:self forKeyPath:CURRENT_LOCATION_KEY context:nil];
     
 }
 
@@ -111,7 +113,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     
     Bank *bank = [Eng.getNearestBanks.banksData objectAtIndex:indexPath.row];
 
-    // Hides the
+    // Hides the back button name
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButtonItem];
     

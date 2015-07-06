@@ -7,6 +7,7 @@
 */
 
 "mainviewcontroller.title"          = "Nearest ATMs";
+"mapviewcontroller.title"           = "Nearest ATMs - Map";
 
 "atmdetailviewcontroller.title"     = "ATM Details";
 

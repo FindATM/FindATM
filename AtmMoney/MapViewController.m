@@ -76,6 +76,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     self.navigationItem.title = NSLocalizedStringFromTable(@"mapviewcontroller.title", @"Localization", nil);
+    
     _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-40)];
     _mapView.showsUserLocation = NO;
     
@@ -101,13 +103,20 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(MkCustomPointAnnotation *)annotation
 {
+    
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+    {
+        ((MKUserLocation *)annotation).title = @"My Current Location";
+        return nil;  //return nil to use default blue dot view
+    }
+    
     MKPinAnnotationView *annotationView;
     static NSString *reuseIdentifier = @"MapAnnotation";
 
     annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
     if(!annotationView) {
-        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
-        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];       
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeCustom];
         annotationView.canShowCallout = YES;
         
         UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[Bank getImageNameFromBankState:annotation.currentBank.bankState]]];
