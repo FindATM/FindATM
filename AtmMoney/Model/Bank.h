@@ -56,4 +56,6 @@ typedef enum : NSUInteger {
 
 + (NSString *)getReadableStateFromBankState:(EBankState)bankState;
 
++ (UIImage *)getBankLogoFromBankType:(EBankType)bankType;
+
 @end

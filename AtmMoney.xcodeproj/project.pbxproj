@@ -23,8 +23,6 @@
 		08BA57A31B475E0900C8EC19 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA579A1B475E0900C8EC19 /* AFURLSessionManager.m */; };
 		08D2CDF91B47E9B400E2A2E3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */; };
 		08D2CDFC1B49475900E2A2E3 /* BankHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2CDFB1B49475900E2A2E3 /* BankHistory.m */; };
-		6F163E7E1B4AE7A6002AE691 /* money-icon-noinfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F163E7C1B4AE7A6002AE691 /* money-icon-noinfo@2x.png */; };
-		6F163E7F1B4AE7A6002AE691 /* money-icon-noinfo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F163E7D1B4AE7A6002AE691 /* money-icon-noinfo@3x.png */; };
 		6F163E901B4AE855002AE691 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F163E811B4AE855002AE691 /* DateTools.bundle */; };
 		6F163E911B4AE855002AE691 /* DTError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F163E851B4AE855002AE691 /* DTError.m */; };
 		6F163E921B4AE855002AE691 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F163E871B4AE855002AE691 /* DTTimePeriod.m */; };
@@ -32,14 +30,6 @@
 		6F163E941B4AE855002AE691 /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F163E8B1B4AE855002AE691 /* DTTimePeriodCollection.m */; };
 		6F163E951B4AE855002AE691 /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F163E8D1B4AE855002AE691 /* DTTimePeriodGroup.m */; };
 		6F163E961B4AE855002AE691 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F163E8F1B4AE855002AE691 /* NSDate+DateTools.m */; };
-		6F22589B1B48580100D1E3F1 /* cell-disclosure-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258931B48580100D1E3F1 /* cell-disclosure-icon@2x.png */; };
-		6F22589C1B48580100D1E3F1 /* cell-disclosure-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258941B48580100D1E3F1 /* cell-disclosure-icon@3x.png */; };
-		6F22589D1B48580100D1E3F1 /* money-icon-empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258951B48580100D1E3F1 /* money-icon-empty@2x.png */; };
-		6F22589E1B48580100D1E3F1 /* money-icon-empty@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258961B48580100D1E3F1 /* money-icon-empty@3x.png */; };
-		6F22589F1B48580100D1E3F1 /* money-icon-full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258971B48580100D1E3F1 /* money-icon-full@2x.png */; };
-		6F2258A01B48580100D1E3F1 /* money-icon-full@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258981B48580100D1E3F1 /* money-icon-full@3x.png */; };
-		6F2258A11B48580100D1E3F1 /* visitors-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258991B48580100D1E3F1 /* visitors-icon@2x.png */; };
-		6F2258A21B48580100D1E3F1 /* visitors-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F22589A1B48580100D1E3F1 /* visitors-icon@3x.png */; };
 		6F2258A61B48813C00D1E3F1 /* SubmitBank.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2258A51B48813C00D1E3F1 /* SubmitBank.m */; };
 		6F2258B51B4885EB00D1E3F1 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258B21B4885EB00D1E3F1 /* Localization.strings */; };
 		6F2258B81B4888B100D1E3F1 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258B61B4888B100D1E3F1 /* Localization.strings */; };
@@ -55,8 +45,6 @@
 		6F4730EB1B47D25B00E99508 /* Dimitris Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6F4730EA1B47D25B00E99508 /* Dimitris Location.gpx */; };
 		6F4730ED1B47D85C00E99508 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4730EC1B47D85C00E99508 /* MapKit.framework */; };
 		6F4730F01B47DBA200E99508 /* ATMBankTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730EF1B47DBA200E99508 /* ATMBankTableViewCell.m */; };
-		6F4730F51B47DEB900E99508 /* atm-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4730F31B47DEB900E99508 /* atm-placeholder@2x.png */; };
-		6F4730F61B47DEB900E99508 /* atm-placeholder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F4730F41B47DEB900E99508 /* atm-placeholder@3x.png */; };
 		F69F6A5F1B4718A100FE29B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A5E1B4718A100FE29B9 /* main.m */; };
 		F69F6A621B4718A100FE29B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A611B4718A100FE29B9 /* AppDelegate.m */; };
 		F69F6A651B4718A100FE29B9 /* ATMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A641B4718A100FE29B9 /* ATMMainViewController.m */; };
@@ -96,8 +84,6 @@
 		08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		08D2CDFA1B49475900E2A2E3 /* BankHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankHistory.h; sourceTree = "<group>"; };
 		08D2CDFB1B49475900E2A2E3 /* BankHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankHistory.m; sourceTree = "<group>"; };
-		6F163E7C1B4AE7A6002AE691 /* money-icon-noinfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-icon-noinfo@2x.png"; sourceTree = "<group>"; };
-		6F163E7D1B4AE7A6002AE691 /* money-icon-noinfo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-icon-noinfo@3x.png"; sourceTree = "<group>"; };
 		6F163E811B4AE855002AE691 /* DateTools.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DateTools.bundle; sourceTree = "<group>"; };
 		6F163E821B4AE855002AE691 /* DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTools.h; sourceTree = "<group>"; };
 		6F163E831B4AE855002AE691 /* DTConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTConstants.h; sourceTree = "<group>"; };
@@ -113,14 +99,6 @@
 		6F163E8D1B4AE855002AE691 /* DTTimePeriodGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodGroup.m; sourceTree = "<group>"; };
 		6F163E8E1B4AE855002AE691 /* NSDate+DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateTools.h"; sourceTree = "<group>"; };
 		6F163E8F1B4AE855002AE691 /* NSDate+DateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateTools.m"; sourceTree = "<group>"; };
-		6F2258931B48580100D1E3F1 /* cell-disclosure-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-disclosure-icon@2x.png"; sourceTree = "<group>"; };
-		6F2258941B48580100D1E3F1 /* cell-disclosure-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-disclosure-icon@3x.png"; sourceTree = "<group>"; };
-		6F2258951B48580100D1E3F1 /* money-icon-empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-icon-empty@2x.png"; sourceTree = "<group>"; };
-		6F2258961B48580100D1E3F1 /* money-icon-empty@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-icon-empty@3x.png"; sourceTree = "<group>"; };
-		6F2258971B48580100D1E3F1 /* money-icon-full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-icon-full@2x.png"; sourceTree = "<group>"; };
-		6F2258981B48580100D1E3F1 /* money-icon-full@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-icon-full@3x.png"; sourceTree = "<group>"; };
-		6F2258991B48580100D1E3F1 /* visitors-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visitors-icon@2x.png"; sourceTree = "<group>"; };
-		6F22589A1B48580100D1E3F1 /* visitors-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visitors-icon@3x.png"; sourceTree = "<group>"; };
 		6F2258A41B48813C00D1E3F1 /* SubmitBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitBank.h; sourceTree = "<group>"; };
 		6F2258A51B48813C00D1E3F1 /* SubmitBank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitBank.m; sourceTree = "<group>"; };
 		6F2258B31B4885EB00D1E3F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localization.strings; sourceTree = "<group>"; };
@@ -146,8 +124,6 @@
 		6F4730EC1B47D85C00E99508 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6F4730EE1B47DBA200E99508 /* ATMBankTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMBankTableViewCell.h; sourceTree = "<group>"; };
 		6F4730EF1B47DBA200E99508 /* ATMBankTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMBankTableViewCell.m; sourceTree = "<group>"; };
-		6F4730F31B47DEB900E99508 /* atm-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atm-placeholder@2x.png"; sourceTree = "<group>"; };
-		6F4730F41B47DEB900E99508 /* atm-placeholder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atm-placeholder@3x.png"; sourceTree = "<group>"; };
 		6F4730F71B48464C00E99508 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = AtmMoney/PrefixHeader.pch; sourceTree = "<group>"; };
 		F69F6A591B4718A100FE29B9 /* AtmMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtmMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69F6A5D1B4718A100FE29B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -306,25 +282,6 @@
 			path = Engine;
 			sourceTree = "<group>";
 		};
-		6F4730F21B47DEB900E99508 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				6F163E7C1B4AE7A6002AE691 /* money-icon-noinfo@2x.png */,
-				6F163E7D1B4AE7A6002AE691 /* money-icon-noinfo@3x.png */,
-				6F2258931B48580100D1E3F1 /* cell-disclosure-icon@2x.png */,
-				6F2258941B48580100D1E3F1 /* cell-disclosure-icon@3x.png */,
-				6F2258951B48580100D1E3F1 /* money-icon-empty@2x.png */,
-				6F2258961B48580100D1E3F1 /* money-icon-empty@3x.png */,
-				6F2258971B48580100D1E3F1 /* money-icon-full@2x.png */,
-				6F2258981B48580100D1E3F1 /* money-icon-full@3x.png */,
-				6F2258991B48580100D1E3F1 /* visitors-icon@2x.png */,
-				6F22589A1B48580100D1E3F1 /* visitors-icon@3x.png */,
-				6F4730F31B47DEB900E99508 /* atm-placeholder@2x.png */,
-				6F4730F41B47DEB900E99508 /* atm-placeholder@3x.png */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		F69F6A501B4718A100FE29B9 = {
 			isa = PBXGroup;
 			children = (
@@ -372,7 +329,6 @@
 				6F4599541B49DDDE00561005 /* Vendor */,
 				6F2258AE1B4885EA00D1E3F1 /* el.lproj */,
 				6F2258B11B4885EA00D1E3F1 /* en.lproj */,
-				6F4730F21B47DEB900E99508 /* Images */,
 				6F45995F1B49E18200561005 /* Solonos 45.gpx */,
 			);
 			path = AtmMoney;
@@ -456,25 +412,13 @@
 				F69F6A681B4718A100FE29B9 /* Main.storyboard in Resources */,
 				6F4599601B49E18200561005 /* Solonos 45.gpx in Resources */,
 				6F45995D1B49DDDE00561005 /* SVProgressHUD.bundle in Resources */,
-				6F22589E1B48580100D1E3F1 /* money-icon-empty@3x.png in Resources */,
-				6F22589D1B48580100D1E3F1 /* money-icon-empty@2x.png in Resources */,
-				6F22589C1B48580100D1E3F1 /* cell-disclosure-icon@3x.png in Resources */,
 				F69F6A6D1B4718A100FE29B9 /* LaunchScreen.xib in Resources */,
 				6F2258B81B4888B100D1E3F1 /* Localization.strings in Resources */,
 				6F2258B51B4885EB00D1E3F1 /* Localization.strings in Resources */,
 				6F163E901B4AE855002AE691 /* DateTools.bundle in Resources */,
-				6F163E7E1B4AE7A6002AE691 /* money-icon-noinfo@2x.png in Resources */,
-				6F2258A11B48580100D1E3F1 /* visitors-icon@2x.png in Resources */,
-				6F22589B1B48580100D1E3F1 /* cell-disclosure-icon@2x.png in Resources */,
-				6F2258A21B48580100D1E3F1 /* visitors-icon@3x.png in Resources */,
-				6F163E7F1B4AE7A6002AE691 /* money-icon-noinfo@3x.png in Resources */,
 				6F2258C01B4891FF00D1E3F1 /* ATMDetailBankViewController.xib in Resources */,
-				6F22589F1B48580100D1E3F1 /* money-icon-full@2x.png in Resources */,
 				F69F6A6A1B4718A100FE29B9 /* Images.xcassets in Resources */,
 				6F4730EB1B47D25B00E99508 /* Dimitris Location.gpx in Resources */,
-				6F4730F61B47DEB900E99508 /* atm-placeholder@3x.png in Resources */,
-				6F2258A01B48580100D1E3F1 /* money-icon-full@3x.png in Resources */,
-				6F4730F51B47DEB900E99508 /* atm-placeholder@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

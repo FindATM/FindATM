@@ -32,6 +32,7 @@
         self.selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.91 green:0.96 blue:0.98 alpha:1.0];
         
         self.bankLogoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"atm-placeholder"]];
+        self.bankLogoImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:self.bankLogoImageView];
         
         self.titleLabel = [[UILabel alloc] init];
@@ -89,7 +90,7 @@
                                                 CGRectGetWidth(self.disclosureImageView.frame),
                                                 CGRectGetHeight(self.disclosureImageView.frame));
     
-    [self.bankLogoImageView sizeToFit];
+//    [self.bankLogoImageView sizeToFit];
     self.bankLogoImageView.frame = CGRectMake(padding,
                                               padding * 2,//floorf((CGRectGetHeight(self.contentView.frame) - CGRectGetHeight(self.bankLogoImageView.frame)) * 0.5),
                                               CGRectGetWidth(self.bankLogoImageView.frame),
@@ -162,7 +163,7 @@
     self.moneyLabel.textColor = [Bank getTextColorFromBankState:bank.bankState];
     self.moneyIcon.image = [UIImage imageNamed:[Bank getImageNameFromBankState:bank.bankState]];
     
-   
+    self.bankLogoImageView.image = [Bank getBankLogoFromBankType:bank.bankType];
     self.visitorsLabel.text = [NSString stringWithFormat:NSLocalizedStringFromTable(@"%ld visitors.count", @"Localization", @""), (long)bank.visitors];
     
     [self layoutIfNeeded];

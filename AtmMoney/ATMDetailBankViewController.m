@@ -67,6 +67,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     self.hasTwentiesLabel.text = NSLocalizedStringFromTable(@"detail.view.hastwenties", @"Localization", @"");
     
     self.bankNameLabel.text = [Bank getBankNameFromType:self.bankData.bankType];
+    self.bankLogoImageView.image = [Bank getBankLogoFromBankType:self.bankData.bankType];
     
     [self.hasMoneySwitch addTarget:self action:@selector(hasMoneySwitchValueChanged) forControlEvents:UIControlEventValueChanged];
     
