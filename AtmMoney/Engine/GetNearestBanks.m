@@ -28,7 +28,7 @@
     self.banksData = [[NSMutableArray alloc] init];
     
     [Eng postMethod:GET_NEAREST_BANKS_URL
-         parameters:@{@"lng": @(location.coordinate.longitude), @"lat":@(location.coordinate.latitude), @"distance":@(distance)}
+         parameters:@{@"lng": @(location.coordinate.longitude), @"lat":@(location.coordinate.latitude), @"distance":[NSNumber numberWithFloat:distance]}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                     NSLog(@"JSON: %@", responseObject);

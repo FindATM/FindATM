@@ -126,11 +126,11 @@
 //    mapitem.name = annotation.title;
 //    [mapitem openInMapsWithLaunchOptions:nil];
     
-    if(_delegate && [_delegate respondsToSelector:@selector(openBankDetailViewWithBank:)]) {
+//    if(_delegate && [_delegate respondsToSelector:@selector(openBankDetailViewWithBank:)]) {
     
-        [self.navigationController popViewControllerAnimated:NO];
+//        [self.navigationController popViewControllerAnimated:NO];
         [_delegate openBankDetailViewWithBank:annotation.currentBank];
-    }
+//    }
 }
 
 
