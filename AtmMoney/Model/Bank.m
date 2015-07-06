@@ -115,6 +115,10 @@
             return [UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0];
             break;
             
+        case EbankStateMoneyNoTwenties:
+            return [UIColor colorWithRed:1.0 green:0.64 blue:0.0 alpha:1.0];
+            break;
+            
         case EBankStateNoMoney:
             return [UIColor colorWithRed:0.89 green:0.13 blue:0.07 alpha:1.0];
             break;

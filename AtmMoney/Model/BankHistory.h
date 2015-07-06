@@ -15,8 +15,6 @@
 @property(nonatomic,assign,readonly) EBankState bankState;
 @property(nonatomic,strong,readonly) NSDate *time;
 
-
-
 - (instancetype)initWithDict:(NSDictionary *)dict;
 
 - (NSString *)getBankNameFromType:(EBankType)bankType;
