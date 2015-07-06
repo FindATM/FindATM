@@ -23,6 +23,15 @@
 		08BA57A31B475E0900C8EC19 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA579A1B475E0900C8EC19 /* AFURLSessionManager.m */; };
 		08D2CDF91B47E9B400E2A2E3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */; };
 		08D2CDFC1B49475900E2A2E3 /* BankHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2CDFB1B49475900E2A2E3 /* BankHistory.m */; };
+		6F163E7E1B4AE7A6002AE691 /* money-icon-noinfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F163E7C1B4AE7A6002AE691 /* money-icon-noinfo@2x.png */; };
+		6F163E7F1B4AE7A6002AE691 /* money-icon-noinfo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F163E7D1B4AE7A6002AE691 /* money-icon-noinfo@3x.png */; };
+		6F163E901B4AE855002AE691 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F163E811B4AE855002AE691 /* DateTools.bundle */; };
+		6F163E911B4AE855002AE691 /* DTError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F163E851B4AE855002AE691 /* DTError.m */; };
+		6F163E921B4AE855002AE691 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F163E871B4AE855002AE691 /* DTTimePeriod.m */; };
+		6F163E931B4AE855002AE691 /* DTTimePeriodChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F163E891B4AE855002AE691 /* DTTimePeriodChain.m */; };
+		6F163E941B4AE855002AE691 /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F163E8B1B4AE855002AE691 /* DTTimePeriodCollection.m */; };
+		6F163E951B4AE855002AE691 /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F163E8D1B4AE855002AE691 /* DTTimePeriodGroup.m */; };
+		6F163E961B4AE855002AE691 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F163E8F1B4AE855002AE691 /* NSDate+DateTools.m */; };
 		6F22589B1B48580100D1E3F1 /* cell-disclosure-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258931B48580100D1E3F1 /* cell-disclosure-icon@2x.png */; };
 		6F22589C1B48580100D1E3F1 /* cell-disclosure-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258941B48580100D1E3F1 /* cell-disclosure-icon@3x.png */; };
 		6F22589D1B48580100D1E3F1 /* money-icon-empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258951B48580100D1E3F1 /* money-icon-empty@2x.png */; };
@@ -87,6 +96,23 @@
 		08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		08D2CDFA1B49475900E2A2E3 /* BankHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankHistory.h; sourceTree = "<group>"; };
 		08D2CDFB1B49475900E2A2E3 /* BankHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankHistory.m; sourceTree = "<group>"; };
+		6F163E7C1B4AE7A6002AE691 /* money-icon-noinfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-icon-noinfo@2x.png"; sourceTree = "<group>"; };
+		6F163E7D1B4AE7A6002AE691 /* money-icon-noinfo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-icon-noinfo@3x.png"; sourceTree = "<group>"; };
+		6F163E811B4AE855002AE691 /* DateTools.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DateTools.bundle; sourceTree = "<group>"; };
+		6F163E821B4AE855002AE691 /* DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTools.h; sourceTree = "<group>"; };
+		6F163E831B4AE855002AE691 /* DTConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTConstants.h; sourceTree = "<group>"; };
+		6F163E841B4AE855002AE691 /* DTError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTError.h; sourceTree = "<group>"; };
+		6F163E851B4AE855002AE691 /* DTError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTError.m; sourceTree = "<group>"; };
+		6F163E861B4AE855002AE691 /* DTTimePeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriod.h; sourceTree = "<group>"; };
+		6F163E871B4AE855002AE691 /* DTTimePeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriod.m; sourceTree = "<group>"; };
+		6F163E881B4AE855002AE691 /* DTTimePeriodChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriodChain.h; sourceTree = "<group>"; };
+		6F163E891B4AE855002AE691 /* DTTimePeriodChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodChain.m; sourceTree = "<group>"; };
+		6F163E8A1B4AE855002AE691 /* DTTimePeriodCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriodCollection.h; sourceTree = "<group>"; };
+		6F163E8B1B4AE855002AE691 /* DTTimePeriodCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodCollection.m; sourceTree = "<group>"; };
+		6F163E8C1B4AE855002AE691 /* DTTimePeriodGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriodGroup.h; sourceTree = "<group>"; };
+		6F163E8D1B4AE855002AE691 /* DTTimePeriodGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodGroup.m; sourceTree = "<group>"; };
+		6F163E8E1B4AE855002AE691 /* NSDate+DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateTools.h"; sourceTree = "<group>"; };
+		6F163E8F1B4AE855002AE691 /* NSDate+DateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateTools.m"; sourceTree = "<group>"; };
 		6F2258931B48580100D1E3F1 /* cell-disclosure-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-disclosure-icon@2x.png"; sourceTree = "<group>"; };
 		6F2258941B48580100D1E3F1 /* cell-disclosure-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-disclosure-icon@3x.png"; sourceTree = "<group>"; };
 		6F2258951B48580100D1E3F1 /* money-icon-empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-icon-empty@2x.png"; sourceTree = "<group>"; };
@@ -187,6 +213,28 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		6F163E801B4AE855002AE691 /* DateTools */ = {
+			isa = PBXGroup;
+			children = (
+				6F163E811B4AE855002AE691 /* DateTools.bundle */,
+				6F163E821B4AE855002AE691 /* DateTools.h */,
+				6F163E831B4AE855002AE691 /* DTConstants.h */,
+				6F163E841B4AE855002AE691 /* DTError.h */,
+				6F163E851B4AE855002AE691 /* DTError.m */,
+				6F163E861B4AE855002AE691 /* DTTimePeriod.h */,
+				6F163E871B4AE855002AE691 /* DTTimePeriod.m */,
+				6F163E881B4AE855002AE691 /* DTTimePeriodChain.h */,
+				6F163E891B4AE855002AE691 /* DTTimePeriodChain.m */,
+				6F163E8A1B4AE855002AE691 /* DTTimePeriodCollection.h */,
+				6F163E8B1B4AE855002AE691 /* DTTimePeriodCollection.m */,
+				6F163E8C1B4AE855002AE691 /* DTTimePeriodGroup.h */,
+				6F163E8D1B4AE855002AE691 /* DTTimePeriodGroup.m */,
+				6F163E8E1B4AE855002AE691 /* NSDate+DateTools.h */,
+				6F163E8F1B4AE855002AE691 /* NSDate+DateTools.m */,
+			);
+			path = DateTools;
+			sourceTree = "<group>";
+		};
 		6F2258A31B48717D00D1E3F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +265,7 @@
 		6F4599541B49DDDE00561005 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				6F163E801B4AE855002AE691 /* DateTools */,
 				6F4599551B49DDDE00561005 /* SVProgressHUD */,
 			);
 			path = Vendor;
@@ -260,6 +309,8 @@
 		6F4730F21B47DEB900E99508 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6F163E7C1B4AE7A6002AE691 /* money-icon-noinfo@2x.png */,
+				6F163E7D1B4AE7A6002AE691 /* money-icon-noinfo@3x.png */,
 				6F2258931B48580100D1E3F1 /* cell-disclosure-icon@2x.png */,
 				6F2258941B48580100D1E3F1 /* cell-disclosure-icon@3x.png */,
 				6F2258951B48580100D1E3F1 /* money-icon-empty@2x.png */,
@@ -411,9 +462,12 @@
 				F69F6A6D1B4718A100FE29B9 /* LaunchScreen.xib in Resources */,
 				6F2258B81B4888B100D1E3F1 /* Localization.strings in Resources */,
 				6F2258B51B4885EB00D1E3F1 /* Localization.strings in Resources */,
+				6F163E901B4AE855002AE691 /* DateTools.bundle in Resources */,
+				6F163E7E1B4AE7A6002AE691 /* money-icon-noinfo@2x.png in Resources */,
 				6F2258A11B48580100D1E3F1 /* visitors-icon@2x.png in Resources */,
 				6F22589B1B48580100D1E3F1 /* cell-disclosure-icon@2x.png in Resources */,
 				6F2258A21B48580100D1E3F1 /* visitors-icon@3x.png in Resources */,
+				6F163E7F1B4AE7A6002AE691 /* money-icon-noinfo@3x.png in Resources */,
 				6F2258C01B4891FF00D1E3F1 /* ATMDetailBankViewController.xib in Resources */,
 				6F22589F1B48580100D1E3F1 /* money-icon-full@2x.png in Resources */,
 				F69F6A6A1B4718A100FE29B9 /* Images.xcassets in Resources */,
@@ -431,14 +485,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F163E951B4AE855002AE691 /* DTTimePeriodGroup.m in Sources */,
 				08D2CDFC1B49475900E2A2E3 /* BankHistory.m in Sources */,
 				6F2258BF1B4891FF00D1E3F1 /* ATMDetailBankViewController.m in Sources */,
 				08BA57A01B475E0900C8EC19 /* AFURLConnectionOperation.m in Sources */,
 				08BA579B1B475E0900C8EC19 /* AFHTTPRequestOperation.m in Sources */,
 				08BA579E1B475E0900C8EC19 /* AFNetworkReachabilityManager.m in Sources */,
+				6F163E911B4AE855002AE691 /* DTError.m in Sources */,
 				6F4730F01B47DBA200E99508 /* ATMBankTableViewCell.m in Sources */,
 				08BA57A31B475E0900C8EC19 /* AFURLSessionManager.m in Sources */,
 				08BA57A11B475E0900C8EC19 /* AFURLRequestSerialization.m in Sources */,
+				6F163E941B4AE855002AE691 /* DTTimePeriodCollection.m in Sources */,
 				08BA57801B475B3300C8EC19 /* Bank.m in Sources */,
 				6F45995C1B49DDDE00561005 /* SVIndefiniteAnimatedView.m in Sources */,
 				6F45995E1B49DDDE00561005 /* SVProgressHUD.m in Sources */,
@@ -452,9 +509,12 @@
 				6F4599671B49E2EB00561005 /* Toolkit.m in Sources */,
 				F69F6A5F1B4718A100FE29B9 /* main.m in Sources */,
 				6F4730E81B47D02A00E99508 /* GetNearestBanks.m in Sources */,
+				6F163E931B4AE855002AE691 /* DTTimePeriodChain.m in Sources */,
 				08D2CDF91B47E9B400E2A2E3 /* MapViewController.m in Sources */,
 				08BA579D1B475E0900C8EC19 /* AFHTTPSessionManager.m in Sources */,
 				6F4730E51B47CE1100E99508 /* Engine.m in Sources */,
+				6F163E961B4AE855002AE691 /* NSDate+DateTools.m in Sources */,
+				6F163E921B4AE855002AE691 /* DTTimePeriod.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

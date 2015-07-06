@@ -9,6 +9,7 @@
 #import "ATMDetailBankViewController.h"
 #import "BankHistory.h"
 #import "DataHandler.h"
+#import "DateTools.h"
 
 
 @interface ATMDetailBankViewController ()
@@ -153,9 +154,12 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     BankHistory *history = [Eng.getNearestBanks.bankHistoryData objectAtIndex:indexPath.row];
     
 
-    NSString *dateString = [NSDateFormatter localizedStringFromDate:history.time
-                                                          dateStyle:NSDateFormatterShortStyle
-                                                          timeStyle:NSDateFormatterShortStyle];
+    
+//    NSString *dateString = [NSDateFormatter localizedStringFromDate:history.time
+//                                                          dateStyle:NSDateFormatterShortStyle
+//                                                          timeStyle:NSDateFormatterShortStyle];
+    NSString *dateString = [history.time timeAgoSinceNow];
+    
     NSString *bankStateString   = [Bank getReadableStateFromBankState:history.bankState];
     cell.textLabel.font = [UIFont systemFontOfSize:13];
     

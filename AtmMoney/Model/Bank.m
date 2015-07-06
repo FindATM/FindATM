@@ -39,7 +39,7 @@
         self.bankState = [[dict objectForKey:@"state"] integerValue];
         self.visitors = [[dict objectForKey:@"visitors"] integerValue];
         self.location = CLLocationCoordinate2DMake(self.latitude, self.longtitude);
-        self.address =[dict objectForKey:@"address"];
+        self.address = [dict objectForKey:@"address"];
         
     }
     return self;
@@ -129,7 +129,7 @@
 + (NSString *)getImageNameFromBankState:(EBankState)bankState {
     switch (bankState) {
         case EbankStateUknown:
-            return @"money-icon-full";
+            return @"money-icon-noinfo";
             break;
             
         case EbankStateMoneyAndTwenties:
@@ -144,7 +144,7 @@
         default:
             break;
     }
-    return @"money-icon-full";
+    return @"money-icon-noinfo";
 }
 
 + (NSString *)getReadableStateFromBankState:(EBankState)bankState
