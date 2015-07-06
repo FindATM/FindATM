@@ -53,7 +53,7 @@
         [self.contentView addSubview:self.visitorsIcon];
         
         self.visitorsLabel = [[UILabel alloc] init];
-        self.visitorsLabel.font = [UIFont systemFontOfSize:11];
+        self.visitorsLabel.font = [UIFont systemFontOfSize:13];
         self.visitorsLabel.textColor = [UIColor colorWithRed:0 green:0.52 blue:0.75 alpha:1.0];
         self.visitorsLabel.backgroundColor = [UIColor clearColor];
         self.visitorsLabel.text = @"10000 visitors";
@@ -64,7 +64,7 @@
         [self.contentView addSubview:self.moneyIcon];
 
         self.moneyLabel = [[UILabel alloc] init];
-        self.moneyLabel.font = [UIFont systemFontOfSize:11];
+        self.moneyLabel.font = [UIFont systemFontOfSize:13];
         self.moneyLabel.textColor = [UIColor blackColor];
         self.moneyLabel.backgroundColor = [UIColor clearColor];
         self.moneyLabel.text = @"";
@@ -90,7 +90,6 @@
                                                 CGRectGetWidth(self.disclosureImageView.frame),
                                                 CGRectGetHeight(self.disclosureImageView.frame));
     
-//    [self.bankLogoImageView sizeToFit];
     self.bankLogoImageView.frame = CGRectMake(padding,
                                               padding * 2,//floorf((CGRectGetHeight(self.contentView.frame) - CGRectGetHeight(self.bankLogoImageView.frame)) * 0.5),
                                               CGRectGetWidth(self.bankLogoImageView.frame),
@@ -119,10 +118,10 @@
                                          CGRectGetWidth(self.visitorsIcon.frame),
                                          CGRectGetHeight(self.visitorsIcon.frame));
 
-    
     [self.visitorsLabel sizeToFit];
+
     self.visitorsLabel.frame = CGRectMake(CGRectGetMaxX(self.visitorsIcon.frame) + padding,
-                                          CGRectGetMinY(self.visitorsIcon.frame),
+                                          floorf(CGRectGetMinY(self.visitorsIcon.frame) + (CGRectGetHeight(self.visitorsIcon.frame) - CGRectGetHeight(self.visitorsLabel.frame)) * 0.5 ),
                                           floorf(widthForEachIcon - CGRectGetWidth(self.visitorsIcon.frame) - padding),
                                           CGRectGetHeight(self.visitorsLabel.frame));
     
@@ -136,8 +135,8 @@
     
     [self.moneyLabel sizeToFit];
     self.moneyLabel.frame = CGRectMake(CGRectGetMaxX(self.moneyIcon.frame) + padding,
-                                       CGRectGetMinY(self.moneyIcon.frame),
-                                       floorf(widthForEachIcon - CGRectGetWidth(self.moneyIcon.frame) - padding),
+                                       floorf(CGRectGetMinY(self.moneyIcon.frame) + (CGRectGetHeight(self.moneyIcon.frame) - CGRectGetHeight(self.moneyLabel.frame)) * 0.5 ),
+                                       CGRectGetWidth(self.moneyLabel.frame),
                                        CGRectGetHeight(self.moneyLabel.frame));
     
 }

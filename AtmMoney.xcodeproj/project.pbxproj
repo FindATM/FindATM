@@ -45,6 +45,7 @@
 		6F4730EB1B47D25B00E99508 /* Dimitris Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6F4730EA1B47D25B00E99508 /* Dimitris Location.gpx */; };
 		6F4730ED1B47D85C00E99508 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4730EC1B47D85C00E99508 /* MapKit.framework */; };
 		6F4730F01B47DBA200E99508 /* ATMBankTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730EF1B47DBA200E99508 /* ATMBankTableViewCell.m */; };
+		6FD1FEA61B4B2C82007D33F8 /* ATMPlainCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1FEA51B4B2C82007D33F8 /* ATMPlainCustomButton.m */; };
 		F69F6A5F1B4718A100FE29B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A5E1B4718A100FE29B9 /* main.m */; };
 		F69F6A621B4718A100FE29B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A611B4718A100FE29B9 /* AppDelegate.m */; };
 		F69F6A651B4718A100FE29B9 /* ATMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A641B4718A100FE29B9 /* ATMMainViewController.m */; };
@@ -125,6 +126,8 @@
 		6F4730EE1B47DBA200E99508 /* ATMBankTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMBankTableViewCell.h; sourceTree = "<group>"; };
 		6F4730EF1B47DBA200E99508 /* ATMBankTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMBankTableViewCell.m; sourceTree = "<group>"; };
 		6F4730F71B48464C00E99508 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = AtmMoney/PrefixHeader.pch; sourceTree = "<group>"; };
+		6FD1FEA41B4B2C82007D33F8 /* ATMPlainCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMPlainCustomButton.h; sourceTree = "<group>"; };
+		6FD1FEA51B4B2C82007D33F8 /* ATMPlainCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMPlainCustomButton.m; sourceTree = "<group>"; };
 		F69F6A591B4718A100FE29B9 /* AtmMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtmMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69F6A5D1B4718A100FE29B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F69F6A5E1B4718A100FE29B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -282,6 +285,22 @@
 			path = Engine;
 			sourceTree = "<group>";
 		};
+		6FD1FEA21B4B2AA2007D33F8 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		6FD1FEA31B4B2C6D007D33F8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6FD1FEA41B4B2C82007D33F8 /* ATMPlainCustomButton.h */,
+				6FD1FEA51B4B2C82007D33F8 /* ATMPlainCustomButton.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		F69F6A501B4718A100FE29B9 = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +327,8 @@
 				08BA577D1B475B2900C8EC19 /* Model */,
 				6F4730E21B47CD9E00E99508 /* Engine */,
 				6F4599641B49E2EB00561005 /* Toolkit */,
+				6FD1FEA21B4B2AA2007D33F8 /* Settings */,
+				6FD1FEA31B4B2C6D007D33F8 /* UI */,
 				08BA577A1B4759E600C8EC19 /* DataHandler.h */,
 				08BA577B1B4759E600C8EC19 /* DataHandler.m */,
 				F69F6A601B4718A100FE29B9 /* AppDelegate.h */,
@@ -454,6 +475,7 @@
 				F69F6A5F1B4718A100FE29B9 /* main.m in Sources */,
 				6F4730E81B47D02A00E99508 /* GetNearestBanks.m in Sources */,
 				6F163E931B4AE855002AE691 /* DTTimePeriodChain.m in Sources */,
+				6FD1FEA61B4B2C82007D33F8 /* ATMPlainCustomButton.m in Sources */,
 				08D2CDF91B47E9B400E2A2E3 /* MapViewController.m in Sources */,
 				08BA579D1B475E0900C8EC19 /* AFHTTPSessionManager.m in Sources */,
 				6F4730E51B47CE1100E99508 /* Engine.m in Sources */,

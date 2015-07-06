@@ -46,11 +46,6 @@
 }
 
 
-
-- (void)updateAddress:(NSString *)address {
-    self.address = address;
-}
-
 + (NSString *)getBankNameFromType:(EBankType)bankType {
     switch (bankType) {
         case EBankTypeAlpha:

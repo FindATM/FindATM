@@ -11,7 +11,7 @@
 #import "DataHandler.h"
 #import "ATMDetailBankViewController.h"
 
-@interface MkCustomPointAnnotation : MKPointAnnotation
+@interface MKCustomPointAnnotation : MKPointAnnotation
 
 @property(nonatomic,strong)Bank *currentBank;
 
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation MkCustomPointAnnotation
+@implementation MKCustomPointAnnotation
 
 -(instancetype)initWithBank:(Bank *)bank {
 
@@ -36,12 +36,10 @@
 @end
 
 @interface MapViewController ()
-
+@property (nonatomic, strong)  MKMapView *mapView;
 @end
 
 @implementation MapViewController {
-
-    MKMapView *_mapView;
 
     CLLocationCoordinate2D location;
 //    MKPointAnnotation *newAnnotation;
@@ -50,58 +48,51 @@
 
 }
 
-- (void)showAnnotations {
-    
-    
-    newAnnotations = [[NSMutableArray alloc]init];
-    [self.coords enumerateObjectsUsingBlock:^(Bank *obj, NSUInteger idx, BOOL *stop) {
-
-        MKPointAnnotation * newAnnotation = [[MkCustomPointAnnotation alloc] initWithBank:obj];
-        [newAnnotations addObject:newAnnotation];
-
-    }];
-    [_mapView addAnnotations:newAnnotations];
-    
-    MKMapRect zoomRect = MKMapRectNull;
-    
-    for (id <MKAnnotation> annotation in _mapView.annotations)
-    {
-        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
-        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.0, 0.0);
-        zoomRect = MKMapRectUnion(zoomRect, pointRect);
-    }
-    [_mapView setVisibleMapRect:zoomRect animated:YES];
-    
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.navigationItem.title = NSLocalizedStringFromTable(@"mapviewcontroller.title", @"Localization", nil);
     
-    _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-40)];
-    _mapView.showsUserLocation = NO;
+    self.mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
+    self.mapView.showsUserLocation = NO;
+    self.mapView.delegate = self;
     
-    _mapView.delegate = self;
-    
-    [self.view addSubview:_mapView];
+    [self.view addSubview:self.mapView];
 
     [self showAnnotations];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)showAnnotations {
+    
+    newAnnotations = [[NSMutableArray alloc] init];
+    [self.coords enumerateObjectsUsingBlock:^(Bank *obj, NSUInteger idx, BOOL *stop) {
+        
+        MKPointAnnotation * newAnnotation = [[MKCustomPointAnnotation alloc] initWithBank:obj];
+        [newAnnotations addObject:newAnnotation];
+        
+    }];
+    [self.mapView addAnnotations:newAnnotations];
+    
+    MKMapRect zoomRect = MKMapRectNull;
+    
+    for (id <MKAnnotation> annotation in self.mapView.annotations)
+    {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.0, 0.0);
+        zoomRect = MKMapRectUnion(zoomRect, pointRect);
+    }
+    [self.mapView setVisibleMapRect:zoomRect animated:YES];
+    
 }
 
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:
-(MKUserLocation *)userLocation
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    mapView.centerCoordinate = userLocation.location.coordinate;
+//    mapView.centerCoordinate = userLocation.location.coordinate;
+    [mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(MkCustomPointAnnotation *)annotation
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(MKCustomPointAnnotation *)annotation
 {
     
     if ([annotation isKindOfClass:[MKUserLocation class]])
@@ -116,12 +107,11 @@
     annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
     if(!annotationView) {
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];       
-        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeCustom];
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         annotationView.canShowCallout = YES;
         
         UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[Bank getImageNameFromBankState:annotation.currentBank.bankState]]];
         annotationView.leftCalloutAccessoryView = imgView;
-//        [imgView sizeToFit];
         
     }
     return annotationView;
@@ -129,25 +119,16 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    MkCustomPointAnnotation *annotation = view.annotation;
-    
-//    CLLocationCoordinate2D coordinate = [annotation coordinate];
-//    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:nil];
-//    MKMapItem *mapitem = [[MKMapItem alloc] initWithPlacemark:placemark];
-//    mapitem.name = annotation.title;
-//    [mapitem openInMapsWithLaunchOptions:nil];
-    
-//    if(_delegate && [_delegate respondsToSelector:@selector(openBankDetailViewWithBank:)]) {
-    
-//        [self.navigationController popViewControllerAnimated:NO];
-    
-//        [_delegate openBankDetailViewWithBank:annotation.currentBank];
-//    }
+    MKCustomPointAnnotation *annotation = view.annotation;
     
     [SVProgressHUD show];
     [Eng.getNearestBanks getBankHistoryWithId:annotation.currentBank.buid
                                withCompletion:^{
+                                   
                                    [SVProgressHUD dismiss];
+                                   UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+                                   [self.navigationItem setBackBarButtonItem:backButtonItem];
+                                   
                                    ATMDetailBankViewController *atmDetailViewController = [[ATMDetailBankViewController alloc] initWithBank:annotation.currentBank];
                                    [self.navigationController pushViewController:atmDetailViewController animated:YES];
                                    

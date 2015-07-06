@@ -11,6 +11,7 @@
 #import "DataHandler.h"
 #import "DateTools.h"
 #import <MapKit/MapKit.h>
+#import "ATMPlainCustomButton.h"
 
 
 @interface ATMDetailBankViewController ()
@@ -31,16 +32,15 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *latestActivityLabel;
 @property (weak, nonatomic) IBOutlet UITableView *latestActivityTableView;
-@property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet ATMPlainCustomButton *submitButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *noActivityLabel;
 
 @end
 
 static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 
-@implementation ATMDetailBankViewController {
-
-    UIBarButtonItem *directionButton;
-}
+@implementation ATMDetailBankViewController
 
 - (instancetype)initWithBank:(Bank *)bank {
     self = [super init];
@@ -57,6 +57,10 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.noActivityLabel.hidden = (Eng.getNearestBanks.bankHistoryData.count > 0);
+    
+    self.submitButton.normalBackgroundColor = [UIColor colorWithRed:0.47 green:0.83 blue:0.95 alpha:1];
+    self.submitButton.selectedBackgroundColor = [UIColor colorWithRed:0.2892 green:0.5278 blue:0.6047 alpha:1.0];
     [self.submitButton addTarget:self action:@selector(submitButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
     // Activity Table View init
@@ -76,13 +80,11 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     [self.hasMoneySwitch addTarget:self action:@selector(hasMoneySwitchValueChanged) forControlEvents:UIControlEventValueChanged];
     
     [self updateViewWithState:self.bankData.bankType];
-    
-    
-    directionButton = [[UIBarButtonItem alloc]
-                       initWithTitle:@"Directions"
-                       style:UIBarButtonItemStyleBordered
-                       target:self
-                       action:@selector(directionsPressed)];
+       
+    UIBarButtonItem *directionButton = [[UIBarButtonItem alloc] initWithTitle:@"Directions"
+                                                                        style:UIBarButtonItemStyleBordered
+                                                                       target:self
+                                                                       action:@selector(directionsPressed)];
     self.navigationItem.rightBarButtonItem = directionButton;
     
 }
@@ -96,39 +98,59 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Submit Button -
 - (void)submitButtonPressed {
     EBankState state;
-    if(self.hasMoneySwitch.on == NO)
+    [SVProgressHUD show];
+    
+    if(!self.hasMoneySwitch.isOn)
         state = EBankStateNoMoney;
-    else if (self.hasTwentiesSwitch.on == YES)
+    else if (self.hasTwentiesSwitch.isOn)
         state = EbankStateMoneyAndTwenties;
     else
         state = EbankStateMoneyNoTwenties;
     
-    [Eng.submitBank submitBankWithBankID:self.bankData.buid andBankState:state withCompletion:^{
-        [self.navigationController popViewControllerAnimated:YES];
-    } andFailure:^{
-        
-    }];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(svProgressHUDWillDissapear)
+                                                 name:SVProgressHUDWillDisappearNotification
+                                               object:nil];
+    
+    [Eng.submitBank submitBankWithBankID:self.bankData.buid
+                            andBankState:state
+                          withCompletion:^{
+                              [SVProgressHUD showSuccessWithStatus:@"Information submitted\nThank You!"];
+                          }
+                              andFailure:^{
+                                  [SVProgressHUD showErrorWithStatus:@"Network Failure"];
+                              }];
+}
+
+- (void)svProgressHUDWillDissapear {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self updateBankHistory];
+}
+
+- (void)updateBankHistory {
+    [Eng.getNearestBanks getBankHistoryWithId:self.bankData.buid
+                               withCompletion:^{
+                                   self.noActivityLabel.hidden = (Eng.getNearestBanks.bankHistoryData.count > 0);
+                                   [self.latestActivityTableView reloadData];
+                               }
+                                   andFailure:^{
+                                       [SVProgressHUD showErrorWithStatus:@"Network Failure"];
+                                   }];
+
 }
 
 - (void)updateViewWithState:(EBankType)state {
 
-//    CLLocation *location = [[CLLocation alloc] initWithLatitude:self.bankData.latitude longitude:self.bankData.longtitude];
     self.bankAddressLabel.text = self.bankData.address;
     switch (self.bankData.bankState) {
         case EbankStateUknown:
-            [self.hasMoneySwitch setOn:YES animated:YES];
-            [self enableTwentiesView];
-            [self.hasTwentiesSwitch setOn:YES animated:YES];
-            break;
-            
         case EbankStateMoneyAndTwenties:
             [self.hasMoneySwitch setOn:YES animated:YES];
             [self enableTwentiesView];
@@ -153,6 +175,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
             [self.hasTwentiesSwitch setOn:YES animated:YES];
             break;
     }
+    
 }
 
 #pragma mark - Has Money & Has Twenties methods -
@@ -212,15 +235,16 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     NSString *bankStateString   = [Bank getReadableStateFromBankState:history.bankState];
     cell.textLabel.font = [UIFont systemFontOfSize:13];
     
-    NSMutableAttributedString *dateAttString = [[NSMutableAttributedString alloc] initWithString:dateString
+    NSMutableAttributedString *dateAttString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\t",dateString]
                                                                         attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13]}];
 
-    NSAttributedString *bankStateAttString = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\t%@",bankStateString]
-                                                                             attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:13]}];
+    NSAttributedString *bankStateAttString = [[NSAttributedString alloc] initWithString:bankStateString
+                                                                             attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:13],
+                                                                                          NSForegroundColorAttributeName: [Bank getTextColorFromBankState:history.bankState]}];
     [dateAttString appendAttributedString:bankStateAttString];
     
     cell.textLabel.attributedText = dateAttString;
-    
+    [cell layoutIfNeeded];
     return cell;
 }
 

@@ -25,8 +25,6 @@
 
 - (void)getNearestBanksWithLocation:(CLLocation *)location andDistance:(CGFloat)distance withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure {
    
-    self.banksData = [[NSMutableArray alloc] init];
-    
     [Eng postMethod:GET_NEAREST_BANKS_URL
          parameters:@{@"lng": @(location.coordinate.longitude), @"lat":@(location.coordinate.latitude), @"distance":[NSNumber numberWithFloat:distance]}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -37,7 +35,8 @@
                             failure();
                         return;
                     }
-                    
+                
+                    self.banksData = [[NSMutableArray alloc] init];
                     NSArray *banks = [responseObject objectForKey:@"banks"];
                     
                     [banks enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
@@ -59,7 +58,6 @@
 }
 - (void)getBankHistoryWithId:(NSInteger)buid withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure {
     
-    self.bankHistoryData = [[NSMutableArray alloc] init];
     
     [Eng postMethod:GET_BANK_HISTORY_URL
          parameters:@{@"buid": @(buid)}
@@ -72,6 +70,7 @@
                     return;
                 }
                 
+                self.bankHistoryData = [[NSMutableArray alloc] init];
                 NSArray *history = [responseObject objectForKey:@"bankHistory"];
                 
                 [history enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {

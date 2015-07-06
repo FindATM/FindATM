@@ -17,10 +17,7 @@
 @interface ATMMainViewController   ()
 @end
 
-@implementation ATMMainViewController {
-
-    UIBarButtonItem *btnMap;
-}
+@implementation ATMMainViewController
 
 static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
@@ -38,12 +35,11 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
     
-    btnMap = [[UIBarButtonItem alloc]
-                                initWithTitle:@"Map"
-                                style:UIBarButtonItemStyleBordered
-                                target:self
-                                action:@selector(openMap)];
-    self.navigationItem.rightBarButtonItem = btnMap;
+    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithTitle:@"Map"
+                                                                  style:UIBarButtonItemStyleBordered
+                                                                 target:self
+                                                                 action:@selector(openMap)];
+    self.navigationItem.rightBarButtonItem = mapButton;
 }
 
 - (void)refreshTableView {
@@ -58,10 +54,9 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButtonItem];
 
-    MapViewController *map = [[MapViewController alloc] init];
-    [self.navigationController pushViewController:map animated:YES];
-    map.delegate = self;
-    map.coords = Eng.getNearestBanks.banksData;
+    MapViewController *mapViewController = [[MapViewController alloc] init];
+    [self.navigationController pushViewController:mapViewController animated:YES];
+    mapViewController.coords = Eng.getNearestBanks.banksData;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -168,35 +163,19 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 - (void)getBanks {
     
     CLLocation *location = Data.currentLocation;
-    [[Engine sharedInstance].getNearestBanks getNearestBanksWithLocation:location andDistance:0.8 withCompletion:^{
-        [self.tableView reloadData];
-        [self.refreshControl endRefreshing];
-        [SVProgressHUD dismiss];
-    } andFailure:^{
-        [self.refreshControl endRefreshing];
-        [SVProgressHUD showErrorWithStatus:@"Network Failure"];
-    }];
+    [Eng.getNearestBanks getNearestBanksWithLocation:location
+                                         andDistance:0.8
+                                      withCompletion:^{
+                                        [self.tableView reloadData];
+                                        [self.refreshControl endRefreshing];
+                                        [SVProgressHUD dismiss];
+                                      }
+                                          andFailure:^{
+                                            [self.refreshControl endRefreshing];
+                                            [self.tableView reloadData];
+                                            [SVProgressHUD showErrorWithStatus:@"Network Failure"];
+                                          }];
     
 }
 
-
-//#pragma mark mapdelegate method
-//
-//- (void)openBankDetailViewWithBank:(Bank *)bank {
-//
-//    ATMDetailBankViewController  *atmDetailViewController = [[ATMDetailBankViewController alloc] initWithBank:bank];
-//    
-//    [SVProgressHUD show];
-//    [Eng.getNearestBanks getBankHistoryWithId:bank.buid
-//                               withCompletion:^{
-//                                   [SVProgressHUD dismiss];
-//                                   [self.navigationController pushViewController:atmDetailViewController animated:YES];
-//                                   
-//                               }
-//                                   andFailure:^{
-//                                       [SVProgressHUD showErrorWithStatus:@"Network Failure"];
-//                                       
-//                                   }];
-//
-//}
 @end

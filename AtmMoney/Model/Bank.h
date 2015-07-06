@@ -44,8 +44,6 @@ typedef enum : NSUInteger {
 
 - (instancetype)initWithDict:(NSDictionary *)dict;
 
-- (void)updateAddress:(NSString *)address;
-
 + (NSString *)getBankNameFromType:(EBankType)bankType;
 
 + (NSString *)getStateNameFromState:(EBankState)bankState;
