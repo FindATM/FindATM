@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MapViewController.h"
 
-@interface ATMMainViewController : UITableViewController <UITableViewDataSource,UITableViewDelegate>
+@interface ATMMainViewController : UITableViewController <UITableViewDataSource,UITableViewDelegate,MapDelegate>
 
 
 @end

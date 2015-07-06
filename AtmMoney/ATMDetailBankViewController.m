@@ -10,11 +10,12 @@
 #import "BankHistory.h"
 #import "DataHandler.h"
 #import "DateTools.h"
+#import <MapKit/MapKit.h>
 
 
 @interface ATMDetailBankViewController ()
 
-@property (nonatomic, weak) Bank *bankData;
+@property (nonatomic, strong) Bank *bankData;
 
 @property (weak, nonatomic) IBOutlet UIImageView *bankLogoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *bankNameLabel;
@@ -36,7 +37,10 @@
 
 static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 
-@implementation ATMDetailBankViewController
+@implementation ATMDetailBankViewController {
+
+    UIBarButtonItem *directionButton;
+}
 
 - (instancetype)initWithBank:(Bank *)bank {
     self = [super init];
@@ -72,6 +76,23 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     [self.hasMoneySwitch addTarget:self action:@selector(hasMoneySwitchValueChanged) forControlEvents:UIControlEventValueChanged];
     
     [self updateViewWithState:self.bankData.bankType];
+    
+    
+    directionButton = [[UIBarButtonItem alloc]
+                       initWithTitle:@"Directions"
+                       style:UIBarButtonItemStyleBordered
+                       target:self
+                       action:@selector(directionsPressed)];
+    self.navigationItem.rightBarButtonItem = directionButton;
+    
+}
+
+- (void)directionsPressed {
+
+        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:self.bankData.location addressDictionary:nil];
+        MKMapItem *mapitem = [[MKMapItem alloc] initWithPlacemark:placemark];
+        mapitem.name = self.bankData.name;
+        [mapitem openInMapsWithLaunchOptions:nil];
     
 }
 
