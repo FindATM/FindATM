@@ -51,7 +51,6 @@
 
 - (void)showAnnotations {
     
-    
     newAnnotations = [[NSMutableArray alloc]init];
     [self.coords enumerateObjectsUsingBlock:^(Bank *obj, NSUInteger idx, BOOL *stop) {
 
@@ -92,14 +91,21 @@
 }
 
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:
-(MKUserLocation *)userLocation
-{
-    mapView.centerCoordinate = userLocation.location.coordinate;
-}
+//- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:
+//(MKUserLocation *)userLocation
+//{
+//    mapView.centerCoordinate = userLocation.location.coordinate;
+//}
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(MkCustomPointAnnotation *)annotation
 {
+    
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+    {
+        ((MKUserLocation *)annotation).title = @"My Current Location";
+        return nil;  //return nil to use default blue dot view
+    }
+    
     MKPinAnnotationView *annotationView;
     static NSString *reuseIdentifier = @"MapAnnotation";
 
@@ -108,9 +114,12 @@
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         annotationView.canShowCallout = YES;
-        
-//        UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[Bank getImageNameFromBankState:annotation.currentBank.bankState]]];
-//        [imgView sizeToFit];
+        annotationView.pinColor = MKPinAnnotationColorGreen;
+
+
+        UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[Bank getImageNameFromBankState:annotation.currentBank.bankState]]];
+        [imgView sizeToFit];
+        annotationView.leftCalloutAccessoryView = imgView;
         
     }
     return annotationView;
