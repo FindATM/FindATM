@@ -97,10 +97,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 - (void)updateViewWithState:(EBankType)state {
 
     CLLocation *location = [[CLLocation alloc] initWithLatitude:self.bankData.latitude longitude:self.bankData.longtitude];
-
-    [Data getAddressFromLocation:location WithCompletion:^(NSString *message) {
-        self.bankAddressLabel.text = message;
-    }];
+    self.bankAddressLabel.text = self.bankData.address;
 }
 
 #pragma mark - Has Money & Has Twenties methods -
@@ -155,9 +152,14 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     cell.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.0] : [UIColor whiteColor];
     BankHistory *history = [Eng.getNearestBanks.bankHistoryData objectAtIndex:indexPath.row];
     
-    NSString *dateString        = [Tk.dateFormatter stringFromDate:history.time];
+
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:history.time
+                                                          dateStyle:NSDateFormatterShortStyle
+                                                          timeStyle:NSDateFormatterShortStyle];
     NSString *bankStateString   = [Bank getReadableStateFromBankState:history.bankState];
     cell.textLabel.font = [UIFont systemFontOfSize:13];
+    
+    
     
     NSMutableAttributedString *dateAttString = [[NSMutableAttributedString alloc] initWithString:dateString
                                                                         attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13]}];

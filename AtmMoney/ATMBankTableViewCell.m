@@ -156,17 +156,12 @@
 
 - (void)updateWithBank:(Bank *)bank {
     self.titleLabel.text = [Bank getBankNameFromType:bank.bankType];
-    self.addressLabel.text = bank.name;
+    self.addressLabel.text = bank.address;
     
     self.moneyLabel.text = [Bank getStateNameFromState:bank.bankState];
     self.moneyLabel.textColor = [Bank getTextColorFromBankState:bank.bankState];
     self.moneyIcon.image = [UIImage imageNamed:[Bank getImageNameFromBankState:bank.bankState]];
     
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:bank.latitude longitude:bank.longtitude];
-    [Data getAddressFromLocation:location WithCompletion:^(NSString *message) {
-        self.addressLabel.text = message;
-        [bank updateAddress:message];
-    }];
    
     self.visitorsLabel.text = [NSString stringWithFormat:NSLocalizedStringFromTable(@"%ld visitors.count", @"Localization", @""), (long)bank.visitors];
     

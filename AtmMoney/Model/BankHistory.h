@@ -13,7 +13,7 @@
 @interface BankHistory : NSObject
 
 @property(nonatomic,assign,readonly) EBankState bankState;
-@property(nonatomic,assign,readonly) NSDate *time;
+@property(nonatomic,strong,readonly) NSDate *time;
 
 
 
