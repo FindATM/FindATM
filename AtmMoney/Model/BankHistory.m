@@ -12,7 +12,7 @@
 @interface BankHistory ()
 
 @property(nonatomic,assign,readwrite) EBankState bankState;
-@property(nonatomic,assign,readwrite) NSDate *time;
+@property(nonatomic,strong,readwrite) NSDate *time;
 
 @end
 

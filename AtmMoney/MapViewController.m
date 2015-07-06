@@ -8,7 +8,7 @@
 
 #import "MapViewController.h"
 #import "Bank.h"
-
+#import "DataHandler.h"
 
 @interface MapViewController ()
 
@@ -26,26 +26,38 @@
 }
 
 - (void)showAnnotations {
+    
+    
     newAnnotations = [[NSMutableArray alloc]init];
     [self.coords enumerateObjectsUsingBlock:^(Bank *obj, NSUInteger idx, BOOL *stop) {
         MKPointAnnotation * newAnnotation = [[MKPointAnnotation alloc] init];
         newAnnotation.title = obj.name;
         newAnnotation.coordinate = obj.location;
         [newAnnotations addObject:newAnnotation];
+
     }];
     [_mapView addAnnotations:newAnnotations];
-    _mapView.region = MKCoordinateRegionMakeWithDistance(_mapView.userLocation.coordinate, 150, 150);
-
+    
+    MKMapRect zoomRect = MKMapRectNull;
+    
+    for (id <MKAnnotation> annotation in _mapView.annotations)
+    {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.0, 0.0);
+        zoomRect = MKMapRectUnion(zoomRect, pointRect);
+    }
+    [_mapView setVisibleMapRect:zoomRect animated:YES];
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-40)];
+    _mapView.showsUserLocation = YES;
     
     _mapView.delegate = self;
     
 
-    
     [self.view addSubview:_mapView];
     
     
