@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
+@protocol MapDelegate <NSObject>
+
+- (void)openBankDetailViewWithBank:(Bank *)bank;
+
+@end
+
 @interface MapViewController : UIViewController <MKMapViewDelegate>
 @property(nonatomic,strong)NSMutableArray *coords;
+@property(nonatomic,weak)id <MapDelegate> delegate;
 
 - (void)showAnnotations;
 @end

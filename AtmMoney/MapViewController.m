@@ -10,6 +10,30 @@
 #import "Bank.h"
 #import "DataHandler.h"
 
+@interface MkCustomPointAnnotation : MKPointAnnotation
+
+@property(nonatomic,strong)Bank *currentBank;
+
+-(instancetype)initWithBank:(Bank *)bank;
+
+@end
+
+@implementation MkCustomPointAnnotation
+
+-(instancetype)initWithBank:(Bank *)bank {
+
+    self = [super init];
+    if(self)  {
+        self.title = [Bank getBankNameFromType:bank.bankType];
+        self.subtitle = bank.address;
+        self.coordinate = bank.location;
+        self.currentBank = bank;
+    }
+    return self;
+}
+
+@end
+
 @interface MapViewController ()
 
 @end
@@ -30,9 +54,8 @@
     
     newAnnotations = [[NSMutableArray alloc]init];
     [self.coords enumerateObjectsUsingBlock:^(Bank *obj, NSUInteger idx, BOOL *stop) {
-        MKPointAnnotation * newAnnotation = [[MKPointAnnotation alloc] init];
-        newAnnotation.title = obj.name;
-        newAnnotation.coordinate = obj.location;
+
+        MKPointAnnotation * newAnnotation = [[MkCustomPointAnnotation alloc] initWithBank:obj];
         [newAnnotations addObject:newAnnotation];
 
     }];
@@ -57,24 +80,10 @@
     
     _mapView.delegate = self;
     
-
     [self.view addSubview:_mapView];
-    
-    
-    directionButton = [[UIBarButtonItem alloc]
-              initWithTitle:@"Directions"
-              style:UIBarButtonItemStyleBordered
-              target:self
-              action:@selector(directionsPressed)];
-    self.navigationItem.rightBarButtonItem = directionButton;
 
     [self showAnnotations];
     // Do any additional setup after loading the view.
-}
-
-- (void)directionsPressed {
-
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,4 +97,41 @@
 {
     mapView.centerCoordinate = userLocation.location.coordinate;
 }
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(MkCustomPointAnnotation *)annotation
+{
+    MKPinAnnotationView *annotationView;
+    static NSString *reuseIdentifier = @"MapAnnotation";
+
+    annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
+    if(!annotationView) {
+        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        annotationView.canShowCallout = YES;
+        
+//        UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[Bank getImageNameFromBankState:annotation.currentBank.bankState]]];
+//        [imgView sizeToFit];
+        
+    }
+    return annotationView;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    MkCustomPointAnnotation *annotation = view.annotation;
+    
+//    CLLocationCoordinate2D coordinate = [annotation coordinate];
+//    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:nil];
+//    MKMapItem *mapitem = [[MKMapItem alloc] initWithPlacemark:placemark];
+//    mapitem.name = annotation.title;
+//    [mapitem openInMapsWithLaunchOptions:nil];
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(openBankDetailViewWithBank:)]) {
+    
+        [self.navigationController popViewControllerAnimated:NO];
+        [_delegate openBankDetailViewWithBank:annotation.currentBank];
+    }
+}
+
+
 @end

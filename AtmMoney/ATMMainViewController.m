@@ -56,6 +56,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     
     MapViewController *map = [[MapViewController alloc] init];
     [self.navigationController pushViewController:map animated:YES];
+    map.delegate = self;
     map.coords = Eng.getNearestBanks.banksData;
 }
 
@@ -75,7 +76,6 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     [Data startUpdatingLocation];
     
     [Data addObserver:self forKeyPath:CURRENT_LOCATION_KEY options:NSKeyValueObservingOptionNew context:nil];
-    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -174,5 +174,26 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
         [SVProgressHUD showErrorWithStatus:@"Network Failure"];
     }];
     
+}
+
+
+#pragma mark mapdelegate method
+
+- (void)openBankDetailViewWithBank:(Bank *)bank {
+
+    ATMDetailBankViewController  *atmDetailViewController = [[ATMDetailBankViewController alloc] initWithBank:bank];
+    
+    [SVProgressHUD show];
+    [Eng.getNearestBanks getBankHistoryWithId:bank.buid
+                               withCompletion:^{
+                                   [SVProgressHUD dismiss];
+                                   [self.navigationController pushViewController:atmDetailViewController animated:YES];
+                                   
+                               }
+                                   andFailure:^{
+                                       [SVProgressHUD showErrorWithStatus:@"Network Failure"];
+                                       
+                                   }];
+
 }
 @end
