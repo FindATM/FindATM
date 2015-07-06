@@ -43,7 +43,6 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
                                 target:self
                                 action:@selector(openMap)];
     self.navigationItem.rightBarButtonItem = btnMap;
-
 }
 
 - (void)refreshTableView {
@@ -127,8 +126,6 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
                                        [SVProgressHUD showErrorWithStatus:@"Network Failure"];
                                    
                                    }];
-
-
 }
 
 // from: http://stackoverflow.com/questions/25770119/ios-8-uitableview-separator-inset-0-not-working
@@ -162,7 +159,6 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
         [self getBanks];
         [Data stopUpdatingLocation];
     }
-
 }
 
 - (void)getBanks {

@@ -97,10 +97,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
 - (void)updateViewWithState:(EBankType)state {
 
     CLLocation *location = [[CLLocation alloc] initWithLatitude:self.bankData.latitude longitude:self.bankData.longtitude];
-
-    [Data getAddressFromLocation:location WithCompletion:^(NSString *message) {
-        self.bankAddressLabel.text = message;
-    }];
+    self.bankAddressLabel.text = self.bankData.address;
 }
 
 #pragma mark - Has Money & Has Twenties methods -

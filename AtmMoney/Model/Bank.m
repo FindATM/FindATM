@@ -39,10 +39,13 @@
         self.bankState = [[dict objectForKey:@"state"] integerValue];
         self.visitors = [[dict objectForKey:@"visitors"] integerValue];
         self.location = CLLocationCoordinate2DMake(self.latitude, self.longtitude);
-
+        self.address =[dict objectForKey:@"address"];
+        
     }
     return self;
 }
+
+
 
 - (void)updateAddress:(NSString *)address {
     self.address = address;
