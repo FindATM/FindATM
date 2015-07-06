@@ -13,8 +13,8 @@
 typedef enum : NSUInteger {
     EbankStateUknown = 0,
     EbankStateMoneyAndTwenties,
-    EbankStateMoneyNoTwenties,
-    EBankStateNoMoney
+    EBankStateNoMoney,
+    EbankStateMoneyNoTwenties
 } EBankState;
 
 typedef enum : NSUInteger {

@@ -58,6 +58,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     // Activity Table View init
     self.latestActivityTableView.delegate = self;
     self.latestActivityTableView.dataSource = self;
+    self.latestActivityTableView.tableFooterView = [[UIView alloc] init];
 
     [self.latestActivityTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:activityCellItemIdentifier];
 
@@ -86,7 +87,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     else if (self.hasTwentiesSwitch.on == YES)
         state = EbankStateMoneyAndTwenties;
     else
-        state = EbankStateMoneyNoTwenties;
+        state = EBankStateNoMoney;
     
     [Eng.submitBank submitBankWithBankID:self.bankData.buid andBankState:state withCompletion:^{
         [self.navigationController popViewControllerAnimated:YES];
@@ -153,20 +154,14 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     cell.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.0] : [UIColor whiteColor];
     BankHistory *history = [Eng.getNearestBanks.bankHistoryData objectAtIndex:indexPath.row];
     
-
-    
-//    NSString *dateString = [NSDateFormatter localizedStringFromDate:history.time
-//                                                          dateStyle:NSDateFormatterShortStyle
-//                                                          timeStyle:NSDateFormatterShortStyle];
     NSString *dateString = [history.time timeAgoSinceNow];
     
     NSString *bankStateString   = [Bank getReadableStateFromBankState:history.bankState];
     cell.textLabel.font = [UIFont systemFontOfSize:13];
     
-    
-    
     NSMutableAttributedString *dateAttString = [[NSMutableAttributedString alloc] initWithString:dateString
                                                                         attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13]}];
+
     NSAttributedString *bankStateAttString = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\t%@",bankStateString]
                                                                              attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:13]}];
     [dateAttString appendAttributedString:bankStateAttString];

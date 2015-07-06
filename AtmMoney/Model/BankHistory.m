@@ -7,7 +7,7 @@
 //
 
 #import "BankHistory.h"
-
+#import "Toolkit.h"
 
 @interface BankHistory ()
 
@@ -18,7 +18,7 @@
 
 @implementation BankHistory {
 
-    NSDateFormatter *formatter;
+    
 }
 
 - (instancetype)initWithDict:(NSDictionary *)dict {
@@ -27,10 +27,15 @@
     self = [super init];
     if(self) {
         self.bankState = [[dict objectForKey:@"state"] integerValue];
-        formatter = [[NSDateFormatter alloc] init];
-        formatter.timeZone = [NSTimeZone timeZoneWithName:@"Europe/Athens"];
-        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-        self.time = [formatter dateFromString:[dict objectForKey:@"time"]];
+        
+        Tk.dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+        Tk.dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"Europe/London"];
+        self.time = [Tk.dateFormatter dateFromString:[dict objectForKey:@"time"]];
+        
+        Tk.dateFormatter.timeZone = [NSTimeZone localTimeZone];
+        NSString *convertedDate = [Tk.dateFormatter stringFromDate:self.time];
+        
+        self.time = [Tk.dateFormatter dateFromString:convertedDate];
 
     }
     return self;
