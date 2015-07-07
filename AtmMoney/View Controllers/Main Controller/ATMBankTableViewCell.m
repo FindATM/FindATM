@@ -7,7 +7,7 @@
 //
 
 #import "ATMBankTableViewCell.h"
-#import "DataHandler.h"
+#import "LocationHandler.h"
 
 @interface ATMBankTableViewCell ()
 @property (nonatomic,strong) UIImageView    *bankLogoImageView;

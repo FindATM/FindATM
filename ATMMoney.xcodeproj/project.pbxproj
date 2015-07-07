@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08BA577C1B4759E600C8EC19 /* DataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA577B1B4759E600C8EC19 /* DataHandler.m */; };
 		08BA57801B475B3300C8EC19 /* Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA577F1B475B3300C8EC19 /* Bank.m */; };
 		08BA57821B475DB500C8EC19 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BA57811B475DB500C8EC19 /* UIKit.framework */; };
 		08BA57841B475DBB00C8EC19 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BA57831B475DBB00C8EC19 /* CoreFoundation.framework */; };
@@ -21,7 +20,6 @@
 		08BA57A11B475E0900C8EC19 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA57961B475E0900C8EC19 /* AFURLRequestSerialization.m */; };
 		08BA57A21B475E0900C8EC19 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA57981B475E0900C8EC19 /* AFURLResponseSerialization.m */; };
 		08BA57A31B475E0900C8EC19 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BA579A1B475E0900C8EC19 /* AFURLSessionManager.m */; };
-		08D2CDF91B47E9B400E2A2E3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */; };
 		08D2CDFC1B49475900E2A2E3 /* BankHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2CDFB1B49475900E2A2E3 /* BankHistory.m */; };
 		6F163E901B4AE855002AE691 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F163E811B4AE855002AE691 /* DateTools.bundle */; };
 		6F163E911B4AE855002AE691 /* DTError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F163E851B4AE855002AE691 /* DTError.m */; };
@@ -33,35 +31,36 @@
 		6F2258A61B48813C00D1E3F1 /* SubmitBank.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2258A51B48813C00D1E3F1 /* SubmitBank.m */; };
 		6F2258B51B4885EB00D1E3F1 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258B21B4885EB00D1E3F1 /* Localization.strings */; };
 		6F2258B81B4888B100D1E3F1 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258B61B4888B100D1E3F1 /* Localization.strings */; };
-		6F2258BF1B4891FF00D1E3F1 /* ATMDetailBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2258BD1B4891FF00D1E3F1 /* ATMDetailBankViewController.m */; };
-		6F2258C01B4891FF00D1E3F1 /* ATMDetailBankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258BE1B4891FF00D1E3F1 /* ATMDetailBankViewController.xib */; };
 		6F45995C1B49DDDE00561005 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4599571B49DDDE00561005 /* SVIndefiniteAnimatedView.m */; };
 		6F45995D1B49DDDE00561005 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F4599591B49DDDE00561005 /* SVProgressHUD.bundle */; };
 		6F45995E1B49DDDE00561005 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F45995B1B49DDDE00561005 /* SVProgressHUD.m */; };
-		6F4599601B49E18200561005 /* Solonos 45.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6F45995F1B49E18200561005 /* Solonos 45.gpx */; };
 		6F4599671B49E2EB00561005 /* Toolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4599661B49E2EB00561005 /* Toolkit.m */; };
 		6F4730E51B47CE1100E99508 /* Engine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730E41B47CE1100E99508 /* Engine.m */; };
 		6F4730E81B47D02A00E99508 /* GetNearestBanks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730E71B47D02A00E99508 /* GetNearestBanks.m */; };
-		6F4730EB1B47D25B00E99508 /* Dimitris Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6F4730EA1B47D25B00E99508 /* Dimitris Location.gpx */; };
 		6F4730ED1B47D85C00E99508 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4730EC1B47D85C00E99508 /* MapKit.framework */; };
-		6F4730F01B47DBA200E99508 /* ATMBankTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4730EF1B47DBA200E99508 /* ATMBankTableViewCell.m */; };
 		6FB3B2971B4B40F300F38C1A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FB3B2951B4B40D900F38C1A /* Info.plist */; };
 		6FB3B29A1B4B413700F38C1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FB3B2981B4B413700F38C1A /* InfoPlist.strings */; };
 		6FB3B29D1B4B415300F38C1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FB3B29B1B4B415300F38C1A /* InfoPlist.strings */; };
-		6FD1FEA61B4B2C82007D33F8 /* ATMPlainCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1FEA51B4B2C82007D33F8 /* ATMPlainCustomButton.m */; };
 		F69F6A5F1B4718A100FE29B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A5E1B4718A100FE29B9 /* main.m */; };
 		F69F6A621B4718A100FE29B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A611B4718A100FE29B9 /* AppDelegate.m */; };
-		F69F6A651B4718A100FE29B9 /* ATMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A641B4718A100FE29B9 /* ATMMainViewController.m */; };
 		F69F6A681B4718A100FE29B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F69F6A661B4718A100FE29B9 /* Main.storyboard */; };
 		F69F6A6A1B4718A100FE29B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F69F6A691B4718A100FE29B9 /* Images.xcassets */; };
+		F809A4081B4BFEBA00D4FF59 /* LocationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F809A4071B4BFEBA00D4FF59 /* LocationHandler.m */; };
+		F809A40F1B4BFEF400D4FF59 /* ATMBankTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F809A40C1B4BFEF400D4FF59 /* ATMBankTableViewCell.m */; };
+		F809A4101B4BFEF400D4FF59 /* ATMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F809A40E1B4BFEF400D4FF59 /* ATMMainViewController.m */; };
+		F809A4141B4BFF2900D4FF59 /* ATMPlainCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F809A4131B4BFF2900D4FF59 /* ATMPlainCustomButton.m */; };
+		F809A4191B4BFF5600D4FF59 /* ATMDetailBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F809A4171B4BFF5600D4FF59 /* ATMDetailBankViewController.m */; };
+		F809A41A1B4BFF5600D4FF59 /* ATMDetailBankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F809A4181B4BFF5600D4FF59 /* ATMDetailBankViewController.xib */; };
+		F809A41E1B4BFF7200D4FF59 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F809A41D1B4BFF7200D4FF59 /* MapViewController.m */; };
+		F809A4221B4BFFAA00D4FF59 /* Dimitris Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F809A4201B4BFFAA00D4FF59 /* Dimitris Location.gpx */; };
+		F809A4231B4BFFAA00D4FF59 /* Solonos 45.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F809A4211B4BFFAA00D4FF59 /* Solonos 45.gpx */; };
+		F809A4261B4C213A00D4FF59 /* ATMFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F809A4251B4C213A00D4FF59 /* ATMFilterView.m */; };
 		F81019E21B4BDA1100DD5D4A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81019DF1B4BDA1100DD5D4A /* FBSDKCoreKit.framework */; };
 		F81019E31B4BDA1100DD5D4A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81019E01B4BDA1100DD5D4A /* FBSDKLoginKit.framework */; };
 		F81019E41B4BDA1100DD5D4A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81019E11B4BDA1100DD5D4A /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		08BA577A1B4759E600C8EC19 /* DataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHandler.h; sourceTree = "<group>"; };
-		08BA577B1B4759E600C8EC19 /* DataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHandler.m; sourceTree = "<group>"; };
 		08BA577E1B475B3300C8EC19 /* Bank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bank.h; sourceTree = "<group>"; };
 		08BA577F1B475B3300C8EC19 /* Bank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bank.m; sourceTree = "<group>"; };
 		08BA57811B475DB500C8EC19 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -86,8 +85,6 @@
 		08BA57981B475E0900C8EC19 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		08BA57991B475E0900C8EC19 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		08BA579A1B475E0900C8EC19 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		08D2CDF71B47E9B400E2A2E3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		08D2CDFA1B49475900E2A2E3 /* BankHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankHistory.h; sourceTree = "<group>"; };
 		08D2CDFB1B49475900E2A2E3 /* BankHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankHistory.m; sourceTree = "<group>"; };
 		6F163E811B4AE855002AE691 /* DateTools.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DateTools.bundle; sourceTree = "<group>"; };
@@ -109,41 +106,46 @@
 		6F2258A51B48813C00D1E3F1 /* SubmitBank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitBank.m; sourceTree = "<group>"; };
 		6F2258B31B4885EB00D1E3F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localization.strings; sourceTree = "<group>"; };
 		6F2258B71B4888B100D1E3F1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = Localization.strings; sourceTree = "<group>"; };
-		6F2258BC1B4891FF00D1E3F1 /* ATMDetailBankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMDetailBankViewController.h; sourceTree = "<group>"; };
-		6F2258BD1B4891FF00D1E3F1 /* ATMDetailBankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMDetailBankViewController.m; sourceTree = "<group>"; };
-		6F2258BE1B4891FF00D1E3F1 /* ATMDetailBankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATMDetailBankViewController.xib; sourceTree = "<group>"; };
 		6F4599561B49DDDE00561005 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		6F4599571B49DDDE00561005 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		6F4599581B49DDDE00561005 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
 		6F4599591B49DDDE00561005 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		6F45995A1B49DDDE00561005 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		6F45995B1B49DDDE00561005 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		6F45995F1B49E18200561005 /* Solonos 45.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Solonos 45.gpx"; sourceTree = "<group>"; };
 		6F4599651B49E2EB00561005 /* Toolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Toolkit.h; sourceTree = "<group>"; };
 		6F4599661B49E2EB00561005 /* Toolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toolkit.m; sourceTree = "<group>"; };
 		6F4730E31B47CE1100E99508 /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
 		6F4730E41B47CE1100E99508 /* Engine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Engine.m; sourceTree = "<group>"; };
 		6F4730E61B47D02A00E99508 /* GetNearestBanks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetNearestBanks.h; sourceTree = "<group>"; };
 		6F4730E71B47D02A00E99508 /* GetNearestBanks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetNearestBanks.m; sourceTree = "<group>"; };
-		6F4730E91B47D0FA00E99508 /* Common-Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Common-Prefix.h"; sourceTree = "<group>"; };
-		6F4730EA1B47D25B00E99508 /* Dimitris Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Dimitris Location.gpx"; sourceTree = "<group>"; };
 		6F4730EC1B47D85C00E99508 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		6F4730EE1B47DBA200E99508 /* ATMBankTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMBankTableViewCell.h; sourceTree = "<group>"; };
-		6F4730EF1B47DBA200E99508 /* ATMBankTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMBankTableViewCell.m; sourceTree = "<group>"; };
 		6F4730F71B48464C00E99508 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = AtmMoney/PrefixHeader.pch; sourceTree = "<group>"; };
 		6FB3B2961B4B40DC00F38C1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		6FB3B2991B4B413700F38C1A /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = InfoPlist.strings; sourceTree = "<group>"; };
 		6FB3B29C1B4B415300F38C1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
-		6FD1FEA41B4B2C82007D33F8 /* ATMPlainCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMPlainCustomButton.h; sourceTree = "<group>"; };
-		6FD1FEA51B4B2C82007D33F8 /* ATMPlainCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMPlainCustomButton.m; sourceTree = "<group>"; };
 		F69F6A591B4718A100FE29B9 /* ATMMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATMMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69F6A5E1B4718A100FE29B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F69F6A601B4718A100FE29B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F69F6A611B4718A100FE29B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F69F6A631B4718A100FE29B9 /* ATMMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATMMainViewController.h; sourceTree = "<group>"; };
-		F69F6A641B4718A100FE29B9 /* ATMMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATMMainViewController.m; sourceTree = "<group>"; };
 		F69F6A671B4718A100FE29B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F69F6A691B4718A100FE29B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F809A4061B4BFEBA00D4FF59 /* LocationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHandler.h; sourceTree = "<group>"; };
+		F809A4071B4BFEBA00D4FF59 /* LocationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHandler.m; sourceTree = "<group>"; };
+		F809A40B1B4BFEF400D4FF59 /* ATMBankTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMBankTableViewCell.h; sourceTree = "<group>"; };
+		F809A40C1B4BFEF400D4FF59 /* ATMBankTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMBankTableViewCell.m; sourceTree = "<group>"; };
+		F809A40D1B4BFEF400D4FF59 /* ATMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMMainViewController.h; sourceTree = "<group>"; };
+		F809A40E1B4BFEF400D4FF59 /* ATMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMMainViewController.m; sourceTree = "<group>"; };
+		F809A4121B4BFF2900D4FF59 /* ATMPlainCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMPlainCustomButton.h; sourceTree = "<group>"; };
+		F809A4131B4BFF2900D4FF59 /* ATMPlainCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMPlainCustomButton.m; sourceTree = "<group>"; };
+		F809A4161B4BFF5600D4FF59 /* ATMDetailBankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMDetailBankViewController.h; sourceTree = "<group>"; };
+		F809A4171B4BFF5600D4FF59 /* ATMDetailBankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMDetailBankViewController.m; sourceTree = "<group>"; };
+		F809A4181B4BFF5600D4FF59 /* ATMDetailBankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATMDetailBankViewController.xib; sourceTree = "<group>"; };
+		F809A41C1B4BFF7200D4FF59 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		F809A41D1B4BFF7200D4FF59 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		F809A4201B4BFFAA00D4FF59 /* Dimitris Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Dimitris Location.gpx"; sourceTree = "<group>"; };
+		F809A4211B4BFFAA00D4FF59 /* Solonos 45.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Solonos 45.gpx"; sourceTree = "<group>"; };
+		F809A4241B4C213A00D4FF59 /* ATMFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMFilterView.h; sourceTree = "<group>"; };
+		F809A4251B4C213A00D4FF59 /* ATMFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMFilterView.m; sourceTree = "<group>"; };
 		F81019DF1B4BDA1100DD5D4A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F81019E01B4BDA1100DD5D4A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F81019E11B4BDA1100DD5D4A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -306,15 +308,6 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		6FD1FEA31B4B2C6D007D33F8 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				6FD1FEA41B4B2C82007D33F8 /* ATMPlainCustomButton.h */,
-				6FD1FEA51B4B2C82007D33F8 /* ATMPlainCustomButton.m */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		F69F6A501B4718A100FE29B9 = {
 			isa = PBXGroup;
 			children = (
@@ -336,35 +329,24 @@
 		F69F6A5B1B4718A100FE29B9 /* AtmMoney */ = {
 			isa = PBXGroup;
 			children = (
+				F809A41F1B4BFFAA00D4FF59 /* Dummy Locations */,
 				F81019DE1B4BDA1100DD5D4A /* FacebookSDK */,
-				6F4730E91B47D0FA00E99508 /* Common-Prefix.h */,
 				08BA57871B475E0900C8EC19 /* AFNetworking */,
 				08BA577D1B475B2900C8EC19 /* Model */,
 				6F4730E21B47CD9E00E99508 /* Engine */,
 				6F4599641B49E2EB00561005 /* Toolkit */,
 				6FD1FEA21B4B2AA2007D33F8 /* Settings */,
-				6FD1FEA31B4B2C6D007D33F8 /* UI */,
-				08BA577A1B4759E600C8EC19 /* DataHandler.h */,
-				08BA577B1B4759E600C8EC19 /* DataHandler.m */,
+				F809A4111B4BFF2900D4FF59 /* User Interface */,
+				F809A4051B4BFEBA00D4FF59 /* Location Handler */,
+				F809A4091B4BFEF400D4FF59 /* View Controllers */,
 				F69F6A601B4718A100FE29B9 /* AppDelegate.h */,
 				F69F6A611B4718A100FE29B9 /* AppDelegate.m */,
-				F69F6A631B4718A100FE29B9 /* ATMMainViewController.h */,
-				F69F6A641B4718A100FE29B9 /* ATMMainViewController.m */,
-				6F4730EE1B47DBA200E99508 /* ATMBankTableViewCell.h */,
-				6F4730EF1B47DBA200E99508 /* ATMBankTableViewCell.m */,
-				6F2258BC1B4891FF00D1E3F1 /* ATMDetailBankViewController.h */,
-				6F2258BD1B4891FF00D1E3F1 /* ATMDetailBankViewController.m */,
-				6F2258BE1B4891FF00D1E3F1 /* ATMDetailBankViewController.xib */,
-				08D2CDF71B47E9B400E2A2E3 /* MapViewController.h */,
-				08D2CDF81B47E9B400E2A2E3 /* MapViewController.m */,
 				F69F6A661B4718A100FE29B9 /* Main.storyboard */,
 				F69F6A691B4718A100FE29B9 /* Images.xcassets */,
 				F69F6A5C1B4718A100FE29B9 /* Supporting Files */,
-				6F4730EA1B47D25B00E99508 /* Dimitris Location.gpx */,
 				6F4599541B49DDDE00561005 /* Vendor */,
 				6F2258AE1B4885EA00D1E3F1 /* el.lproj */,
 				6F2258B11B4885EA00D1E3F1 /* en.lproj */,
-				6F45995F1B49E18200561005 /* Solonos 45.gpx */,
 			);
 			path = AtmMoney;
 			sourceTree = "<group>";
@@ -376,6 +358,75 @@
 				F69F6A5E1B4718A100FE29B9 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F809A4051B4BFEBA00D4FF59 /* Location Handler */ = {
+			isa = PBXGroup;
+			children = (
+				F809A4061B4BFEBA00D4FF59 /* LocationHandler.h */,
+				F809A4071B4BFEBA00D4FF59 /* LocationHandler.m */,
+			);
+			path = "Location Handler";
+			sourceTree = "<group>";
+		};
+		F809A4091B4BFEF400D4FF59 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F809A41B1B4BFF7200D4FF59 /* Map Controller */,
+				F809A4151B4BFF5600D4FF59 /* Detail Controller */,
+				F809A40A1B4BFEF400D4FF59 /* Main Controller */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F809A40A1B4BFEF400D4FF59 /* Main Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F809A40B1B4BFEF400D4FF59 /* ATMBankTableViewCell.h */,
+				F809A40C1B4BFEF400D4FF59 /* ATMBankTableViewCell.m */,
+				F809A40D1B4BFEF400D4FF59 /* ATMMainViewController.h */,
+				F809A40E1B4BFEF400D4FF59 /* ATMMainViewController.m */,
+			);
+			path = "Main Controller";
+			sourceTree = "<group>";
+		};
+		F809A4111B4BFF2900D4FF59 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				F809A4121B4BFF2900D4FF59 /* ATMPlainCustomButton.h */,
+				F809A4131B4BFF2900D4FF59 /* ATMPlainCustomButton.m */,
+				F809A4241B4C213A00D4FF59 /* ATMFilterView.h */,
+				F809A4251B4C213A00D4FF59 /* ATMFilterView.m */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		F809A4151B4BFF5600D4FF59 /* Detail Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F809A4161B4BFF5600D4FF59 /* ATMDetailBankViewController.h */,
+				F809A4171B4BFF5600D4FF59 /* ATMDetailBankViewController.m */,
+				F809A4181B4BFF5600D4FF59 /* ATMDetailBankViewController.xib */,
+			);
+			path = "Detail Controller";
+			sourceTree = "<group>";
+		};
+		F809A41B1B4BFF7200D4FF59 /* Map Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F809A41C1B4BFF7200D4FF59 /* MapViewController.h */,
+				F809A41D1B4BFF7200D4FF59 /* MapViewController.m */,
+			);
+			path = "Map Controller";
+			sourceTree = "<group>";
+		};
+		F809A41F1B4BFFAA00D4FF59 /* Dummy Locations */ = {
+			isa = PBXGroup;
+			children = (
+				F809A4201B4BFFAA00D4FF59 /* Dimitris Location.gpx */,
+				F809A4211B4BFFAA00D4FF59 /* Solonos 45.gpx */,
+			);
+			path = "Dummy Locations";
 			sourceTree = "<group>";
 		};
 		F81019DE1B4BDA1100DD5D4A /* FacebookSDK */ = {
@@ -419,7 +470,6 @@
 				TargetAttributes = {
 					F69F6A581B4718A100FE29B9 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = BSRD9WAB5Z;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -455,18 +505,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F809A41A1B4BFF5600D4FF59 /* ATMDetailBankViewController.xib in Resources */,
+				F809A4221B4BFFAA00D4FF59 /* Dimitris Location.gpx in Resources */,
 				F69F6A681B4718A100FE29B9 /* Main.storyboard in Resources */,
 				6FB3B29D1B4B415300F38C1A /* InfoPlist.strings in Resources */,
-				6F4599601B49E18200561005 /* Solonos 45.gpx in Resources */,
 				6F45995D1B49DDDE00561005 /* SVProgressHUD.bundle in Resources */,
 				6F2258B81B4888B100D1E3F1 /* Localization.strings in Resources */,
 				6F2258B51B4885EB00D1E3F1 /* Localization.strings in Resources */,
 				6F163E901B4AE855002AE691 /* DateTools.bundle in Resources */,
-				6F2258C01B4891FF00D1E3F1 /* ATMDetailBankViewController.xib in Resources */,
 				F69F6A6A1B4718A100FE29B9 /* Images.xcassets in Resources */,
+				F809A4231B4BFFAA00D4FF59 /* Solonos 45.gpx in Resources */,
 				6FB3B2971B4B40F300F38C1A /* Info.plist in Resources */,
 				6FB3B29A1B4B413700F38C1A /* InfoPlist.strings in Resources */,
-				6F4730EB1B47D25B00E99508 /* Dimitris Location.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,21 +529,21 @@
 			files = (
 				6F163E951B4AE855002AE691 /* DTTimePeriodGroup.m in Sources */,
 				08D2CDFC1B49475900E2A2E3 /* BankHistory.m in Sources */,
-				6F2258BF1B4891FF00D1E3F1 /* ATMDetailBankViewController.m in Sources */,
+				F809A4101B4BFEF400D4FF59 /* ATMMainViewController.m in Sources */,
 				08BA57A01B475E0900C8EC19 /* AFURLConnectionOperation.m in Sources */,
 				08BA579B1B475E0900C8EC19 /* AFHTTPRequestOperation.m in Sources */,
 				08BA579E1B475E0900C8EC19 /* AFNetworkReachabilityManager.m in Sources */,
 				6F163E911B4AE855002AE691 /* DTError.m in Sources */,
-				6F4730F01B47DBA200E99508 /* ATMBankTableViewCell.m in Sources */,
+				F809A4191B4BFF5600D4FF59 /* ATMDetailBankViewController.m in Sources */,
 				08BA57A31B475E0900C8EC19 /* AFURLSessionManager.m in Sources */,
 				08BA57A11B475E0900C8EC19 /* AFURLRequestSerialization.m in Sources */,
 				6F163E941B4AE855002AE691 /* DTTimePeriodCollection.m in Sources */,
 				08BA57801B475B3300C8EC19 /* Bank.m in Sources */,
 				6F45995C1B49DDDE00561005 /* SVIndefiniteAnimatedView.m in Sources */,
+				F809A4261B4C213A00D4FF59 /* ATMFilterView.m in Sources */,
 				6F45995E1B49DDDE00561005 /* SVProgressHUD.m in Sources */,
+				F809A41E1B4BFF7200D4FF59 /* MapViewController.m in Sources */,
 				08BA57A21B475E0900C8EC19 /* AFURLResponseSerialization.m in Sources */,
-				08BA577C1B4759E600C8EC19 /* DataHandler.m in Sources */,
-				F69F6A651B4718A100FE29B9 /* ATMMainViewController.m in Sources */,
 				6F2258A61B48813C00D1E3F1 /* SubmitBank.m in Sources */,
 				08BA579C1B475E0900C8EC19 /* AFHTTPRequestOperationManager.m in Sources */,
 				08BA579F1B475E0900C8EC19 /* AFSecurityPolicy.m in Sources */,
@@ -502,11 +552,12 @@
 				F69F6A5F1B4718A100FE29B9 /* main.m in Sources */,
 				6F4730E81B47D02A00E99508 /* GetNearestBanks.m in Sources */,
 				6F163E931B4AE855002AE691 /* DTTimePeriodChain.m in Sources */,
-				6FD1FEA61B4B2C82007D33F8 /* ATMPlainCustomButton.m in Sources */,
-				08D2CDF91B47E9B400E2A2E3 /* MapViewController.m in Sources */,
+				F809A4081B4BFEBA00D4FF59 /* LocationHandler.m in Sources */,
+				F809A4141B4BFF2900D4FF59 /* ATMPlainCustomButton.m in Sources */,
 				08BA579D1B475E0900C8EC19 /* AFHTTPSessionManager.m in Sources */,
 				6F4730E51B47CE1100E99508 /* Engine.m in Sources */,
 				6F163E961B4AE855002AE691 /* NSDate+DateTools.m in Sources */,
+				F809A40F1B4BFEF400D4FF59 /* ATMBankTableViewCell.m in Sources */,
 				6F163E921B4AE855002AE691 /* DTTimePeriod.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

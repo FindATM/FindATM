@@ -8,7 +8,7 @@
 
 #import "ATMDetailBankViewController.h"
 #import "BankHistory.h"
-#import "DataHandler.h"
+#import "LocationHandler.h"
 #import "DateTools.h"
 #import <MapKit/MapKit.h>
 #import "ATMPlainCustomButton.h"
@@ -122,10 +122,10 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     [Eng.submitBank submitBankWithBankID:self.bankData.buid
                             andBankState:state
                           withCompletion:^{
-                              [SVProgressHUD showSuccessWithStatus:@"Information submitted\nThank You!"];
+                              [SVProgressHUD showSuccessWithStatus:NSLocalizedStringFromTable(@"submit.response.title", @"Localization", nil)];
                           }
                               andFailure:^{
-                                  [SVProgressHUD showErrorWithStatus:@"Network Failure"];
+                                [SVProgressHUD showErrorWithStatus:NSLocalizedStringFromTable(@"network.failure.title", @"Localization", nil)];
                               }];
 }
 
@@ -141,7 +141,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
                                    [self.latestActivityTableView reloadData];
                                }
                                    andFailure:^{
-                                       [SVProgressHUD showErrorWithStatus:@"Network Failure"];
+                                       [SVProgressHUD showErrorWithStatus:NSLocalizedStringFromTable(@"network.failure.title", @"Localization", nil)];
                                    }];
 
 }

@@ -39,3 +39,6 @@
 
 "detail.directions" = "Οδηγίες";
 
+"submit.response.title" = "Η πληροφορία σας καταχωρήθηκε\νΕυχαριστούμε";
+
+"network.failure.title" = "Network Failure";

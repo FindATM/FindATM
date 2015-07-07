@@ -7,7 +7,7 @@
 //
 
 #import "Bank.h"
-#import "DataHandler.h"
+#import "LocationHandler.h"
 
 @interface Bank ()
 
@@ -21,8 +21,7 @@
 @property(nonatomic,assign,readwrite) EBankState bankState;
 @property(nonatomic,assign,readwrite) NSInteger visitors;
 @property(nonatomic,assign,readwrite) CLLocationCoordinate2D location;
-@property(nonatomic,assign,readwrite) CGFloat actualDistance;
-
+@property(nonatomic,assign,readwrite) CGFloat distance;
 
 @end
 
@@ -42,8 +41,7 @@
         self.visitors = [[dict objectForKey:@"visitors"] integerValue];
         self.location = CLLocationCoordinate2DMake(self.latitude, self.longtitude);
         self.address = [dict objectForKey:@"address"];
-        self.actualDistance = [[dict objectForKey:@"actualDistance"] floatValue];
-        
+        self.distance = [[dict objectForKey:@"distance"] floatValue];
     }
     return self;
 }

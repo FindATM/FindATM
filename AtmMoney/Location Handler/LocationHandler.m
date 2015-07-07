@@ -5,23 +5,23 @@
 //  Created by Theocharis Spentzas on 2/20/15.
 //
 
-#import "DataHandler.h"
+#import "LocationHandler.h"
 #import <CoreLocation/CoreLocation.h>
 #import <UIKit/UIKit.h>
 
-static DataHandler *_sharedInstance = nil;
+static LocationHandler *_sharedInstance = nil;
 
-@interface DataHandler ()
+@interface LocationHandler ()
 @property (nonatomic, strong, readwrite) CLLocation *currentLocation;
 @property (nonatomic, strong, readwrite) CLLocationManager *locationManager;
 @end
 
-@implementation DataHandler
+@implementation LocationHandler
 
-+ (DataHandler *)sharedInstance {
++ (LocationHandler *)sharedInstance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedInstance = [[DataHandler alloc] init];
+        _sharedInstance = [[LocationHandler alloc] init];
     });
     return _sharedInstance;
 }

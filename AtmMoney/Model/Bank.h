@@ -36,6 +36,7 @@ typedef enum : NSUInteger {
 @property(nonatomic,strong,readonly) NSString *address;
 @property(nonatomic,strong,readonly) NSString *name;
 @property(nonatomic,strong,readonly) NSString *phone;
+@property(nonatomic,assign,readonly) CGFloat distance;
 @property(nonatomic,assign,readonly) EBankType bankType;
 @property(nonatomic,assign,readonly) EBankState bankState;
 @property(nonatomic,assign,readonly) NSInteger visitors;

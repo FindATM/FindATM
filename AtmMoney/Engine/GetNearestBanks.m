@@ -15,12 +15,29 @@
 
 @implementation GetNearestBanks
 
+@dynamic data;
+
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.banksData = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+- (NSMutableArray *)data {
+    NSMutableArray *initialData = self.banksData;
+
+    if (self.selectedBanksToFilter) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.bankType IN %@", self.selectedBanksToFilter];
+        NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES];
+
+        self.banksData = [[self.banksData filteredArrayUsingPredicate:predicate] mutableCopy];
+        [self.banksData sortUsingDescriptors:@[sort]];
+    }
+    
+    initialData = self.banksData;
+    return initialData;
 }
 
 - (void)getNearestBanksWithLocation:(CLLocation *)location andDistance:(CGFloat)distance withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure {

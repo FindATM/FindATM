@@ -40,3 +40,7 @@
 "detail.view.latestactivity" = "Latest Activity";
 
 "detail.directions" = "Directions";
+
+"submit.response.title" = "Information submitted\nThank You!";
+
+"network.failure.title" = "Network Failure";
