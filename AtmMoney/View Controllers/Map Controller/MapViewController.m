@@ -98,7 +98,8 @@
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];       
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         annotationView.canShowCallout = YES;
-//        annotationView.image = [UIImage imageNamed:@"someImage.png"];
+
+        annotationView.image = [UIImage imageNamed:@"map-pin-annotation.png"];
         
         NSString *imageName = [Bank getImageNameFromBankState:annotation.currentBank.bankState];
         UIImageView *imageBankState = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
