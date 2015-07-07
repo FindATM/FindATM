@@ -25,7 +25,7 @@
     
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.0 green:0.52 blue:0.75 alpha:1.0]];
     
-    [[UISwitch appearance] setTintColor:[UIColor colorWithRed:0.0 green:0.52 blue:0.75 alpha:1.0]];
+    [[UISwitch appearance] setOnTintColor:[UIColor colorWithRed:0.13 green:0.69 blue:0.04 alpha:1.0]];
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     [SVProgressHUD setRingThickness:4.0f];

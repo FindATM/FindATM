@@ -12,6 +12,10 @@
 
 #define TOTAL_BANKS 6
 
+@interface BankButton : ATMPlainCustomButton
+@property (nonatomic, assign) EBankType bankType;
+@end
+
 @interface ATMFilterView ()
 @property (nonatomic, strong, readwrite) NSMutableArray *selectedBanks;
 
@@ -44,13 +48,22 @@
         self.bankViewsArray = [NSMutableArray arrayWithCapacity:TOTAL_BANKS];
         
         for (NSInteger i = 0; i < TOTAL_BANKS; i++) {
-            ATMPlainCustomButton *bankButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            BankButton *bankButton = [BankButton buttonWithType:UIButtonTypeCustom];
+            [bankButton addTarget:self action:@selector(bankButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+            bankButton.normalBackgroundColor    = [UIColor blackColor];
+            bankButton.selectedBackgroundColor  = [UIColor darkGrayColor];
+            [self.bankViewsContainer addSubview:bankButton];
         }
         
     }
     return self;
 }
 
+- (void)bankButtonTapped:(BankButton *)button {
+    
+    
+    
+}
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -61,3 +74,12 @@
 
 @end
 
+
+@implementation BankButton
+
+- (void)setSelected:(BOOL)selected {
+    [super setSelected:self];
+    self.backgroundColor = (selected) ? self.selectedBackgroundColor : self.normalBackgroundColor;
+}
+
+@end

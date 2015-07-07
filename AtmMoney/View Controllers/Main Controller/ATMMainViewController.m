@@ -35,13 +35,12 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
     
-    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"mainviewcontroller.map", @"Localization", nil)
-                                                                  style:UIBarButtonItemStyleBordered
-                                                                 target:self
-                                                                 action:@selector(openMap)];
+    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"map-icon-normal"] style:UIBarButtonItemStylePlain target:self action:@selector(openMap)];
+    mapButton.imageInsets = UIEdgeInsetsMake(5, -5, -5, 5);
     self.navigationItem.rightBarButtonItem = mapButton;
     
-    UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(filterTableView)];
+    UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter-icon-normal"] style:UIBarButtonItemStylePlain target:self action:@selector(filterTableView)];
+    filterButton.imageInsets = UIEdgeInsetsMake(5, -5, -5, 5);
     self.navigationItem.leftBarButtonItem = filterButton;
     
 }
