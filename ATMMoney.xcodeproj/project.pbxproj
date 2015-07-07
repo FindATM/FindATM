@@ -133,7 +133,7 @@
 		6FB3B29C1B4B415300F38C1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		6FD1FEA41B4B2C82007D33F8 /* ATMPlainCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMPlainCustomButton.h; sourceTree = "<group>"; };
 		6FD1FEA51B4B2C82007D33F8 /* ATMPlainCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMPlainCustomButton.m; sourceTree = "<group>"; };
-		F69F6A591B4718A100FE29B9 /* AtmMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtmMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F69F6A591B4718A100FE29B9 /* ATMMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATMMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69F6A5E1B4718A100FE29B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F69F6A601B4718A100FE29B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F69F6A611B4718A100FE29B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -319,7 +319,7 @@
 		F69F6A5A1B4718A100FE29B9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F69F6A591B4718A100FE29B9 /* AtmMoney.app */,
+				F69F6A591B4718A100FE29B9 /* ATMMoney.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -371,9 +371,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F69F6A581B4718A100FE29B9 /* AtmMoney */ = {
+		F69F6A581B4718A100FE29B9 /* ATMMoney */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F69F6A7C1B4718A100FE29B9 /* Build configuration list for PBXNativeTarget "AtmMoney" */;
+			buildConfigurationList = F69F6A7C1B4718A100FE29B9 /* Build configuration list for PBXNativeTarget "ATMMoney" */;
 			buildPhases = (
 				F69F6A551B4718A100FE29B9 /* Sources */,
 				F69F6A561B4718A100FE29B9 /* Frameworks */,
@@ -383,9 +383,9 @@
 			);
 			dependencies = (
 			);
-			name = AtmMoney;
+			name = ATMMoney;
 			productName = AtmMoney;
-			productReference = F69F6A591B4718A100FE29B9 /* AtmMoney.app */;
+			productReference = F69F6A591B4718A100FE29B9 /* ATMMoney.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -411,7 +411,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F69F6A541B4718A100FE29B9 /* Build configuration list for PBXProject "AtmMoney" */;
+			buildConfigurationList = F69F6A541B4718A100FE29B9 /* Build configuration list for PBXProject "ATMMoney" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -425,7 +425,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F69F6A581B4718A100FE29B9 /* AtmMoney */,
+				F69F6A581B4718A100FE29B9 /* ATMMoney */,
 			);
 		};
 /* End PBXProject section */
@@ -639,7 +639,7 @@
 				INFOPLIST_FILE = AtmMoney/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ATMMoney;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -658,7 +658,7 @@
 				INFOPLIST_FILE = AtmMoney/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ATMMoney;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -668,7 +668,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F69F6A541B4718A100FE29B9 /* Build configuration list for PBXProject "AtmMoney" */ = {
+		F69F6A541B4718A100FE29B9 /* Build configuration list for PBXProject "ATMMoney" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F69F6A7A1B4718A100FE29B9 /* Debug */,
@@ -677,7 +677,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F69F6A7C1B4718A100FE29B9 /* Build configuration list for PBXNativeTarget "AtmMoney" */ = {
+		F69F6A7C1B4718A100FE29B9 /* Build configuration list for PBXNativeTarget "ATMMoney" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F69F6A7D1B4718A100FE29B9 /* Debug */,
