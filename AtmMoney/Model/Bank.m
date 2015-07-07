@@ -12,8 +12,8 @@
 @interface Bank ()
 
 @property(nonatomic,assign,readwrite) NSInteger buid;
-@property(nonatomic,assign,readwrite) float longtitude;
-@property(nonatomic,assign,readwrite) float latitude;
+@property(nonatomic,assign,readwrite) CGFloat longtitude;
+@property(nonatomic,assign,readwrite) CGFloat latitude;
 @property(nonatomic,strong,readwrite) NSString *name;
 @property(nonatomic,strong,readwrite) NSString *address;
 @property(nonatomic,strong,readwrite) NSString *phone;

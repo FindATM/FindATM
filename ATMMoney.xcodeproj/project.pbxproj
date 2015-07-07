@@ -31,6 +31,8 @@
 		6F2258A61B48813C00D1E3F1 /* SubmitBank.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2258A51B48813C00D1E3F1 /* SubmitBank.m */; };
 		6F2258B51B4885EB00D1E3F1 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258B21B4885EB00D1E3F1 /* Localization.strings */; };
 		6F2258B81B4888B100D1E3F1 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258B61B4888B100D1E3F1 /* Localization.strings */; };
+		6F39DD221B4C51B5007B5D4C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F39DD201B4C51B5007B5D4C /* Fabric.framework */; };
+		6F39DD231B4C51B5007B5D4C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F39DD211B4C51B5007B5D4C /* Crashlytics.framework */; };
 		6F45995C1B49DDDE00561005 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4599571B49DDDE00561005 /* SVIndefiniteAnimatedView.m */; };
 		6F45995D1B49DDDE00561005 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F4599591B49DDDE00561005 /* SVProgressHUD.bundle */; };
 		6F45995E1B49DDDE00561005 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F45995B1B49DDDE00561005 /* SVProgressHUD.m */; };
@@ -106,6 +108,8 @@
 		6F2258A51B48813C00D1E3F1 /* SubmitBank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitBank.m; sourceTree = "<group>"; };
 		6F2258B31B4885EB00D1E3F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localization.strings; sourceTree = "<group>"; };
 		6F2258B71B4888B100D1E3F1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = Localization.strings; sourceTree = "<group>"; };
+		6F39DD201B4C51B5007B5D4C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		6F39DD211B4C51B5007B5D4C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		6F4599561B49DDDE00561005 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		6F4599571B49DDDE00561005 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		6F4599581B49DDDE00561005 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
@@ -157,8 +161,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F81019E21B4BDA1100DD5D4A /* FBSDKCoreKit.framework in Frameworks */,
+				6F39DD231B4C51B5007B5D4C /* Crashlytics.framework in Frameworks */,
 				08BA57861B475DC100C8EC19 /* SystemConfiguration.framework in Frameworks */,
 				F81019E31B4BDA1100DD5D4A /* FBSDKLoginKit.framework in Frameworks */,
+				6F39DD221B4C51B5007B5D4C /* Fabric.framework in Frameworks */,
 				F81019E41B4BDA1100DD5D4A /* FBSDKShareKit.framework in Frameworks */,
 				08BA57841B475DBB00C8EC19 /* CoreFoundation.framework in Frameworks */,
 				6F4730ED1B47D85C00E99508 /* MapKit.framework in Frameworks */,
@@ -311,6 +317,8 @@
 		F69F6A501B4718A100FE29B9 = {
 			isa = PBXGroup;
 			children = (
+				6F39DD201B4C51B5007B5D4C /* Fabric.framework */,
+				6F39DD211B4C51B5007B5D4C /* Crashlytics.framework */,
 				6F4730F71B48464C00E99508 /* PrefixHeader.pch */,
 				6F2258A31B48717D00D1E3F1 /* Frameworks */,
 				F69F6A5B1B4718A100FE29B9 /* AtmMoney */,
@@ -449,6 +457,7 @@
 				F69F6A551B4718A100FE29B9 /* Sources */,
 				F69F6A561B4718A100FE29B9 /* Frameworks */,
 				F69F6A571B4718A100FE29B9 /* Resources */,
+				6F39DD1F1B4C5187007B5D4C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -481,7 +490,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F69F6A541B4718A100FE29B9 /* Build configuration list for PBXProject "ATMMoney" */;
+			buildConfigurationList = F69F6A541B4718A100FE29B9 /* Build configuration list for PBXProject "AtmMoney" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -521,6 +530,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6F39DD1F1B4C5187007B5D4C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run fe804b3ccea4e9e56a4730e91c304d42292404f9 420e31e0e1a80f4d057ce561b6a5177201e4289671991538ab3656afcdf3f4f7";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F69F6A551B4718A100FE29B9 /* Sources */ = {
@@ -708,6 +733,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AtmMoney/FacebookSDK",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AtmMoney/PrefixHeader.pch";
@@ -731,6 +757,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AtmMoney/FacebookSDK",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AtmMoney/PrefixHeader.pch";
@@ -747,7 +774,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F69F6A541B4718A100FE29B9 /* Build configuration list for PBXProject "ATMMoney" */ = {
+		F69F6A541B4718A100FE29B9 /* Build configuration list for PBXProject "AtmMoney" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F69F6A7A1B4718A100FE29B9 /* Debug */,
