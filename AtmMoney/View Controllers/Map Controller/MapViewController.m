@@ -39,18 +39,17 @@
 @property (nonatomic, strong)  MKMapView *mapView;
 @end
 
-@implementation MapViewController {
-
-    NSMutableArray *newAnnotations;
-
-}
+@implementation MapViewController
 
 - (void)viewDidLoad {
         // Do any additional setup after loading the view.
     [super viewDidLoad];
      self.navigationItem.title = NSLocalizedStringFromTable(@"mapviewcontroller.title", @"Localization", nil);
     
-    self.mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
+    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0,
+                                                               0,
+                                                               CGRectGetWidth(self.view.frame),
+                                                               CGRectGetHeight(self.view.frame))];
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
     
@@ -62,24 +61,16 @@
 
 - (void)showAnnotations {
     
-    newAnnotations = [[NSMutableArray alloc] init];
+    NSMutableArray *annotations = [[NSMutableArray alloc] init];
     [self.coords enumerateObjectsUsingBlock:^(Bank *obj, NSUInteger idx, BOOL *stop) {
         
         MKPointAnnotation * newAnnotation = [[MKCustomPointAnnotation alloc] initWithBank:obj];
-        [newAnnotations addObject:newAnnotation];
+        [annotations addObject:newAnnotation];
         
     }];
-    [self.mapView addAnnotations:newAnnotations];
+    [self.mapView addAnnotations:annotations];
     
-    MKMapRect zoomRect = MKMapRectNull;
-    
-    for (id <MKAnnotation> annotation in self.mapView.annotations)
-    {
-        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
-        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.0, 0.0);
-        zoomRect = MKMapRectUnion(zoomRect, pointRect);
-    }
-    [self.mapView setVisibleMapRect:zoomRect animated:YES];
+    [self.mapView showAnnotations:annotations animated:YES];
     
 }
 
@@ -95,8 +86,8 @@
     
     if ([annotation isKindOfClass:[MKUserLocation class]])
     {
-        ((MKUserLocation *)annotation).title = @"My Current Location";
-        return nil;  //return nil to use default blue dot view
+//        ((MKUserLocation *)annotation).title = @"My Current Location";
+        return nil;
     }
     
     MKPinAnnotationView *annotationView;
@@ -108,9 +99,10 @@
         annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         annotationView.canShowCallout = YES;
 //        annotationView.image = [UIImage imageNamed:@"someImage.png"];
-
-        UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[Bank getImageNameFromBankState:annotation.currentBank.bankState]]];
-        annotationView.leftCalloutAccessoryView = imgView;
+        
+        NSString *imageName = [Bank getImageNameFromBankState:annotation.currentBank.bankState];
+        UIImageView *imageBankState = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+        annotationView.leftCalloutAccessoryView = imageBankState;
         
     }
     return annotationView;
@@ -133,8 +125,7 @@
                                    
                                 }
                                    andFailure:^{
-                                       [SVProgressHUD showErrorWithStatus:@"Network Failure"];
-                                       
+                                       [SVProgressHUD showErrorWithStatus:NSLocalizedStringFromTable(@"network.failure.title", @"Localization", nil)];                                       
                                    }];
     
 

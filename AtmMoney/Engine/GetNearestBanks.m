@@ -15,12 +15,21 @@
 
 @implementation GetNearestBanks
 
+@dynamic data;
+
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.banksData = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+- (NSMutableArray *)data {
+    NSMutableArray *initialData = self.banksData;
+    // TODO: Add predicate
+    
+    return initialData;
 }
 
 - (void)getNearestBanksWithLocation:(CLLocation *)location andDistance:(CGFloat)distance withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure {

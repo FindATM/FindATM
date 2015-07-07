@@ -40,6 +40,14 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
                                                                  target:self
                                                                  action:@selector(openMap)];
     self.navigationItem.rightBarButtonItem = mapButton;
+    
+    UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(filterTableView)];
+    self.navigationItem.leftBarButtonItem = filterButton;
+    
+}
+
+- (void)filterTableView {
+    
 }
 
 - (void)refreshTableView {
@@ -49,14 +57,15 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 }
 
 - (void)openMap {
-    if([Eng.getNearestBanks.banksData count] == 0) return;
+    if([Eng.getNearestBanks.data count] == 0) return;
     // Hides the back button name
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButtonItem];
 
     MapViewController *mapViewController = [[MapViewController alloc] init];
+    mapViewController.coords = Eng.getNearestBanks.data;
+    
     [self.navigationController pushViewController:mapViewController animated:YES];
-    mapViewController.coords = Eng.getNearestBanks.banksData;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -87,15 +96,15 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [Eng.getNearestBanks.banksData count];
+    return [Eng.getNearestBanks.data count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     ATMBankTableViewCell *cell = (ATMBankTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier forIndexPath:indexPath];
     
-    if (Eng.getNearestBanks.banksData.count) {
-        Bank *bank = [Eng.getNearestBanks.banksData objectAtIndex:indexPath.row];
+    if (Eng.getNearestBanks.data.count) {
+        Bank *bank = [Eng.getNearestBanks.data objectAtIndex:indexPath.row];
         [cell updateWithBank:bank];
     }
     
@@ -106,7 +115,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     
    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    Bank *bank = [Eng.getNearestBanks.banksData objectAtIndex:indexPath.row];
+    Bank *bank = [Eng.getNearestBanks.data objectAtIndex:indexPath.row];
 
     // Hides the back button name
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -122,7 +131,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
                                    
                                }
                                    andFailure:^{
-                                       [SVProgressHUD showErrorWithStatus:@"Network Failure"];
+                                       [SVProgressHUD showErrorWithStatus:NSLocalizedStringFromTable(@"network.failure.title", @"Localization", nil)];
                                    
                                    }];
 }
@@ -173,7 +182,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
                                           andFailure:^{
                                             [self.refreshControl endRefreshing];
                                             [self.tableView reloadData];
-                                            [SVProgressHUD showErrorWithStatus:@"Network Failure"];
+                                            [SVProgressHUD showErrorWithStatus:NSLocalizedStringFromTable(@"network.failure.title", @"Localization", nil)];
                                           }];
     
 }

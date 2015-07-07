@@ -14,6 +14,7 @@ typedef void (^VoidBlock)(void);
 
 @interface GetNearestBanks : NSObject
 
+@property (nonatomic, strong) NSMutableArray *data;
 @property (nonatomic, strong) NSMutableArray *banksData;
 @property (nonatomic, strong) NSMutableArray *bankHistoryData;
 

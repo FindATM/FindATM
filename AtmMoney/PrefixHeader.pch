@@ -20,6 +20,8 @@
 #import "SVProgressHUD.h"
 #import "Toolkit.h"
 
+// Common Blocks
+
 typedef void (^JSONResponseBlock)(NSDictionary* json);
 typedef void (^MutableArrayResponseBlock) (NSMutableArray *mutableArray);
 typedef void (^VoidBlock)(void);
@@ -29,6 +31,16 @@ typedef void (^MessageResponse )(NSString* message);
 typedef NSString *(^FormatterBlock)(NSNumber *number);
 typedef void (^BoolBlock)(BOOL result);
 
+
+// Log
+#ifdef DEBUG
+#define Log NSLog
+#else
+// do nothing
+#define Log(...)
+#endif
+
+// Mobile Detection
 
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
