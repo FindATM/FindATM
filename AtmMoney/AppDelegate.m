@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
+
 @interface AppDelegate ()
 
 @end
@@ -26,6 +30,8 @@
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     [SVProgressHUD setRingThickness:4.0f];
     [SVProgressHUD setForegroundColor:[UIColor colorWithRed:0.0 green:0.52 blue:0.75 alpha:1.0]];
+    
+    [Fabric with:@[CrashlyticsKit]];
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];;
