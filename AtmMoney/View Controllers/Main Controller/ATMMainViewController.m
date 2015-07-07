@@ -13,8 +13,10 @@
 #import "ATMBankTableViewCell.h"
 #import "ATMDetailBankViewController.h"
 #import "MapViewController.h"
+#import "ATMFilterView.h"
 
 @interface ATMMainViewController   ()
+@property (nonatomic, strong) ATMFilterView *filterView;
 @end
 
 @implementation ATMMainViewController
@@ -46,6 +48,18 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 }
 
 - (void)filterTableView {
+    
+    if (self.filterView) {
+//        [self.filterView showAnimated:YES];
+        return;
+    }
+    
+    if (!self.filterView) {
+        self.filterView = [[ATMFilterView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))
+                                              andSelectedBanks:nil];
+        [self.view addSubview:self.filterView];
+
+    }
     
 }
 

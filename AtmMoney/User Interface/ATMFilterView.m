@@ -68,7 +68,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    
+    self.bankViewsContainer.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetWidth(self.frame));
     
 }
 

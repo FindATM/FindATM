@@ -10,6 +10,8 @@
 
 @interface ATMFilterView : UIView
 
+- (instancetype)initWithFrame:(CGRect)frame andSelectedBanks:(NSMutableArray *)selectedBanks;
+
 @property (nonatomic, strong, readonly) NSMutableArray *selectedBanks;
 
 @end
