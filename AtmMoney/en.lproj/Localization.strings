@@ -43,4 +43,5 @@
 
 "submit.response.title" = "Information submitted\nThank You!";
 
-"network.failure.title" = "Network Failure";
+"network.failure.title"             = "Network Failure";
+"network.failure.noentries.title"   = "No close ATMs found.\nTry changing the distance.";

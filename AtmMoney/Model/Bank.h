@@ -27,7 +27,7 @@ typedef enum : NSUInteger {
     EBankTypeNationalBank
 } EBankType;
 
-#define TOTAL_BANKS EBankTypeNationalBank
+#define TOTAL_BANKS 8
 
 @interface Bank : NSObject
 

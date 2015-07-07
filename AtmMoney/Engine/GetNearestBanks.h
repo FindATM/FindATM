@@ -20,7 +20,7 @@ typedef void (^VoidBlock)(void);
 
 @property (nonatomic, strong) NSMutableArray *selectedBanksToFilter;
 
-- (void)getNearestBanksWithLocation:(CLLocation *)location andDistance:(CGFloat)distance withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure;
+- (void)getNearestBanksWithLocation:(CLLocation *)location andDistance:(CGFloat)distance withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure andNoEntriesFailure:(VoidBlock)noEntriesFailure;
 
 - (void)getBankHistoryWithId:(NSInteger)buid withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure;
 

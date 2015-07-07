@@ -14,6 +14,7 @@
 #import "ATMDetailBankViewController.h"
 #import "MapViewController.h"
 #import "ATMFilterView.h"
+#import "ATMUserSettings.h"
 
 @interface ATMMainViewController   ()
 @property (nonatomic, strong) ATMFilterView *filterView;
@@ -49,19 +50,47 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
 - (void)filterTableView {
     
-    if (self.filterView) {
-//        [self.filterView showAnimated:YES];
-        return;
-    }
-    
     if (!self.filterView) {
         CGFloat height = CGRectGetHeight(self.navigationController.navigationBar.frame) + 20; // status bar
         self.filterView = [[ATMFilterView alloc] initWithFrame:CGRectMake(0, height, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))
-                                              andSelectedBanks:nil];
-//        [self.navigationController.view addSubview:self.filterView];
+                                              andSelectedBanks:Eng.getNearestBanks.selectedBanksToFilter];
+        self.filterView.delegate = self;
         [self.navigationController.view insertSubview:self.filterView belowSubview:self.navigationController.navigationBar];
+        [self.filterView sizeToFit];
+        
+        [self.filterView showAnimatedWithCompletion:^{
+            
+        }];
+    } else {
+        [self.filterView hideAnimatedWithCompletion:^{
+            [self removeFilterView];
+        }];
     }
     
+}
+
+- (void)removeFilterView {
+    [self.filterView removeFromSuperview];
+    self.filterView = nil;
+}
+
+#pragma mark - Filter View Delegate -
+
+- (void)filterViewDidRequestToClose {
+    [self removeFilterView];
+}
+
+- (void)filterViewDidRequestToFilterData {
+    
+    [SVProgressHUD show];
+    [self.refreshControl beginRefreshing];
+    
+    Eng.getNearestBanks.selectedBanksToFilter = self.filterView.selectedBanks;
+    
+    CGFloat savedDistance = [ATMUserSettings getDistance];
+    [self getBanksWithCurrentLocationAndDistance:savedDistance];
+    
+    [self removeFilterView];
 }
 
 - (void)refreshTableView {
@@ -72,6 +101,11 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
 - (void)openMap {
     if([Eng.getNearestBanks.data count] == 0) return;
+    
+    [self.filterView hideAnimatedWithCompletion:^{
+        [self removeFilterView];
+    }];
+    
     // Hides the back button name
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButtonItem];
@@ -131,6 +165,10 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     
     Bank *bank = [Eng.getNearestBanks.data objectAtIndex:indexPath.row];
 
+    [self.filterView hideAnimatedWithCompletion:^{
+        [self removeFilterView];
+    }];
+    
     // Hides the back button name
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButtonItem];
@@ -178,16 +216,18 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 {
     if([keyPath isEqualToString:CURRENT_LOCATION_KEY]) {
         // do some stuff
-        [self getBanks];
+        CGFloat savedDistance = [ATMUserSettings getDistance];
+        if (!savedDistance) savedDistance = 5;
+        [self getBanksWithCurrentLocationAndDistance:savedDistance];
         [Location stopUpdatingLocation];
     }
 }
 
-- (void)getBanks {
+- (void)getBanksWithCurrentLocationAndDistance:(CGFloat)distance {
     
     CLLocation *location = Location.currentLocation;
     [Eng.getNearestBanks getNearestBanksWithLocation:location
-                                         andDistance:0.8
+                                         andDistance:distance
                                       withCompletion:^{
                                         [self.tableView reloadData];
                                         [self.refreshControl endRefreshing];
@@ -197,6 +237,8 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
                                             [self.refreshControl endRefreshing];
                                             [self.tableView reloadData];
                                             [SVProgressHUD showErrorWithStatus:NSLocalizedStringFromTable(@"network.failure.title", @"Localization", nil)];
+                                          } andNoEntriesFailure:^{
+                                              [SVProgressHUD showErrorWithStatus:NSLocalizedStringFromTable(@"network.failure.noentries.title", @"Localization", nil)];
                                           }];
     
 }

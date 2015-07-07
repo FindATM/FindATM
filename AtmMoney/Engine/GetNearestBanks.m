@@ -9,6 +9,7 @@
 #import "GetNearestBanks.h"
 #import "Bank.h"
 #import "BankHistory.h"
+#import "ATMUserSettings.h"
 
 #define GET_NEAREST_BANKS_URL @"getNearestBanks"
 #define GET_BANK_HISTORY_URL @"getBankHistory"
@@ -21,6 +22,12 @@
     self = [super init];
     if (self) {
         self.banksData = [[NSMutableArray alloc] init];
+
+        NSArray *savedFavouritesBanks = [ATMUserSettings getFavouritesBanks];
+        if (savedFavouritesBanks) {
+            self.selectedBanksToFilter = [savedFavouritesBanks mutableCopy];
+        }
+        
     }
     return self;
 }
@@ -40,17 +47,19 @@
     return initialData;
 }
 
-- (void)getNearestBanksWithLocation:(CLLocation *)location andDistance:(CGFloat)distance withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure {
+- (void)getNearestBanksWithLocation:(CLLocation *)location andDistance:(CGFloat)distance withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure andNoEntriesFailure:(VoidBlock)noEntriesFailure {
    
     [Eng postMethod:GET_NEAREST_BANKS_URL
          parameters:@{@"lng": @(location.coordinate.longitude), @"lat":@(location.coordinate.latitude), @"distance":[NSNumber numberWithFloat:distance]}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                     NSLog(@"JSON: %@", responseObject);
-                    if ([responseObject objectForKey:@"error"]) {
-                        if (failure != nil)
-                            failure();
-                        return;
+                    if ([responseObject objectForKey:@"error_code"]) {
+                        if ([[responseObject objectForKey:@"error_code"] integerValue] == EErrorCodeNoEntries) {
+                            if (noEntriesFailure != nil)
+                                noEntriesFailure();
+                            return;
+                        }
                     }
                 
                     self.banksData = [[NSMutableArray alloc] init];

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MapViewController.h"
+#import "ATMFilterView.h"
 
-@interface ATMMainViewController : UITableViewController <UITableViewDataSource,UITableViewDelegate>
+@interface ATMMainViewController : UITableViewController <UITableViewDataSource,UITableViewDelegate,ATMFilterViewDelegate>
 
 
 @end

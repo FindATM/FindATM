@@ -15,6 +15,11 @@
 
 #define Eng [Engine sharedInstance]
 
+
+typedef enum : NSUInteger {
+    EErrorCodeNoEntries = 0
+} EErrorCode;
+
 @interface Engine : AFHTTPRequestOperationManager
 
 @property (nonatomic, strong, readonly) GetNearestBanks *getNearestBanks;

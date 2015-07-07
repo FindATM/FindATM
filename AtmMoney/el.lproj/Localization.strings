@@ -42,3 +42,4 @@
 "submit.response.title" = "Η πληροφορία σας καταχωρήθηκε\νΕυχαριστούμε";
 
 "network.failure.title" = "Network Failure";
+"network.failure.noentries.title"   = "Δεν βρέθηκαν κοντινά ATMs.\nΠροσπαθήστε να αλλάξετε την απόσταση.";

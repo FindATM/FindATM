@@ -33,6 +33,7 @@
 		6F2258B81B4888B100D1E3F1 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F2258B61B4888B100D1E3F1 /* Localization.strings */; };
 		6F39DD221B4C51B5007B5D4C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F39DD201B4C51B5007B5D4C /* Fabric.framework */; };
 		6F39DD231B4C51B5007B5D4C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F39DD211B4C51B5007B5D4C /* Crashlytics.framework */; };
+		6F39DD541B4C94DA007B5D4C /* ATMUserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39DD531B4C94DA007B5D4C /* ATMUserSettings.m */; };
 		6F45995C1B49DDDE00561005 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4599571B49DDDE00561005 /* SVIndefiniteAnimatedView.m */; };
 		6F45995D1B49DDDE00561005 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F4599591B49DDDE00561005 /* SVProgressHUD.bundle */; };
 		6F45995E1B49DDDE00561005 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F45995B1B49DDDE00561005 /* SVProgressHUD.m */; };
@@ -110,6 +111,8 @@
 		6F2258B71B4888B100D1E3F1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = Localization.strings; sourceTree = "<group>"; };
 		6F39DD201B4C51B5007B5D4C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		6F39DD211B4C51B5007B5D4C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		6F39DD521B4C94DA007B5D4C /* ATMUserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMUserSettings.h; sourceTree = "<group>"; };
+		6F39DD531B4C94DA007B5D4C /* ATMUserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMUserSettings.m; sourceTree = "<group>"; };
 		6F4599561B49DDDE00561005 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		6F4599571B49DDDE00561005 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		6F4599581B49DDDE00561005 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
@@ -310,6 +313,8 @@
 		6FD1FEA21B4B2AA2007D33F8 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				6F39DD521B4C94DA007B5D4C /* ATMUserSettings.h */,
+				6F39DD531B4C94DA007B5D4C /* ATMUserSettings.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -556,6 +561,7 @@
 				08D2CDFC1B49475900E2A2E3 /* BankHistory.m in Sources */,
 				F809A4101B4BFEF400D4FF59 /* ATMMainViewController.m in Sources */,
 				08BA57A01B475E0900C8EC19 /* AFURLConnectionOperation.m in Sources */,
+				6F39DD541B4C94DA007B5D4C /* ATMUserSettings.m in Sources */,
 				08BA579B1B475E0900C8EC19 /* AFHTTPRequestOperation.m in Sources */,
 				08BA579E1B475E0900C8EC19 /* AFNetworkReachabilityManager.m in Sources */,
 				6F163E911B4AE855002AE691 /* DTError.m in Sources */,
