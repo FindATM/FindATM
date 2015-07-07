@@ -49,6 +49,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 }
 
 - (void)openMap {
+    
     if([Eng.getNearestBanks.banksData count] == 0) return;
     // Hides the back button name
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
