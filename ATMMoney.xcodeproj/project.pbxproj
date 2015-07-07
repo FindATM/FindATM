@@ -419,7 +419,7 @@
 				TargetAttributes = {
 					F69F6A581B4718A100FE29B9 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 5Y92JCRVR7;
+						DevelopmentTeam = BSRD9WAB5Z;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -431,7 +431,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F69F6A541B4718A100FE29B9 /* Build configuration list for PBXProject "ATMMoney" */;
+			buildConfigurationList = F69F6A541B4718A100FE29B9 /* Build configuration list for PBXProject "AtmMoney" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -698,7 +698,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F69F6A541B4718A100FE29B9 /* Build configuration list for PBXProject "ATMMoney" */ = {
+		F69F6A541B4718A100FE29B9 /* Build configuration list for PBXProject "AtmMoney" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F69F6A7A1B4718A100FE29B9 /* Debug */,

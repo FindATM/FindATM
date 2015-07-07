@@ -41,25 +41,23 @@
 
 @implementation MapViewController {
 
-    CLLocationCoordinate2D location;
-//    MKPointAnnotation *newAnnotation;
     NSMutableArray *newAnnotations;
-    UIBarButtonItem *directionButton;
 
 }
 
 - (void)viewDidLoad {
+        // Do any additional setup after loading the view.
     [super viewDidLoad];
      self.navigationItem.title = NSLocalizedStringFromTable(@"mapviewcontroller.title", @"Localization", nil);
     
     self.mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
-    self.mapView.showsUserLocation = NO;
+    self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
     
     [self.view addSubview:self.mapView];
 
     [self showAnnotations];
-    // Do any additional setup after loading the view.
+
 }
 
 - (void)showAnnotations {
@@ -88,8 +86,8 @@
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-//    mapView.centerCoordinate = userLocation.location.coordinate;
-    [mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+    CLLocationCoordinate2D location = CLLocationCoordinate2DMake([Data getLatitude], [Data getLongitude]);
+    [mapView setCenterCoordinate:location animated:YES];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(MKCustomPointAnnotation *)annotation

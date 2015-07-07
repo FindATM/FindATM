@@ -81,7 +81,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     
     [self updateViewWithState:self.bankData.bankType];
        
-    UIBarButtonItem *directionButton = [[UIBarButtonItem alloc] initWithTitle:@"Directions"
+    UIBarButtonItem *directionButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"detail.directions", @"Localization", nil)
                                                                         style:UIBarButtonItemStyleBordered
                                                                        target:self
                                                                        action:@selector(directionsPressed)];

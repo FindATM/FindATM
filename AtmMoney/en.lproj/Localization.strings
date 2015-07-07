@@ -9,6 +9,8 @@
 "mainviewcontroller.title"          = "Nearest ATMs";
 "mapviewcontroller.title"           = "Nearest ATMs - Map";
 
+"mainviewcontroller.map"          = "Map";
+
 "atmdetailviewcontroller.title"     = "ATM Details";
 
 
@@ -37,3 +39,4 @@
 
 "detail.view.latestactivity" = "Latest Activity";
 
+"detail.directions" = "Directions";
