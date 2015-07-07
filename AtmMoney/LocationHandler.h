@@ -10,13 +10,13 @@
 
 #define CURRENT_LOCATION_KEY @"currentLocation"
 
-#define Data [DataHandler sharedInstance]
+#define Location [LocationHandler sharedInstance]
 
 @class Reachability;
 
-@interface DataHandler : NSObject <CLLocationManagerDelegate>
+@interface LocationHandler : NSObject <CLLocationManagerDelegate>
 
-+ (DataHandler *)sharedInstance;
++ (LocationHandler *)sharedInstance;
 
 @property (nonatomic, strong, readonly) CLLocation *currentLocation;
 

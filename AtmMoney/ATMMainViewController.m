@@ -7,7 +7,7 @@
 //
 
 #import "ATMMainViewController.h"
-#import "DataHandler.h"
+#import "LocationHandler.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "Bank.h"
 #import "ATMBankTableViewCell.h"
@@ -44,7 +44,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
 - (void)refreshTableView {
     
-    [Data startUpdatingLocation];
+    [Location startUpdatingLocation];
     
 }
 
@@ -63,7 +63,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
     [super viewWillAppear:animated];
    
-    [Data addObserver:self forKeyPath:CURRENT_LOCATION_KEY options:NSKeyValueObservingOptionNew context:nil];}
+    [Location addObserver:self forKeyPath:CURRENT_LOCATION_KEY options:NSKeyValueObservingOptionNew context:nil];}
 
 - (void)viewDidAppear:(BOOL)animated {
     
@@ -72,7 +72,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     [SVProgressHUD show];
     [self.refreshControl beginRefreshing];
     
-    [Data startUpdatingLocation];
+    [Location startUpdatingLocation];
     
 }
 
@@ -81,7 +81,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     [super viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    [Data removeObserver:self forKeyPath:CURRENT_LOCATION_KEY context:nil];
+    [Location removeObserver:self forKeyPath:CURRENT_LOCATION_KEY context:nil];
     
 }
 
@@ -156,13 +156,13 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     if([keyPath isEqualToString:CURRENT_LOCATION_KEY]) {
         // do some stuff
         [self getBanks];
-        [Data stopUpdatingLocation];
+        [Location stopUpdatingLocation];
     }
 }
 
 - (void)getBanks {
     
-    CLLocation *location = Data.currentLocation;
+    CLLocation *location = Location.currentLocation;
     [Eng.getNearestBanks getNearestBanksWithLocation:location
                                          andDistance:0.8
                                       withCompletion:^{

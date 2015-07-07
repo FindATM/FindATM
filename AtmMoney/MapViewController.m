@@ -8,7 +8,7 @@
 
 #import "MapViewController.h"
 #import "Bank.h"
-#import "DataHandler.h"
+#import "LocationHandler.h"
 #import "ATMDetailBankViewController.h"
 
 @interface MKCustomPointAnnotation : MKPointAnnotation
@@ -86,7 +86,7 @@
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    CLLocationCoordinate2D location = CLLocationCoordinate2DMake([Data getLatitude], [Data getLongitude]);
+    CLLocationCoordinate2D location = CLLocationCoordinate2DMake([Location getLatitude], [Location getLongitude]);
     [mapView setCenterCoordinate:location animated:YES];
 }
 

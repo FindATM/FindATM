@@ -8,7 +8,7 @@
 
 #import "ATMDetailBankViewController.h"
 #import "BankHistory.h"
-#import "DataHandler.h"
+#import "LocationHandler.h"
 #import "DateTools.h"
 #import <MapKit/MapKit.h>
 #import "ATMPlainCustomButton.h"

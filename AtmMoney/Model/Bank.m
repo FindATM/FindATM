@@ -7,7 +7,7 @@
 //
 
 #import "Bank.h"
-#import "DataHandler.h"
+#import "LocationHandler.h"
 
 @interface Bank ()
 
