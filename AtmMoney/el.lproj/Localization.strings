@@ -9,6 +9,8 @@
 "mainviewcontroller.title" = "Κοντινότερα ATMs";
 "mapviewcontroller.title"           = "Κοντινότερα ATMs - Χάρτης";
 
+"mainviewcontroller.map"          = "Χάρτης";
+
 "atmdetailviewcontroller.title"     = "Στοιχεία ATM";
 
 
@@ -35,3 +37,8 @@
 
 "detail.view.latestactivity" = "Τελευταίες Αναφορές";
 
+"detail.directions" = "Οδηγίες";
+
+"submit.response.title" = "Η πληροφορία σας καταχωρήθηκε\νΕυχαριστούμε";
+
+"network.failure.title" = "Network Failure";

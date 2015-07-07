@@ -31,16 +31,17 @@ typedef enum : NSUInteger {
 @interface Bank : NSObject
 
 @property(nonatomic,assign,readonly) NSInteger buid;
-@property(nonatomic,assign,readonly) float longtitude;
-@property(nonatomic,assign,readonly) float latitude;
+@property(nonatomic,assign,readonly) CGFloat longtitude;
+@property(nonatomic,assign,readonly) CGFloat latitude;
 @property(nonatomic,strong,readonly) NSString *address;
 @property(nonatomic,strong,readonly) NSString *name;
 @property(nonatomic,strong,readonly) NSString *phone;
+@property(nonatomic,assign,readonly) CGFloat distance;
 @property(nonatomic,assign,readonly) EBankType bankType;
 @property(nonatomic,assign,readonly) EBankState bankState;
 @property(nonatomic,assign,readonly) NSInteger visitors;
 @property(nonatomic,assign,readonly) CLLocationCoordinate2D location;
-
+@property(nonatomic,assign,readonly) CGFloat actualDistance;
 
 - (instancetype)initWithDict:(NSDictionary *)dict;
 
