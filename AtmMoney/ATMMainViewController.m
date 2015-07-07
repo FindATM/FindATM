@@ -35,7 +35,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
     
-    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithTitle:@"Map"
+    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"mainviewcontroller.map", @"Localization", nil)
                                                                   style:UIBarButtonItemStyleBordered
                                                                  target:self
                                                                  action:@selector(openMap)];

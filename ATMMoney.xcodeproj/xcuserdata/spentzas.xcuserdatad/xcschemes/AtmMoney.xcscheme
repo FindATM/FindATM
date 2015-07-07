@@ -17,8 +17,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F69F6A581B4718A100FE29B9"
-            BuildableName = "AtmMoney.app"
-            BlueprintName = "AtmMoney"
+            BuildableName = "ATMMoney.app"
+            BlueprintName = "ATMMoney"
             ReferencedContainer = "container:AtmMoney.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -37,8 +37,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F69F6A581B4718A100FE29B9"
-            BuildableName = "AtmMoney.app"
-            BlueprintName = "AtmMoney"
+            BuildableName = "ATMMoney.app"
+            BlueprintName = "ATMMoney"
             ReferencedContainer = "container:AtmMoney.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -55,8 +55,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F69F6A581B4718A100FE29B9"
-            BuildableName = "AtmMoney.app"
-            BlueprintName = "AtmMoney"
+            BuildableName = "ATMMoney.app"
+            BlueprintName = "ATMMoney"
             ReferencedContainer = "container:AtmMoney.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
