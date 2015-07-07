@@ -71,22 +71,27 @@
     [self.mapView addAnnotations:annotations];
     
     [self.mapView showAnnotations:annotations animated:YES];
-    
+    self.mapView.camera.altitude *= 1.5;
+
 }
 
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    CLLocationCoordinate2D location = CLLocationCoordinate2DMake([Location getLatitude], [Location getLongitude]);
-    [mapView setCenterCoordinate:location animated:YES];
+//    CLLocationCoordinate2D location = CLLocationCoordinate2DMake([Location getLatitude], [Location getLongitude]);
+//    MKCoordinateRegion mapRegion;
+//    mapRegion.center = location;
+//    mapRegion.span.latitudeDelta = 0.08f;
+//    mapRegion.span.longitudeDelta = 0.08f;
+//    
+//    [mapView setRegion:mapRegion animated: NO];
+//    
+////    [mapView setCenterCoordinate:location animated:YES];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(MKCustomPointAnnotation *)annotation
 {
-    
-    if ([annotation isKindOfClass:[MKUserLocation class]])
-    {
-//        ((MKUserLocation *)annotation).title = @"My Current Location";
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
     }
     
