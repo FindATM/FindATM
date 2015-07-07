@@ -54,6 +54,9 @@
 		F69F6A651B4718A100FE29B9 /* ATMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69F6A641B4718A100FE29B9 /* ATMMainViewController.m */; };
 		F69F6A681B4718A100FE29B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F69F6A661B4718A100FE29B9 /* Main.storyboard */; };
 		F69F6A6A1B4718A100FE29B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F69F6A691B4718A100FE29B9 /* Images.xcassets */; };
+		F81019DB1B4BD01E00DD5D4A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81019D81B4BD01E00DD5D4A /* FBSDKCoreKit.framework */; };
+		F81019DC1B4BD01F00DD5D4A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81019D91B4BD01E00DD5D4A /* FBSDKLoginKit.framework */; };
+		F81019DD1B4BD01F00DD5D4A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81019DA1B4BD01E00DD5D4A /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +144,9 @@
 		F69F6A641B4718A100FE29B9 /* ATMMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATMMainViewController.m; sourceTree = "<group>"; };
 		F69F6A671B4718A100FE29B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F69F6A691B4718A100FE29B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F81019D81B4BD01E00DD5D4A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		F81019D91B4BD01E00DD5D4A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		F81019DA1B4BD01E00DD5D4A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +154,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F81019DB1B4BD01E00DD5D4A /* FBSDKCoreKit.framework in Frameworks */,
 				08BA57861B475DC100C8EC19 /* SystemConfiguration.framework in Frameworks */,
+				F81019DC1B4BD01F00DD5D4A /* FBSDKLoginKit.framework in Frameworks */,
+				F81019DD1B4BD01F00DD5D4A /* FBSDKShareKit.framework in Frameworks */,
 				08BA57841B475DBB00C8EC19 /* CoreFoundation.framework in Frameworks */,
 				6F4730ED1B47D85C00E99508 /* MapKit.framework in Frameworks */,
 				08BA57821B475DB500C8EC19 /* UIKit.framework in Frameworks */,
@@ -327,6 +336,7 @@
 		F69F6A5B1B4718A100FE29B9 /* AtmMoney */ = {
 			isa = PBXGroup;
 			children = (
+				F81019D71B4BD01E00DD5D4A /* Facebook SDK */,
 				6F4730E91B47D0FA00E99508 /* Common-Prefix.h */,
 				08BA57871B475E0900C8EC19 /* AFNetworking */,
 				08BA577D1B475B2900C8EC19 /* Model */,
@@ -366,6 +376,16 @@
 				F69F6A5E1B4718A100FE29B9 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F81019D71B4BD01E00DD5D4A /* Facebook SDK */ = {
+			isa = PBXGroup;
+			children = (
+				F81019D81B4BD01E00DD5D4A /* FBSDKCoreKit.framework */,
+				F81019D91B4BD01E00DD5D4A /* FBSDKLoginKit.framework */,
+				F81019DA1B4BD01E00DD5D4A /* FBSDKShareKit.framework */,
+			);
+			path = "Facebook SDK";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -634,6 +654,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AtmMoney/Facebook",
+					SDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AtmMoney/PrefixHeader.pch";
 				INFOPLIST_FILE = AtmMoney/Info.plist;
@@ -653,6 +678,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AtmMoney/Facebook",
+					SDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AtmMoney/PrefixHeader.pch";
 				INFOPLIST_FILE = AtmMoney/Info.plist;
