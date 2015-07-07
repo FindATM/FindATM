@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-
 typedef enum : NSUInteger {
     EbankStateUknown = 0,
     EbankStateMoneyAndTwenties,
@@ -27,6 +26,8 @@ typedef enum : NSUInteger {
     EBankTypeHsbc,
     EBankTypeNationalBank
 } EBankType;
+
+#define TOTAL_BANKS EBankTypeNationalBank
 
 @interface Bank : NSObject
 

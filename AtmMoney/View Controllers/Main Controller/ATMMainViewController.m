@@ -55,10 +55,11 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     }
     
     if (!self.filterView) {
-        self.filterView = [[ATMFilterView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))
+        CGFloat height = CGRectGetHeight(self.navigationController.navigationBar.frame) + 20; // status bar
+        self.filterView = [[ATMFilterView alloc] initWithFrame:CGRectMake(0, height, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))
                                               andSelectedBanks:nil];
-        [self.view addSubview:self.filterView];
-
+//        [self.navigationController.view addSubview:self.filterView];
+        [self.navigationController.view insertSubview:self.filterView belowSubview:self.navigationController.navigationBar];
     }
     
 }
