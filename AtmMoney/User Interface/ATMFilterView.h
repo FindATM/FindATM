@@ -10,4 +10,6 @@
 
 @interface ATMFilterView : UIView
 
+@property (nonatomic, strong, readonly) NSMutableArray *selectedBanks;
+
 @end
