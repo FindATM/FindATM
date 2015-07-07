@@ -54,6 +54,7 @@
 		F809A41E1B4BFF7200D4FF59 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F809A41D1B4BFF7200D4FF59 /* MapViewController.m */; };
 		F809A4221B4BFFAA00D4FF59 /* Dimitris Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F809A4201B4BFFAA00D4FF59 /* Dimitris Location.gpx */; };
 		F809A4231B4BFFAA00D4FF59 /* Solonos 45.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F809A4211B4BFFAA00D4FF59 /* Solonos 45.gpx */; };
+		F809A4261B4C213A00D4FF59 /* ATMFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F809A4251B4C213A00D4FF59 /* ATMFilterView.m */; };
 		F81019E21B4BDA1100DD5D4A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81019DF1B4BDA1100DD5D4A /* FBSDKCoreKit.framework */; };
 		F81019E31B4BDA1100DD5D4A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81019E01B4BDA1100DD5D4A /* FBSDKLoginKit.framework */; };
 		F81019E41B4BDA1100DD5D4A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81019E11B4BDA1100DD5D4A /* FBSDKShareKit.framework */; };
@@ -143,6 +144,8 @@
 		F809A41D1B4BFF7200D4FF59 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		F809A4201B4BFFAA00D4FF59 /* Dimitris Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Dimitris Location.gpx"; sourceTree = "<group>"; };
 		F809A4211B4BFFAA00D4FF59 /* Solonos 45.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Solonos 45.gpx"; sourceTree = "<group>"; };
+		F809A4241B4C213A00D4FF59 /* ATMFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMFilterView.h; sourceTree = "<group>"; };
+		F809A4251B4C213A00D4FF59 /* ATMFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATMFilterView.m; sourceTree = "<group>"; };
 		F81019DF1B4BDA1100DD5D4A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F81019E01B4BDA1100DD5D4A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F81019E11B4BDA1100DD5D4A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -392,6 +395,8 @@
 			children = (
 				F809A4121B4BFF2900D4FF59 /* ATMPlainCustomButton.h */,
 				F809A4131B4BFF2900D4FF59 /* ATMPlainCustomButton.m */,
+				F809A4241B4C213A00D4FF59 /* ATMFilterView.h */,
+				F809A4251B4C213A00D4FF59 /* ATMFilterView.m */,
 			);
 			path = "User Interface";
 			sourceTree = "<group>";
@@ -535,6 +540,7 @@
 				6F163E941B4AE855002AE691 /* DTTimePeriodCollection.m in Sources */,
 				08BA57801B475B3300C8EC19 /* Bank.m in Sources */,
 				6F45995C1B49DDDE00561005 /* SVIndefiniteAnimatedView.m in Sources */,
+				F809A4261B4C213A00D4FF59 /* ATMFilterView.m in Sources */,
 				6F45995E1B49DDDE00561005 /* SVProgressHUD.m in Sources */,
 				F809A41E1B4BFF7200D4FF59 /* MapViewController.m in Sources */,
 				08BA57A21B475E0900C8EC19 /* AFURLResponseSerialization.m in Sources */,

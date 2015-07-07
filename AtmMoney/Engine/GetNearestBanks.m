@@ -27,8 +27,16 @@
 
 - (NSMutableArray *)data {
     NSMutableArray *initialData = self.banksData;
-    // TODO: Add predicate
+
+    if (self.selectedBanksToFilter) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.bankType IN %@", self.selectedBanksToFilter];
+        NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES];
+
+        self.banksData = [[self.banksData filteredArrayUsingPredicate:predicate] mutableCopy];
+        [self.banksData sortUsingDescriptors:@[sort]];
+    }
     
+    initialData = self.banksData;
     return initialData;
 }
 

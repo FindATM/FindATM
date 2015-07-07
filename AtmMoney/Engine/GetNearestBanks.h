@@ -18,6 +18,8 @@ typedef void (^VoidBlock)(void);
 @property (nonatomic, strong) NSMutableArray *banksData;
 @property (nonatomic, strong) NSMutableArray *bankHistoryData;
 
+@property (nonatomic, strong) NSMutableArray *selectedBanksToFilter;
+
 - (void)getNearestBanksWithLocation:(CLLocation *)location andDistance:(CGFloat)distance withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure;
 
 - (void)getBankHistoryWithId:(NSInteger)buid withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure;
