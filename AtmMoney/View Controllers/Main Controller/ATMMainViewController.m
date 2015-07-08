@@ -48,6 +48,10 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)filterTableView {
     
     if (!self.filterView) {

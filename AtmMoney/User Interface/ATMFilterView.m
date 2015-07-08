@@ -99,18 +99,14 @@ static CGFloat const kBlackBackgroundAlphaValue = 0.7;
             bankButton.selectedBackgroundColor  = [UIColor colorWithRed:0 green:0.52 blue:0.75 alpha:1];
             
             bankButton.backgroundColor          = bankButton.selectedBackgroundColor;
-            if (self.selectedBanks.count == 0) {
+            if (selectedBanks.count == 0) {
                 [bankButton setSelected:YES];
                 [self.selectedBanks addObject:@(bankButton.buttonType)];
             }
             else {
-
                 if ([self.selectedBanks containsObject:@(bankButton.bankType)])
-                        [bankButton setSelected:YES];
-                
+                    [bankButton setSelected:YES];
             }
-            
-
             
             [bankButton setImage:[Bank getBankLogoFromBankType:i] forState:UIControlStateNormal];
             bankButton.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5);
@@ -121,6 +117,7 @@ static CGFloat const kBlackBackgroundAlphaValue = 0.7;
             count++;
         }
         
+        [ATMUserSettings saveFavouritesBanks:self.selectedBanks];
         
         self.distanceTitleLabel = [[UILabel alloc] init];
         self.distanceTitleLabel.font = [UIFont boldSystemFontOfSize:13];
