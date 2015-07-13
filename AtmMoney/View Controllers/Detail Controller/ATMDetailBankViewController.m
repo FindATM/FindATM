@@ -121,6 +121,7 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     
     [Eng.submitBank submitBankWithBankID:self.bankData.buid
                             andBankState:state
+                            andBankQueue:EBankQueueUnknown
                           withCompletion:^{
                               [SVProgressHUD showSuccessWithStatus:NSLocalizedStringFromTable(@"submit.response.title", @"Localization", nil)];
                           }

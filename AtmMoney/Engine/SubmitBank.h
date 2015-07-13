@@ -11,6 +11,5 @@
 
 @interface SubmitBank : NSObject
 
-- (void)submitBankWithBankID:(NSInteger)bankID andBankState:(EBankState)bankState withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure;
-
+- (void)submitBankWithBankID:(NSInteger)bankID andBankState:(EBankState)bankState andBankQueue:(EBankQueue)bankQueue withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure;
 @end

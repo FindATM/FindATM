@@ -13,10 +13,10 @@
 
 @implementation SubmitBank
 
-- (void)submitBankWithBankID:(NSInteger)bankID andBankState:(EBankState)bankState withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure {
+- (void)submitBankWithBankID:(NSInteger)bankID andBankState:(EBankState)bankState andBankQueue:(EBankQueue)bankQueue withCompletion:(VoidBlock)completion andFailure:(VoidBlock)failure {
     
     [Eng postMethod:SUBMIT_BANK_URL
-         parameters:@{@"buid": @(bankID),@"state":@(bankState)}
+         parameters:@{@"buid": @(bankID),@"state":@(bankState), @"queue": @(bankQueue)}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSLog(@"JSON: %@", responseObject);
                 if ([responseObject objectForKey:@"error"]) {

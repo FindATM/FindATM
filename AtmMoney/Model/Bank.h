@@ -17,14 +17,22 @@ typedef enum : NSUInteger {
 } EBankState;
 
 typedef enum : NSUInteger {
+    EBankQueueUnknown = 0,
+    EBankQueueNoQueue = 1,
+    EBankQueueSmallQueue = 2,
+    EBankQueueMediumQueue = 3,
+    EBankQueueLargeQueue = 4
+} EBankQueue;
+
+typedef enum : NSUInteger {
     EBankTypePiraeusBank = 0,
-    EBankTypeAttica,
-    EBankTypeEurobank,
-    EBankTypeAlpha,
-    EBankTypeCitybank,
-    EBankTypePostbank,
-    EBankTypeHsbc,
-    EBankTypeNationalBank
+    EBankTypeAttica = 1,
+    EBankTypeEurobank = 2,
+    EBankTypeAlpha = 3,
+    EBankTypeCitybank = 4,
+    EBankTypePostbank = 5,
+    EBankTypeHsbc = 6,
+    EBankTypeNationalBank = 7
 } EBankType;
 
 #define TOTAL_BANKS 8
