@@ -11,7 +11,11 @@
 #import "GetNearestBanks.h"
 #import "SubmitBank.h"
 
-#define BASE_URL            @"https://www.dimmdesign.com/clients/atmmoney/api"
+#ifdef DEBUG
+    #define BASE_URL            @"https://www.dimmdesign.com/clients/atmmoney-dev/api"
+#else
+    #define BASE_URL            @"https://www.dimmdesign.com/clients/atmmoney/api"
+#endif
 
 #define Eng [Engine sharedInstance]
 
