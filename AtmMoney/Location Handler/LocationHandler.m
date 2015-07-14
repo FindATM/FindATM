@@ -54,7 +54,7 @@ static LocationHandler *_sharedInstance = nil;
         [self.locationManager requestWhenInUseAuthorization];
     }
     
-    NSLog(@"Starting location updates");
+    Log(@"Starting location updates");
     [self.locationManager startUpdatingLocation];
 }
 

@@ -76,7 +76,7 @@
         else
             success(operation, responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"get error code %ld operation %d and url %@",(long)error.code,operation.isCancelled,path);
+        Log(@"get error code %ld operation %d and url %@",(long)error.code,operation.isCancelled,path);
         if(error.code!=-999 && !operation.isCancelled)
             failure(operation, error);
     }];
@@ -94,7 +94,7 @@
             success(operation, responseObject);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"post error code %ld operation %d and url %@ http code %ld",(long)error.code,operation.isCancelled,path,(long)[operation.response statusCode ]);
+        Log(@"post error code %ld operation %d and url %@ http code %ld",(long)error.code,operation.isCancelled,path,(long)[operation.response statusCode ]);
         if(error.code!=-999 && !operation.isCancelled)
             failure(operation, error);
     }];

@@ -109,6 +109,7 @@
 		6F2258A51B48813C00D1E3F1 /* SubmitBank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitBank.m; sourceTree = "<group>"; };
 		6F2258B31B4885EB00D1E3F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localization.strings; sourceTree = "<group>"; };
 		6F2258B71B4888B100D1E3F1 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = Localization.strings; sourceTree = "<group>"; };
+		6F27543D1B547699003ED770 /* Kos.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Kos.gpx; sourceTree = "<group>"; };
 		6F39DD201B4C51B5007B5D4C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		6F39DD211B4C51B5007B5D4C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		6F39DD521B4C94DA007B5D4C /* ATMUserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMUserSettings.h; sourceTree = "<group>"; };
@@ -438,6 +439,7 @@
 			children = (
 				F809A4201B4BFFAA00D4FF59 /* Dimitris Location.gpx */,
 				F809A4211B4BFFAA00D4FF59 /* Solonos 45.gpx */,
+				6F27543D1B547699003ED770 /* Kos.gpx */,
 			);
 			path = "Dummy Locations";
 			sourceTree = "<group>";

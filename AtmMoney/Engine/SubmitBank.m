@@ -18,7 +18,7 @@
     [Eng postMethod:SUBMIT_BANK_URL
          parameters:@{@"buid": @(bankID),@"state":@(bankState), @"queue": @(bankQueue)}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSLog(@"JSON: %@", responseObject);
+                Log(@"JSON: %@", responseObject);
                 if ([responseObject objectForKey:@"error"]) {
                     if (failure != nil)
                         failure();
@@ -31,7 +31,7 @@
                 
             }
             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                NSLog(@"Network Failure");
+                Log(@"Network Failure");
                 if (failure != nil) {
                     failure();
                 }

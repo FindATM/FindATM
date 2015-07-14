@@ -36,7 +36,8 @@
 @end
 
 @interface MapViewController ()
-@property (nonatomic, strong)  MKMapView *mapView;
+@property (nonatomic, strong) MKMapView *mapView;
+@property (nonatomic, strong) NSMutableArray *annotations;
 @end
 
 @implementation MapViewController
@@ -59,18 +60,27 @@
 
 }
 
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    self.mapView.frame = CGRectMake(0,  0,  CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+    // redisplay the annotation on the map
+    [self.mapView showAnnotations:self.annotations animated:NO];
+}
+
 - (void)showAnnotations {
     
-    NSMutableArray *annotations = [[NSMutableArray alloc] init];
+    self.annotations = [[NSMutableArray alloc] init];
     [self.coords enumerateObjectsUsingBlock:^(Bank *obj, NSUInteger idx, BOOL *stop) {
         
         MKPointAnnotation * newAnnotation = [[MKCustomPointAnnotation alloc] initWithBank:obj];
-        [annotations addObject:newAnnotation];
+        [self.annotations addObject:newAnnotation];
         
     }];
-    [self.mapView addAnnotations:annotations];
+    [self.mapView addAnnotations:self.annotations];
     
-    [self.mapView showAnnotations:annotations animated:NO];
+    [self.mapView showAnnotations:self.annotations animated:NO];
     self.mapView.camera.altitude *= 1.5;
 
 }

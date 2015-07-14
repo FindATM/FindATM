@@ -202,6 +202,8 @@ static CGFloat const kBlackBackgroundAlphaValue = 0.7;
     
     CGFloat padding = 10;
     
+    self.blackBackground.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+    
     [self.selectBanksLabel sizeToFit];
     self.selectBanksLabel.frame = CGRectMake(0, padding * 2, CGRectGetWidth(self.frame), CGRectGetHeight(self.selectBanksLabel.frame));
     
@@ -233,7 +235,7 @@ static CGFloat const kBlackBackgroundAlphaValue = 0.7;
     
     self.doneButton.frame = CGRectMake(0,
                                        CGRectGetMaxY(self.distanceSlider.frame) + padding * 2,
-                                       CGRectGetWidth(self.doneButton.frame),
+                                       CGRectGetWidth(self.bounds),
                                        CGRectGetHeight(self.doneButton.frame));
     
     

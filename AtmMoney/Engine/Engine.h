@@ -12,7 +12,8 @@
 #import "SubmitBank.h"
 
 #ifdef DEBUG
-    #define BASE_URL            @"https://www.dimmdesign.com/clients/atmmoney-dev/api"
+//    #define BASE_URL            @"https://www.dimmdesign.com/clients/atmmoney-dev/api"
+    #define BASE_URL            @"https://www.dimmdesign.com/clients/atmmoney/api"
 #else
     #define BASE_URL            @"https://www.dimmdesign.com/clients/atmmoney/api"
 #endif

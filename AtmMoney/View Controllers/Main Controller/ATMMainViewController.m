@@ -55,8 +55,9 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 - (void)filterTableView {
     
     if (!self.filterView) {
-        CGFloat height = CGRectGetHeight(self.navigationController.navigationBar.frame) + 20; // status bar
-        self.filterView = [[ATMFilterView alloc] initWithFrame:CGRectMake(0, height, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))
+        CGFloat height = self.topLayoutGuide.length; // gives the height of the navigationbar and status bar...
+        CGRect filterViewFrame = CGRectMake(0, height, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+        self.filterView = [[ATMFilterView alloc] initWithFrame:filterViewFrame
                                               andSelectedBanks:Eng.getNearestBanks.selectedBanksToFilter];
         self.filterView.delegate = self;
         [self.navigationController.view insertSubview:self.filterView belowSubview:self.navigationController.navigationBar];
@@ -76,6 +77,17 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 - (void)removeFilterView {
     [self.filterView removeFromSuperview];
     self.filterView = nil;
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    if (self.filterView) {
+        CGFloat height = self.topLayoutGuide.length; // gives the height of the navigationbar and status bar...
+        CGRect filterViewFrame = CGRectMake(0, height, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+        self.filterView.frame = filterViewFrame;
+        [self.filterView layoutIfNeeded];
+    }
 }
 
 #pragma mark - Filter View Delegate -

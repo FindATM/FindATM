@@ -53,7 +53,7 @@
          parameters:@{@"lng": @(location.coordinate.longitude), @"lat":@(location.coordinate.latitude), @"distance":[NSNumber numberWithFloat:distance]}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
-                    NSLog(@"JSON: %@", responseObject);
+                    Log(@"JSON: %@", responseObject);
                     if ([responseObject objectForKey:@"error_code"]) {
                         if ([[responseObject objectForKey:@"error_code"] integerValue] == EErrorCodeNoEntries) {
                             if (noEntriesFailure != nil)
@@ -75,7 +75,7 @@
                 
             }
             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                    NSLog(@"Network Failure");
+                    Log(@"Network Failure");
                     if (failure != nil) {
                         failure();
                     }
@@ -89,7 +89,7 @@
          parameters:@{@"buid": @(buid)}
             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
-                NSLog(@"JSON: %@", responseObject);
+                Log(@"JSON: %@", responseObject);
                 if ([responseObject objectForKey:@"error"]) {
                     if (failure != nil)
                         failure();
@@ -111,7 +111,7 @@
                 
             }
             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                NSLog(@"Network Failure");
+                Log(@"Network Failure");
                 if (failure != nil) {
                     failure();
                 }
