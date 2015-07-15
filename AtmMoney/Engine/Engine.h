@@ -12,10 +12,11 @@
 #import "SubmitBank.h"
 
 #ifdef DEBUG
-//    #define BASE_URL            @"https://www.dimmdesign.com/clients/atmmoney-dev/api"
-    #define BASE_URL            @"https://www.dimmdesign.com/clients/atmmoney/api"
+//    #define BASE_URL            @"https://www.dimmdesign.com/clients/atmmoney/api"
+//    #define BASE_URL            @"https://www.vresatm.gr/app/staging-api"
+    #define BASE_URL            @"http://www.vresatm.gr/app/api"
 #else
-    #define BASE_URL            @"https://www.dimmdesign.com/clients/atmmoney/api"
+    #define BASE_URL            @"http://www.vresatm.gr/staging-app/api"
 #endif
 
 #define Eng [Engine sharedInstance]
