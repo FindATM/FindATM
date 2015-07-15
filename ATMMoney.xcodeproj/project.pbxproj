@@ -343,6 +343,8 @@
 		F69F6A5B1B4718A100FE29B9 /* AtmMoney */ = {
 			isa = PBXGroup;
 			children = (
+				F69F6A601B4718A100FE29B9 /* AppDelegate.h */,
+				F69F6A611B4718A100FE29B9 /* AppDelegate.m */,
 				F809A41F1B4BFFAA00D4FF59 /* Dummy Locations */,
 				F81019DE1B4BDA1100DD5D4A /* FacebookSDK */,
 				08BA57871B475E0900C8EC19 /* AFNetworking */,
@@ -353,8 +355,6 @@
 				F809A4111B4BFF2900D4FF59 /* User Interface */,
 				F809A4051B4BFEBA00D4FF59 /* Location Handler */,
 				F809A4091B4BFEF400D4FF59 /* View Controllers */,
-				F69F6A601B4718A100FE29B9 /* AppDelegate.h */,
-				F69F6A611B4718A100FE29B9 /* AppDelegate.m */,
 				F69F6A661B4718A100FE29B9 /* Main.storyboard */,
 				F69F6A691B4718A100FE29B9 /* Images.xcassets */,
 				F69F6A5C1B4718A100FE29B9 /* Supporting Files */,

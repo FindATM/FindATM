@@ -41,4 +41,20 @@
     return self;
 }
 
+- (NSString *)currentLanguage {
+    NSLocale *locale = [NSLocale currentLocale];
+    return [locale objectForKey:NSLocaleLanguageCode];
+}
+
+
+- (BOOL)hasEnglishLocale {
+    NSLocale *locale = [NSLocale currentLocale];
+    return [[locale objectForKey:NSLocaleLanguageCode] isEqualToString:@"en"];
+}
+
+- (BOOL)hasGreekLocale {
+    NSLocale *locale = [NSLocale currentLocale];
+    return [[locale objectForKey:NSLocaleLanguageCode] isEqualToString:@"gr"];
+}
+
 @end

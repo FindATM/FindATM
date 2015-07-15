@@ -145,6 +145,10 @@
 }
 
 + (UIImage *)getBankLogoFromBankType:(EBankType)bankType {
+    // TODO: add logo specific image for current language.
+    // TODO: Add a generic way to do the checking.
+    NSString *currentLanguage = [Tk currentLanguage];
+    
     switch (bankType) {
         case EBankTypeAlpha:
         case EBankTypeCitybank:
@@ -170,10 +174,15 @@
         case EBankTypePostbank:
             return [UIImage imageNamed:@"tteurobank"];
             break;
-        case EBankTypePiraeusBank:
+        case EBankTypePiraeusBank: {
+            NSString *imageName = [NSString stringWithFormat:@"piraeus-%@", currentLanguage];
+            UIImage *image = [UIImage imageNamed:imageName];
+            if (image) {
+                return image;
+            }
             return [UIImage imageNamed:@"piraeus"];
             break;
-
+        }
 
         default:
             break;

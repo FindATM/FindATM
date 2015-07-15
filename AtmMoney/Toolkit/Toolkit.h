@@ -15,7 +15,10 @@
 @property (nonatomic, strong, readonly) NSDateFormatter   *dateFormatter;
 @property (nonatomic, strong, readonly) NSNumberFormatter *numberFormatter;
 
-
 + (Toolkit *)sharedInstance;
+
+- (NSString *)currentLanguage;
+- (BOOL)hasEnglishLocale;
+- (BOOL)hasGreekLocale;
 
 @end
