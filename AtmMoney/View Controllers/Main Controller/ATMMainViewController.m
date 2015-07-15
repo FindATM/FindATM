@@ -54,6 +54,8 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 
 - (void)filterTableView {
     
+    // Since we are using a UITableViewController the self.view is the table view.
+    // However, we need to display the filter view on top of the table view.
     if (!self.filterView) {
         CGFloat height = self.topLayoutGuide.length; // gives the height of the navigationbar and status bar...
         CGRect filterViewFrame = CGRectMake(0, height, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
@@ -63,9 +65,8 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
         [self.navigationController.view insertSubview:self.filterView belowSubview:self.navigationController.navigationBar];
         [self.filterView sizeToFit];
         
-        [self.filterView showAnimatedWithCompletion:^{
-            
-        }];
+        [self.filterView showAnimatedWithCompletion:nil];
+        
     } else {
         [self.filterView hideAnimatedWithCompletion:^{
             [self removeFilterView];
@@ -83,8 +84,8 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     [super viewDidLayoutSubviews];
     
     if (self.filterView) {
-        CGFloat height = self.topLayoutGuide.length; // gives the height of the navigationbar and status bar...
-        CGRect filterViewFrame = CGRectMake(0, height, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+        CGFloat topHeightOfNavigationBar = self.topLayoutGuide.length; // gives the height of the navigationbar and status bar...
+        CGRect filterViewFrame = CGRectMake(0, topHeightOfNavigationBar, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
         self.filterView.frame = filterViewFrame;
         [self.filterView layoutIfNeeded];
     }
