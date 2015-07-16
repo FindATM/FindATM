@@ -29,7 +29,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
     self.navigationItem.title = NSLocalizedStringFromTable(@"mainviewcontroller.title", @"Localization", nil);
     
     //adding observer to being notify when location property is changed
-    self.tableView.rowHeight = 80;
+    self.tableView.rowHeight = 100;
     [self.tableView registerClass:[ATMBankTableViewCell class] forCellReuseIdentifier:simpleTableIdentifier];
     self.tableView.separatorInset = UIEdgeInsetsZero;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -76,6 +76,7 @@ static NSString *simpleTableIdentifier = @"bankItemIdentifier";
 }
 
 - (void)removeFilterView {
+    Eng.getNearestBanks.selectedBanksToFilter = [[ATMUserSettings getFavouritesBanks] mutableCopy];
     [self.filterView removeFromSuperview];
     self.filterView = nil;
 }

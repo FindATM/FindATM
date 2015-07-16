@@ -39,7 +39,12 @@
 
 "detail.directions" = "Οδηγίες";
 
-"submit.response.title" = "Η πληροφορία σας καταχωρήθηκε\νΕυχαριστούμε";
+"submit.response.title" = "Η πληροφορία σας καταχωρήθηκε.\nΕυχαριστούμε!";
 
 "network.failure.title" = "Network Failure";
 "network.failure.noentries.title"   = "Δεν βρέθηκαν κοντινά ATMs.\nΠροσπαθήστε να αλλάξετε την απόσταση.";
+
+"filterview.noselection.errortitle" = "Παρακαλώ επιλέξτε μία ή περισσότερες τραπεζες.";
+
+"filterview.sections.title.selectbanks" = "Επιλογή Τραπέζων";
+"filterview.sections.title.distance" = "Επιλογή Απόστασης";

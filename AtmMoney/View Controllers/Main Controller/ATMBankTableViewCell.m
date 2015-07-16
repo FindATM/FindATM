@@ -20,6 +20,7 @@
 @property (nonatomic,strong) UIImageView    *moneyIcon;
 @property (nonatomic,strong) UILabel        *moneyLabel;
 
+@property (nonatomic,strong) UILabel        *distanceOfATMLabel;
 @property (nonatomic,strong) UIImageView    *disclosureImageView;
 @end
 
@@ -70,6 +71,12 @@
         self.moneyLabel.text = @"";
         [self.contentView addSubview:self.moneyLabel];
 
+//        self.distanceOfATMLabel = [[UILabel alloc] init];
+//        self.distanceOfATMLabel.font = [UIFont systemFontOfSize:12];
+//        self.distanceOfATMLabel.textColor = [UIColor lightGrayColor];
+//        self.distanceOfATMLabel.backgroundColor = [UIColor clearColor];
+//        self.distanceOfATMLabel.text = @"400m";
+//        [self.contentView addSubview:self.distanceOfATMLabel];
         
         self.disclosureImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell-disclosure-icon"]];
         [self.disclosureImageView sizeToFit];
@@ -89,6 +96,12 @@
                                                 floorf((CGRectGetHeight(self.contentView.frame) - CGRectGetHeight(self.disclosureImageView.frame)) * 0.5),
                                                 CGRectGetWidth(self.disclosureImageView.frame),
                                                 CGRectGetHeight(self.disclosureImageView.frame));
+    
+//    [self.distanceOfATMLabel sizeToFit];
+//    self.distanceOfATMLabel.frame = CGRectMake(CGRectGetMinX(self.disclosureImageView.frame) - CGRectGetWidth(self.distanceOfATMLabel.frame) - padding,
+//                                               floorf(CGRectGetMinY(self.disclosureImageView.frame) + (CGRectGetHeight(self.disclosureImageView.frame) - CGRectGetHeight(self.distanceOfATMLabel.frame)) * 0.5),
+//                                               CGRectGetWidth(self.distanceOfATMLabel.frame),
+//                                               CGRectGetHeight(self.distanceOfATMLabel.frame));
     
     self.bankLogoImageView.frame = CGRectMake(padding,
                                               padding * 2,//floorf((CGRectGetHeight(self.contentView.frame) - CGRectGetHeight(self.bankLogoImageView.frame)) * 0.5),

@@ -55,8 +55,6 @@
 		F809A4191B4BFF5600D4FF59 /* ATMDetailBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F809A4171B4BFF5600D4FF59 /* ATMDetailBankViewController.m */; };
 		F809A41A1B4BFF5600D4FF59 /* ATMDetailBankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F809A4181B4BFF5600D4FF59 /* ATMDetailBankViewController.xib */; };
 		F809A41E1B4BFF7200D4FF59 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F809A41D1B4BFF7200D4FF59 /* MapViewController.m */; };
-		F809A4221B4BFFAA00D4FF59 /* Dimitris Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F809A4201B4BFFAA00D4FF59 /* Dimitris Location.gpx */; };
-		F809A4231B4BFFAA00D4FF59 /* Solonos 45.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F809A4211B4BFFAA00D4FF59 /* Solonos 45.gpx */; };
 		F809A4261B4C213A00D4FF59 /* ATMFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F809A4251B4C213A00D4FF59 /* ATMFilterView.m */; };
 		F81019E21B4BDA1100DD5D4A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81019DF1B4BDA1100DD5D4A /* FBSDKCoreKit.framework */; };
 		F81019E31B4BDA1100DD5D4A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81019E01B4BDA1100DD5D4A /* FBSDKLoginKit.framework */; };
@@ -523,7 +521,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F809A41A1B4BFF5600D4FF59 /* ATMDetailBankViewController.xib in Resources */,
-				F809A4221B4BFFAA00D4FF59 /* Dimitris Location.gpx in Resources */,
 				F69F6A681B4718A100FE29B9 /* Main.storyboard in Resources */,
 				6FB3B29D1B4B415300F38C1A /* InfoPlist.strings in Resources */,
 				6F45995D1B49DDDE00561005 /* SVProgressHUD.bundle in Resources */,
@@ -531,7 +528,6 @@
 				6F2258B51B4885EB00D1E3F1 /* Localization.strings in Resources */,
 				6F163E901B4AE855002AE691 /* DateTools.bundle in Resources */,
 				F69F6A6A1B4718A100FE29B9 /* Images.xcassets in Resources */,
-				F809A4231B4BFFAA00D4FF59 /* Solonos 45.gpx in Resources */,
 				6FB3B2971B4B40F300F38C1A /* Info.plist in Resources */,
 				6FB3B29A1B4B413700F38C1A /* InfoPlist.strings in Resources */,
 			);

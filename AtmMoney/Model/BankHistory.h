@@ -13,7 +13,8 @@
 @interface BankHistory : NSObject
 
 @property(nonatomic,assign,readonly) EBankState bankState;
-@property(nonatomic,strong,readonly) NSDate *time;
+@property(nonatomic,strong,readonly) NSDate     *time;
+@property(nonatomic,strong,readonly) NSString   *comment;
 
 - (instancetype)initWithDict:(NSDictionary *)dict;
 

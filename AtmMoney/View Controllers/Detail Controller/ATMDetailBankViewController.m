@@ -225,28 +225,55 @@ static NSString *activityCellItemIdentifier = @"activityCellItemIdentifier";
     return Eng.getNearestBanks.bankHistoryData.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self getHeightOfCellForIndexPath:indexPath];
+}
+
+- (CGFloat)getHeightOfCellForIndexPath:(NSIndexPath *)indexPath {
+    BankHistory *history = [Eng.getNearestBanks.bankHistoryData objectAtIndex:indexPath.row];
+    NSAttributedString *dateAttString = [self formattedStringForBankHistory:history];
+    CGRect rect = [dateAttString boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.view.bounds), MIN(CGFLOAT_MAX, 44))
+                                              options:NSStringDrawingUsesLineFragmentOrigin
+                                              context:nil];
+    return ceilf(CGRectGetHeight(rect));
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:activityCellItemIdentifier forIndexPath:indexPath];
     cell.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.0] : [UIColor whiteColor];
+    cell.textLabel.font = [UIFont systemFontOfSize:13];
+    cell.textLabel.numberOfLines = 2;
+    cell.textLabel.textAlignment = NSTextAlignmentLeft;
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    
     BankHistory *history = [Eng.getNearestBanks.bankHistoryData objectAtIndex:indexPath.row];
     
-    NSString *dateString = [history.time timeAgoSinceNow];
-    
-    NSString *bankStateString   = [Bank getReadableStateFromBankState:history.bankState];
-    cell.textLabel.font = [UIFont systemFontOfSize:13];
-    
-    NSMutableAttributedString *dateAttString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\t",dateString]
-                                                                        attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13]}];
-
-    NSAttributedString *bankStateAttString = [[NSAttributedString alloc] initWithString:bankStateString
-                                                                             attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:13],
-                                                                                          NSForegroundColorAttributeName: [Bank getTextColorFromBankState:history.bankState]}];
-    [dateAttString appendAttributedString:bankStateAttString];
+    NSAttributedString *dateAttString = [self formattedStringForBankHistory:history];
     
     cell.textLabel.attributedText = dateAttString;
     [cell layoutIfNeeded];
     return cell;
+}
+
+- (NSAttributedString *)formattedStringForBankHistory:(BankHistory *)history {
+    NSString *dateString = [history.time timeAgoSinceNow];
+    
+    NSString *bankStateString   = [Bank getReadableStateFromBankState:history.bankState];
+    
+    NSMutableAttributedString *finalString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\t",dateString]
+                                                                                      attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13]}];
+    
+    NSAttributedString *bankStateAttString = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n",bankStateString]
+                                                                             attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:13],
+                                                                                          NSForegroundColorAttributeName: [Bank getTextColorFromBankState:history.bankState]}];
+    [finalString appendAttributedString:bankStateAttString];
+    
+    NSAttributedString *commentAttString = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Comment:\t%@", history.comment] attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:13],NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    
+    [finalString appendAttributedString:commentAttString];
+    
+    return finalString;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

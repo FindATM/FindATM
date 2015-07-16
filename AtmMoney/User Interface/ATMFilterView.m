@@ -63,7 +63,8 @@ static CGFloat const kBlackBackgroundAlphaValue = 0.7;
         self.selectBanksLabel = [[UILabel alloc] init];
         self.selectBanksLabel.font = [UIFont boldSystemFontOfSize:13];
         self.selectBanksLabel.textColor = [UIColor blackColor];
-        self.selectBanksLabel.text = @"Select Desired Banks";
+        self.selectBanksLabel.text = NSLocalizedStringFromTable(@"filterview.sections.title.selectbanks", @"Localization", nil);
+        //@"Select Desired Banks";
         self.selectBanksLabel.textAlignment = NSTextAlignmentCenter;
         self.selectBanksLabel.backgroundColor = [UIColor clearColor];
         [self.mainViewContainer addSubview:self.selectBanksLabel];
@@ -122,7 +123,7 @@ static CGFloat const kBlackBackgroundAlphaValue = 0.7;
         self.distanceTitleLabel = [[UILabel alloc] init];
         self.distanceTitleLabel.font = [UIFont boldSystemFontOfSize:13];
         self.distanceTitleLabel.textColor = [UIColor blackColor];
-        self.distanceTitleLabel.text = @"Select Max Distance";
+        self.distanceTitleLabel.text = NSLocalizedStringFromTable(@"filterview.sections.title.distance", @"Localization", nil);
         self.distanceTitleLabel.textAlignment = NSTextAlignmentCenter;
         self.distanceTitleLabel.backgroundColor = [UIColor clearColor];
         [self.mainViewContainer addSubview:self.distanceTitleLabel];
@@ -186,6 +187,11 @@ static CGFloat const kBlackBackgroundAlphaValue = 0.7;
 }
 
 - (void)doneButtonPressed {
+    
+    if (self.selectedBanks.count == 0) {
+        [SVProgressHUD showInfoWithStatus:NSLocalizedStringFromTable(@"filterview.noselection.errortitle", @"Localization", nil)];
+        return;
+    }
     
     [ATMUserSettings saveDistance:self.distanceSlider.value];
     [ATMUserSettings saveFavouritesBanks:self.selectedBanks];

@@ -35,7 +35,7 @@
 - (NSMutableArray *)data {
     NSMutableArray *initialData = self.banksData;
 
-    if (self.selectedBanksToFilter) {
+    if (self.selectedBanksToFilter && self.selectedBanksToFilter.count > 0) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.bankType IN %@", self.selectedBanksToFilter];
         NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES];
 

@@ -22,7 +22,6 @@
 "bank.nationalbank"     = "National Bank";
 "bank.postbank"         = "ΤΤ Eurobank";
 
-
 "%ld visitors.count"    = "%1$ld visitors";
 
 "bankstate.money"           = "Money";
@@ -34,8 +33,8 @@
 "bankstate.nomoney.readable"         = "Empty";
 
 
-"detail.view.hasmoney"      = "Does this ATM gives money?";
-"detail.view.hastwenties"   = "Does it also gives twenties?";
+"detail.view.hasmoney"      = "Does this ATM dispense money?";
+"detail.view.hastwenties"   = "Does it also dispense €20?";
 
 "detail.view.latestactivity" = "Latest Activity";
 
@@ -45,3 +44,8 @@
 
 "network.failure.title"             = "Network Failure";
 "network.failure.noentries.title"   = "No close ATMs found.\nTry changing the distance.";
+
+"filterview.noselection.errortitle" = "Please select at least one bank of your choice.";
+
+"filterview.sections.title.selectbanks" = "Select Desired Banks";
+"filterview.sections.title.distance" = "Select Max Distance";

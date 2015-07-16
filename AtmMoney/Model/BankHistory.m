@@ -13,6 +13,7 @@
 
 @property(nonatomic,assign,readwrite) EBankState bankState;
 @property(nonatomic,strong,readwrite) NSDate *time;
+@property(nonatomic,strong,readwrite) NSString   *comment;
 
 @end
 
@@ -36,6 +37,7 @@
         NSString *convertedDate = [Tk.dateFormatter stringFromDate:self.time];
         
         self.time = [Tk.dateFormatter dateFromString:convertedDate];
+        self.comment = [dict objectForKey:@"comment"];
 
     }
     return self;
